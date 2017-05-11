@@ -84,6 +84,19 @@ total = first_digit + second_digit + third_digit + fouth_digit
 print("各位数字的和是", total)
 '''
 # 2.7 Compute years and days from minutes  1 year = 365 days
+# Prompt the user to enter a number （从控制台输入一个０～１０００的数字）
+minutes = eval(input("请输入一个："))
+# Compute total minutes of a day
+minOfDay = 24 * 60
+# Compute total days
+totalOfDay = minutes // minOfDay
+# Compute total completed years
+years = totalOfDay // 365
+# Compute total days of last year
+days = totalOfDay % 365
+
+# Display result
+print(years, days)
 
 # 2.8
 
