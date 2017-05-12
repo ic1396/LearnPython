@@ -82,22 +82,26 @@ total = first_digit + second_digit + third_digit + fouth_digit
 
 # Display result
 print("各位数字的和是", total)
-'''
-# 2.7 Compute years and days from minutes  1 year = 365 days
+
+# 2.7 Compute years and days from minutes  (1 year = 365 days)
 # Prompt the user to enter a number （从控制台输入一个０～１０００的数字）
-minutes = eval(input("请输入一个："))
+minutes = eval(input("请输入一个表示时间的整数，单位为分钟："))
+
 # Compute total minutes of a day
 minOfDay = 24 * 60
+
 # Compute total days
 totalOfDay = minutes // minOfDay
+
 # Compute total completed years
 years = totalOfDay // 365
+
 # Compute total days of last year
 days = totalOfDay % 365
 
 # Display result
-print(years, days)
-
+print(minutes, "分钟代表", years, "年，", days, "天")
+'''
 # 2.8
 
 # 2.9
@@ -131,6 +135,7 @@ print(years, days)
 # 2.23
 
 # 2.24
+
 '''
 # 2.25 Draw a rectangle on Graphics from console width and height and the centre of rectangle
 # Prompt the user to enter width and height of a rectangle （从控制台输入一个矩形的长和宽）
