@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # 《Python语言程序设计》程序清单３－２
-# Programed List 3-1
+# Programed List 3-2
 # Compute three angles of a triangle by three points for a triangle
 
 import math
