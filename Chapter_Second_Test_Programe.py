@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # 《Python语言程序设计》程序清单２－编程题
-# Programed List 1-Test Programme
+# Programed List 2-Test Programme
 # 第二章　编程题　２．１～２．２６
 
 import math
