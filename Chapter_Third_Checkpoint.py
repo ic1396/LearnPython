@@ -51,11 +51,13 @@ x = input("Enter a character: ")
 y = input("Enter a character: ")
 print(ord(y) - ord(x))
 # 3.10
+print("Checkpoint 3.10")
 title = "Chapter " + 1
 print(title)
 title1 = "Chapter " + '1'
 print(title1)
 # 3.11
+print("Checkpoint 3.11")
 sum = 2 + 3
 print(sum)
 s = '2' + '3'
@@ -65,15 +67,43 @@ print(s)
 # 3.14
 # 3.15
 # 3.16
-'''
 # 3.17
 # 3.18
-# 3.19　
+# 3.19
+print("Checkpoint 3.19")
+print(format(57.467657, "9.3f"))
+print(format(12345678.923, "9.1f"))
+print(format(57.4, ".2f"))
+print(format(57.4, "10.2f"))
 # 3.20
+print("Checkpoint 3.20")
+print(format(57.467657, "9.3e"))
+print(format(12345678.923, "9.1e"))
+print(format(57.4, ".2e"))
+print(format(57.4, "10.2e"))
 # 3.21
+print("Checkpoint 3.21")
+print(format(5789.467657, "9.3f"))
+print(format(5789.467657, "<9.3f"))
+print(format(5789.4, ".2f"))
+print(format(5789.4, "<.2f" ))
+print(format(5789.4, ">9.2f" ))
 # 3.22
+print("Checkpoint 3.22")
+print(format(0.457467657, "9.3%"))
+print(format(0.457467657, "<9.3%" ))
 # 3.23
+print("Checkpoint 3.23")
+print(format(45, "5d"))
+print(format(45, "<5d" ))
+print(format(45, "5x" ))
+print(format(45, "<5x" ))
 # 3.24
+print("Checkpoint 3.24")
+print(format("Programming is fun", "25s"))
+print(format("Programming is fun" , "<25s"))
+print(format("Programming is fun" , ">25s"))
+'''
 # 3.25
 # 3.26
 # 3.27
