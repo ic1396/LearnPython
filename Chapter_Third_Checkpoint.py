@@ -3,6 +3,7 @@
 # Programed List 3-Checkpoint Programme
 # 第三章　检查点练习程序　３．１～３．３２
 import math
+import turtle
 '''
 # 3.1
 print("Checkpoint 3.1")
@@ -103,12 +104,41 @@ print("Checkpoint 3.24")
 print(format("Programming is fun", "25s"))
 print(format("Programming is fun" , "<25s"))
 print(format("Programming is fun" , ">25s"))
-'''
 # 3.25
 # 3.26
+turtle.reset()
+turtle.dot(3, "red")
+turtle.done()
 # 3.27
+turtle.reset()
+turtle.circle(50,step = 4)
+# turtle.circle(50,steps = 4)
+turtle.done()
 # 3.28
 # 3.29
+turtle.reset()
+turtle.circle(50,steps = 4)
+turtle.undo()
+turtle.done()
 # 3.30
+tColorR = "red"
+turtle.reset()
+turtle.color(tColorR)
+turtle.circle(50,steps = 4)
+turtle.done()
 # 3.31
+turtle.reset()
+turtle.begin_fill()
+turtle.color("red")
+turtle.circle(50,steps = 4)
+turtle.end_fill()
+turtle.done()
 # 3.32
+turtle.reset()
+turtle.hideturtle()
+turtle.begin_fill()
+turtle.color("red")
+turtle.circle(50,steps = 4)
+turtle.end_fill()
+turtle.done()
+'''
