@@ -192,16 +192,18 @@ side3 = ((x3 - x2) ** 2 + (y3 - y2) ** 2) ** 0.5
 s = (side1 + side2 + side3) / 2
 area = (s * (s - side1) * (s - side2) * (s - side3)) ** 0.5
 print("三角形的面积是：",area)
-
+'''
 # 2.15 Compute the area for the regular hexagon by side
 # Prompt the user to enter length of side of the regular hexagon
 length = eval(input("请输入正六边形的边长："))
 area = 3 * 3 ** 0.5 * length ** 2 / 2
 print("边长为",length,"的正六边形的面积是：",area)
+area = 3 * math.sqrt(3) * length ** 2 / 2
+print("边长为",length,"的正六边形的面积是：",area)
 # 请输入正六边形的边长：5.5
 # 边长为 5.5 的正六边形的面积是： 78.59180539343781
 # 与书上答案不一致
-
+'''
 # 2.16 Compute the average acceleration by Initial Speed(v0,m/s)、Final Speed(v1,m/s) and cost time(second)
 # Prompt the user to enter Initial Speed(v0,m/s)、Final Speed(v1,m/s) and cost time(second),separated by commas
 v0,v1,costTime = eval(input("请依次输入初始速度（米/秒）、末速度（米/秒）、所用时间（秒），以逗号分隔："))
@@ -222,7 +224,7 @@ print("BMI is ",BMI)
 # 请输入身高，单位为英寸：50
 # BMI is  34.10871758661417
 # 与书上答案不一致
-'''
+
 # 2.18 Compute the time of a Time Zone by GMT and an integer for Time Zone
 # Prompt the user to enter the integer between -12 and 12 for Time Zone
 timeZone = eval(input("请输入整数代表时区，在-12到12之间："))
@@ -251,7 +253,7 @@ currentHour = totalHours % 24
 
 # Display results
 print("Time is ", currentHour,":", currentMinutes, ":", currentSecond, "in",timeZone,"Time Zone")
-'''
+
 # 2.19 Compute Future investment by amount、rate、number of years
 # Prompt the user to enter the investment amount
 amount = eval(input("请输入投资额："))
