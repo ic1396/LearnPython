@@ -18,18 +18,24 @@ area = 5 * side ** 2 / (4 * math.tan(math.pi / 5))
 
 # Display result
 print("The area of the pentagon is ", area)
-
+'''
 # 3.2 Compute Great-circledistance of the between two points on the Earth.
 # The length of the Earth's radius is 6371.01 km.
+# 计算球面上两点间距离的公式
+# 设所求点A ，纬度β1 ，经度α1 ；点B ，纬度β2 ，经度α2。则距离
+# S=R·arc cos[cosβ1cosβ2cos（α1-α2）+sinβ1sinβ2]
+# 其中R为球体半径。
 # Prompt the user to enter point1(latitude and longitude)
 lati1, longi1 = eval(input("起始点的纬度（负数表示南纬，小数点后一位）和经度（负数表示东经，小数点后两位）："))
 # Prompt the user to enter point2(latitude and longitude)
 lati2, longi2 = eval(input("结束点的纬度（负数表示南纬，小数点后一位）和经度（负数表示东经，小数点后两位）："))
-
 radius = 6371.01
-# d = radius * math.acos(math.sin(math.radians(abs(longi1))) * math.sin(math.radians(abs(longi2))) + math.cos(math.radians(abs(longi1))) * math.cos(math.radians(abs(longi2))) * math.cos(math.radians(abs(lati1 - lati2))))
-d = radius * math.acos(math.sin(math.radians(longi1)) * math.sin(math.radians(longi2)) + math.cos(math.radians(longi1)) * math.cos(math.radians(longi2)) * math.cos(math.radians(lati1 - lati2)))
-print(d)
+d = radius * math.acos(math.sin(math.radians(lati1)) * math.sin(math.radians(lati2)) + math.cos(math.radians(lati1)) * math.cos(math.radians(lati2)) * math.cos(math.radians(longi1 - longi2)))
+print("地球上点（",longi1,",",lati1,"）与点（",longi2,",",lati2,"）间的球面距离为",d,"km")
+# 注意前面所列公式，不要被题目3.2中＂假设(x1, y1)和(x2, y2)是两点的经度和纬度，两点之间．．．＂误导为 x 代表经度， y 代表纬度，实际在书上提供的公式中， x 代表纬度， y 代表经度
+# 起始点的纬度（负数表示南纬，小数点后一位）和经度（负数表示东经，小数点后两位）：39.55,-116.25
+# 结束点的纬度（负数表示南纬，小数点后一位）和经度（负数表示东经，小数点后两位）：41.5,87.37
+# 地球上点（ -116.25 , 39.55 ）与点（ 87.37 , 41.5 ）间的球面距离为 10691.79183231593 km
 # 3.3
 # 3.4
 # 3.5
@@ -42,6 +48,7 @@ print(d)
 # 3.12
 # 3.13
 # 3.14
+
 '''
 # 3.15 Draw a smile face on graphics
 turtle.pensize(3)    # Set pen thickness to 3 pixels
@@ -87,7 +94,7 @@ turtle.color("black")
 turtle.circle(150)
 
 turtle.done()
-'''
+
 # 3.16 Draw simple shapes and fill color in shapes on graphics
 turtle.pensize(3)    # Set pen thickness to 3 pixels
 turtle.penup()       # Pull the pen up
