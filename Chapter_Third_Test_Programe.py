@@ -18,7 +18,7 @@ area = 5 * side ** 2 / (4 * math.tan(math.pi / 5))
 
 # Display result
 print("The area of the pentagon is ", area)
-'''
+
 # 3.2 Compute Great-circledistance of the between two points on the Earth.
 # The length of the Earth's radius is 6371.01 km.
 # 计算球面上两点间距离的公式
@@ -36,10 +36,26 @@ print("地球上点（",longi1,",",lati1,"）与点（",longi2,",",lati2,"）间
 # 起始点的纬度（负数表示南纬，小数点后一位）和经度（负数表示东经，小数点后两位）：39.55,-116.25
 # 结束点的纬度（负数表示南纬，小数点后一位）和经度（负数表示东经，小数点后两位）：41.5,87.37
 # 地球上点（ -116.25 , 39.55 ）与点（ 87.37 , 41.5 ）间的球面距离为 10691.79183231593 km
+
 # 3.3
-# 3.4
-# 3.5
-# 3.6
+# 3.4 Compute area of the regular by length of a side
+# Prompt the user to enter length of a side
+lengthOfSide = eval(input("请输入正五边形的边长（小数点后一位）："))
+area = 5 / 4 * lengthOfSide ** 2 / math.tan(math.pi / 5)
+print("边长为", lengthOfSide, "的正五边形面积是", area)
+# 书中名称为五角形的面积，从给出的公式看就是计算正五边形的面积
+# 3.5 Compute area of the regular polygon
+# Prompt the user to enter length of a side
+countOfSide = eval(input("请输入正多边形的边数（整数）："))
+# Prompt the user to enter length of a side
+lengthOfSide = eval(input("请输入正多边形的边长（小数点后一位）："))
+area = countOfSide / 4 * lengthOfSide ** 2 / math.tan(math.pi / countOfSide)
+print("边长为", lengthOfSide, "的正", countOfSide, "边形面积是", area)
+# 3.6 Translate the ASCII code into char
+# Prompt the user to enter a ASCII code
+code = eval(input("请输入一个ASCII code（0～127之间的整数）: "))
+print("ASCII code ", str(code), "对应的字符是“", chr(code), "”")
+'''
 # 3.7
 # 3.8
 # 3.9
