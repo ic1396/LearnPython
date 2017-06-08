@@ -37,9 +37,10 @@ print("地球上点（",longi1,",",lati1,"）与点（",longi2,",",lati2,"）间
 # 起始点的纬度（负数表示南纬，小数点后一位）和经度（负数表示东经，小数点后两位）：39.55,-116.25
 # 结束点的纬度（负数表示南纬，小数点后一位）和经度（负数表示东经，小数点后两位）：41.5,87.37
 # 地球上点（ -116.25 , 39.55 ）与点（ 87.37 , 41.5 ）间的球面距离为 10691.79183231593 km
-
+'''
 # 3.3
 
+'''
 # 3.4 Compute area of the regular by length of a side
 # Prompt the user to enter length of a side
 lengthOfSide = eval(input("请输入正五边形的边长（小数点后一位）："))
@@ -95,21 +96,131 @@ numberOfPennies = remainingAmount
 print("Your amount", amount, "consists of\n", "\t", numberOfOneDollars, "dollars\n", "\t", \
       numberOfQuarters, "quarters\n", "\t", numberOfDimes, "dimes\n", "\t", numberOfNickels, "nickels\n" \
       "\t", numberOfPennies, "pennies")
-'''
+
 # 3.9 Generate a employee's payoff table and Print it
-employeeName = eval(input("请输入员工姓名: "))
+employeeName = input("请输入员工姓名: ")
 hoursWorkedPerWeek = eval(input("请输入员工每周工作小时数: "))  # number of hours worked in a week
 hourlyPayRate = eval(input("请输入员工每小时报酬: "))     # hourly pay rate
 theFederalTaxWithholdingRate = eval(input("请输入联邦预扣税率: "))   # the federal tax withholding rate
 theStateTaxWithholdingRate = eval(input("请输入州预扣税率: "))       # the state tax withholding rate
+allPay = hourlyPayRate * hoursWorkedPerWeek
+theFederalTax = allPay * theFederalTaxWithholdingRate
+theStateTax = allPay * theStateTaxWithholdingRate
+theTax = allPay * (theFederalTaxWithholdingRate + theStateTaxWithholdingRate)
+netPay = allPay - theTax
+print("员工姓名: ", employeeName)
+print("每周工作小时数: ", format(hoursWorkedPerWeek,"7.1f"))
+print("每小时报酬:    ", format(hourlyPayRate,"7.2f"))
+print("应发工资金额:  ", format(allPay,"7.1f"))
+print("工资明细: ")
+print("    联邦预扣税(税率", format(theFederalTaxWithholdingRate, "6.2%"),"): ", format(theFederalTax,"7.2f"))
+print("    州预扣税(税率", format(theStateTaxWithholdingRate, "6.2%"),"): ", format(theStateTax,"7.2f"))
+print("    合计预扣税: ", format(theTax,"7.2f"))
+print("实发金额: ", format(netPay,"7.2f"))
 
-# 3.10
+# 3.10 Display Greek alphabet by the Unicode
+print("\u03b1 \u03b2 \u03b3 \u03b4 \u03b5 \u03b6 \u03b7 \u03b8 \u03b9 \u03ba \u03bb \u03bc \u03bd \u03be \u03bf")
+print("\u03c0 \u03c1 \u03c2 \u03c3 \u03c4 \u03c5 \u03c6 \u03c7 \u03c8 \u03c9 ")
+
 # 3.11
-# 3.12
-# 3.13
-# 3.14
+code = eval(input("请输入一个四位整数: "))
+codestring = ''
+first = code % 10
+codestring += str(first)
+code = code // 10
+first = code % 10
+codestring += str(first)
+code = code // 10
+first = code % 10
+codestring += str(first)
+code = code // 10
+first = code % 10
+codestring += str(first)
+print("数字倒序后为：", codestring)
 
-'''
+# 3.12 Draw a pentagram on graphics and the user to enter a length of side
+lengthOfSide = eval(input("请输入五角星的边长："))
+turtle.pensize(3)
+turtle.left(36)
+turtle.forward(lengthOfSide)
+
+turtle.left(180 - 36)
+turtle.forward(lengthOfSide)
+
+turtle.left(180 - 36)
+turtle.forward(lengthOfSide)
+
+turtle.left(180 - 36)
+turtle.forward(lengthOfSide)
+
+turtle.left(180 - 36)
+turtle.forward(lengthOfSide)
+
+turtle.done()
+
+# 3.13
+turtle.penup()       # Pull the pen up
+turtle.goto(0, 0)
+turtle.setheading(0)
+turtle.left(30)
+turtle.pendown()      # Pull the pen down
+turtle.begin_fill()   # Begin to fill color in a shape
+turtle.color("red")
+turtle.circle(60, steps = 6)  # Draw a hexagon
+turtle.end_fill()     # Fill the shape
+
+turtle.color("white")
+turtle.penup()       # Pull the pen up
+turtle.goto(-67, 35)
+turtle.pendown()      # Pull the pen down
+turtle.write("STOP", font = ("Times", 24, "bold"))
+turtle.hideturtle()
+turtle.done()
+
+# 3.14
+radius = eval(input("请输入环形的半径："))
+size = 15  # 笔的大小
+distance = 2 * size + 2   # 环的间距
+
+turtle.pensize(size)
+
+turtle.penup()
+turtle.goto(0 - 2 * radius - distance, 50)
+turtle.setheading(0)
+turtle.pendown()
+turtle.color("blue")
+turtle.circle(radius)
+
+turtle.penup()
+turtle.goto(0, 50)
+turtle.setheading(0)
+turtle.pendown()
+turtle.color("black")
+turtle.circle(radius)
+
+turtle.penup()
+turtle.goto(0 + 2 * radius + distance, 50)
+turtle.setheading(0)
+turtle.pendown()
+turtle.color("red")
+turtle.circle(radius)
+
+turtle.penup()
+turtle.goto(0 - radius - distance / 2, 50 - radius)
+turtle.setheading(0)
+turtle.pendown()
+turtle.color("yellow")
+turtle.circle(radius)
+
+turtle.penup()
+turtle.goto(0 + radius + distance / 2, 50 - radius)
+turtle.setheading(0)
+turtle.pendown()
+turtle.color("green")
+turtle.circle(radius)
+
+turtle.done()
+
 # 3.15 Draw a smile face on graphics
 turtle.pensize(3)    # Set pen thickness to 3 pixels
 
@@ -214,6 +325,7 @@ turtle.write("Cool Colorful Shapes", font = ("Times", 18, "bold"))
 turtle.hideturtle()
 
 turtle.done()
+
 # 3.17 Compute the area of a triangle by side of the triangle and draw the triangle on Graphics
 # Prompt the user to enter three points for a triangle,separated by commas
 x1, y1, x2, y2, x3, y3 = eval(input("请按照顺序输入三角形三个顶点的坐标（x1,y1,x2,y2,x3,y3），以逗号分隔："))
@@ -257,6 +369,7 @@ turtle.pendown()
 turtle.write(sarea)
 turtle.done()
 # print("三角形的面积是：",area)
+
 # 3.18 Compute three angles of a triangle by three points for a triangle and draw the triangle on Graphics
 x1, y1, x2, y2, x3, y3 = eval(input("请按照顺序输入三角形三个顶点的坐标（x1,y1,x2,y2,x3,y3），以逗号分隔："))
 
@@ -300,6 +413,7 @@ turtle.write(point3)
 turtle.goto(x1,y1)
 turtle.done()
 # print("The three angles are ", round(A * 100) / 100.0, round(B * 100) / 100.0, round(C * 100) / 100.0)
+
 # 3.19 Draw a line on Graphics
 # Prompt the user to enter the start point(x, y) separated by commas
 x1, y1 = eval(input("请输入起始点的坐标ｘ和ｙ（ｘ、ｙ的取值范围在-200～200），以逗号分隔："))
