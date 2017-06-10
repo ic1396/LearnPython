@@ -1,0 +1,16 @@
+#!/usr/bin/python3
+# 《Python语言程序设计》程序清单４－１
+# Programed List 4-1
+#
+
+import random
+
+# Generate random numbers
+number1 = random.randint(0, 9)
+number2 = random.randint(0, 9)
+
+# Prompt the user to enter an answer
+answer = eval(input("what is " + str(number1) + " + " + str(number2) + "?"))
+
+# Display result
+print(number1, "+", number2, "=", answer, "is", number1 + number2 == answer)
