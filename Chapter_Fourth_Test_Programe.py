@@ -3,9 +3,31 @@
 # Programed List 4-Test Programme
 # 第四章　编程题　４．１～４．３９
 
-# 4.1
+'''
+# 4.1 求解一元二次方程 a * x * x + b * x + c = 0
+a, b, c = eval(input("请依次输入一元二次方程 a * x * x + b * x + c = 0 中的常数a、b、c："))
+if (b * b - 4 * a * c) > 0:
+    x1 = (-b + (b ** 2 - 4 * a *c) ** 0.5) / (2 * a)
+    x2 = (-b - (b ** 2 - 4 * a * c) ** 0.5) / (2 * a)
+    print("方程" + str(a) + " * x * x + " + str(b) + " * x + " + str(c) + " = 0有两个实根：","x1 == ", x1, "；x2 == ", x2)
+elif (b * b - 4 * a * c) == 0:
+    x1 = (-b) / (2 * a)
+    print("方程" + str(a) + " * x * x + " + str(b) + " * x + " + str(c) + " = 0有两个相等实根：", "x1 == x2 == ", x1)
+else:
+    print("方程" + str(a) + " * x * x + " + str(b) + " * x + " + str(c) + " = 0无实根。")
 # 4.2
-# 4.3
+# 4.3 利用克莱姆法则求解二元一次线性方程组 a * x + b * y = e
+#                                          c * x + d * y = f
+a, b, c, d, e, f = eval(input("请依次输入二元一次线性方程组 a * x + b * y = e、c * x + d * y = f 中的常数a、b、c、d、e、f："))
+print("方程组" + str(a) + " * x + " + str(b) + " * y = " + str(e) )
+print("      " + str(c) + " * x + " + str(d) + " * y = " + str(f) )
+if (a * d - b * c) == 0:
+    print("无解")
+else:
+    print("解为：")
+    print("x == ", (e * d - b * f) / (a * d - b * c))
+    print("y == ", (a * f - e * c) / (a * d - b * c))
+'''
 # 4.4
 # 4.5
 # 4.6
