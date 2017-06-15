@@ -3,6 +3,7 @@
 # Programed List 4-Test Programme
 # 第四章　编程题　４．１～４．３９
 
+import random
 '''
 # 4.1 求解一元二次方程 a * x * x + b * x + c = 0
 a, b, c = eval(input("请依次输入一元二次方程 a * x * x + b * x + c = 0 中的常数a、b、c："))
@@ -15,9 +16,17 @@ elif (b * b - 4 * a * c) == 0:
     print("方程" + str(a) + " * x * x + " + str(b) + " * x + " + str(c) + " = 0有两个相等实根：", "x1 == x2 == ", x1)
 else:
     print("方程" + str(a) + " * x * x + " + str(b) + " * x + " + str(c) + " = 0无实根。")
-# 4.2
+# 4.2 判断三个一位整数加法结果是否正确。
+# Generate random numbers
+number1 = random.randint(0, 9)
+number2 = random.randint(0, 9)
+number3 = random.randint(0, 9)
+# Prompt the user to enter an answer
+answer = eval(input("what is " + str(number1) + " + " + str(number2) +  " + " + str(number3) + "?"))
+# Display result
+print(number1, "+", number2, "+", number3, "=", answer, "is", number1 + number2 + number3 == answer)
 # 4.3 利用克莱姆法则求解二元一次线性方程组 a * x + b * y = e
-#                                          c * x + d * y = f
+#                                       c * x + d * y = f
 a, b, c, d, e, f = eval(input("请依次输入二元一次线性方程组 a * x + b * y = e、c * x + d * y = f 中的常数a、b、c、d、e、f："))
 print("方程组" + str(a) + " * x + " + str(b) + " * y = " + str(e) )
 print("      " + str(c) + " * x + " + str(d) + " * y = " + str(f) )
