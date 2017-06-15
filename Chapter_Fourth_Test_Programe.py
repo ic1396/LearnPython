@@ -36,12 +36,123 @@ else:
     print("解为：")
     print("x == ", (e * d - b * f) / (a * d - b * c))
     print("y == ", (a * f - e * c) / (a * d - b * c))
-'''
-# 4.4
+# 4.4 判断个一位整数加法结果是否正确。
+# Generate random numbers
+number1 = random.randint(0, 99)
+number2 = random.randint(0, 99)
+# Prompt the user to enter an answer
+answer = eval(input("what is " + str(number1) + " + " + str(number2) + "?"))
+# Display result
+print(number1, "+", number2, "=", answer, "is", number1 + number2 == answer)
 # 4.5
-# 4.6
+today = eval(input(""))
+number = eval(input(""))
+day = today + (number % 7)
+if day > 7:
+    day = day - 7
+print(day)
+# 4.6 Prompt the user to enter weight in pounds
+weight = eval(input("Enter weight in pounds: "))
+
+# Prompt the user to enter feet of height
+heightFeet = eval(input("Enter height in inches: "))
+
+# Prompt the user to enter inches of height
+heightInches = eval(input("Enter height in inches: "))
+
+KILOGRAMS_PER_POUND = 0.45359237  # Constant
+METERS_PER_INCH = 0.0254  # Constant
+
+# Compute BMI
+weightInKilograms = weight * KILOGRAMS_PER_POUND
+# 1 feet == 12 inches
+heightInMeters = (heightFeet * 12 + heightInches) * METERS_PER_INCH
+bmi = weightInKilograms / (heightInMeters * heightInMeters)
+
+# Display result
+print("BMI is", format(bmi, ".2f"))
+if bmi < 18.5:
+    print("Underweight")
+elif bmi < 25:
+    print("Normal")
+elif bmi < 30:
+    print("Overweight")
+else:
+    print("Obese")
 # 4.7
+# Receive the amount
+amount = eval(input("Enter an amount, for example, 11.56: "))
+
+# Convert the amount to cents
+remainingAmount = int(amount * 100)
+
+# Find the number of one dollars
+numberOfOneDollars = remainingAmount // 100
+remainingAmount = remainingAmount % 100
+
+# Find the number of quarters in the remaining amount
+numberOfQuarters = remainingAmount // 25
+remainingAmount = remainingAmount % 25
+
+# Find the number of dimes in the remaining amount
+numberOfDimes = remainingAmount // 10
+remainingAmount = remainingAmount % 10
+
+# Find the number of nickels in the remaining amount
+numberOfNickels = remainingAmount // 5
+remainingAmount = remainingAmount % 5
+
+# Find the number of pennies in the remaining amount
+numberOfPennies = remainingAmount
+
+# Display the results
+result = "Your amount " + str(amount) + " consists of\n" + "\t"
+if numberOfOneDollars > 1:
+    result += str(numberOfOneDollars) + " dollars\n" + "\t"
+elif numberOfOneDollars == 1:
+    result += str(numberOfOneDollars) + " dollar\n" + "\t"
+if numberOfQuarters > 1:
+    result += str(numberOfQuarters) + " quarters\n" + "\t"
+elif numberOfQuarters == 1:
+    result += str(numberOfQuarters) + " quarter\n" + "\t"
+if numberOfDimes > 1:
+    result += str(numberOfDimes) + " dimes\n" + "\t"
+elif numberOfDimes == 1:
+    result += str(numberOfDimes) + " dime\n" + "\t"
+if numberOfNickels > 1:
+    result += str(numberOfNickels) + " nickels\n" + "\t"
+elif numberOfNickels == 1:
+    result += str(numberOfNickels) + " nickel\n" + "\t"
+if numberOfPennies > 1:
+    result += str(numberOfPennies) + " pennies\n" + "\t"
+elif numberOfPennies == 1:
+    result += str(numberOfPennies) + " pennie\n" + "\t"
+
+print(result)
+这个程序里有一个计算精度问题，将浮点数转换成整型时可能会损失数字的精度，例如下面的例子：
+Enter an amount, for example, 11.56: 10.03
+Your amount 10.03 consists of
+ 	 10 dollars
+ 	 0 quarters
+ 	 0 dimes
+ 	 0 nickels
+	 2 pennies
+Process finished with exit code 0
+解决问题的一个方法是输入以美分表示的整型数值。
 # 4.8
+a, b, c = eval(input("请输入"))
+if a > b:
+    a, b = b, a
+    if b > c:
+        b, c = c, b
+        if a > b:
+            a, b = b, a
+elif b > c:
+    b, c = c, b
+    if a > b:
+        a, b = b, a
+print(a, b, c)
+'''
 # 4.9
 # 4.0
 # 4.11
