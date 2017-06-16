@@ -5,7 +5,7 @@
 
 import random
 '''
-# 4.1 求解一元二次方程 a * x * x + b * x + c = 0
+# 4.1 求解一元二：次方程 a * x * x + b * x + c = 0
 a, b, c = eval(input("请依次输入一元二次方程 a * x * x + b * x + c = 0 中的常数a、b、c："))
 if (b * b - 4 * a * c) > 0:
     x1 = (-b + (b ** 2 - 4 * a *c) ** 0.5) / (2 * a)
@@ -44,21 +44,23 @@ number2 = random.randint(0, 99)
 answer = eval(input("what is " + str(number1) + " + " + str(number2) + "?"))
 # Display result
 print(number1, "+", number2, "=", answer, "is", number1 + number2 == answer)
-# 4.5
-today = eval(input(""))
-number = eval(input(""))
+# 4.5 输入今天是一星期的第几天（０代表星期日，１代表星期一，２代表星期二，依次类推），输入天数，计算从今天起经过输入的天数后，是星期几
+# 例如：输入１（代表今天星期一），再输入２（代表经过两天），得到结果３（代表从星期一开始经过两天后为星期三）。
+today = eval(input("请输入今天是星期几（一个整数，０代表星期日，１代表星期一，２代表星期二，依次类推）："))
+number = eval(input("请输入经过的天数（整数）"))
 day = today + (number % 7)
 if day > 7:
     day = day - 7
 print(day)
-# 4.6 Prompt the user to enter weight in pounds
+# 4.6 改写《Python语言程序设计》程序清单４－６，输入身高时用英尺和英寸表示
+# Prompt the user to enter weight in pounds
 weight = eval(input("Enter weight in pounds: "))
 
 # Prompt the user to enter feet of height
-heightFeet = eval(input("Enter height in inches: "))
+heightFeet = eval(input("请输入身高的英尺数部分："))
 
 # Prompt the user to enter inches of height
-heightInches = eval(input("Enter height in inches: "))
+heightInches = eval(input("请输入身高的英寸数部分："))
 
 KILOGRAMS_PER_POUND = 0.45359237  # Constant
 METERS_PER_INCH = 0.0254  # Constant
@@ -79,7 +81,7 @@ elif bmi < 30:
     print("Overweight")
 else:
     print("Obese")
-# 4.7
+# 4.7 改写《Python语言程序设计》程序清单３－４，在结果中使用单数和复数，去掉０个的行。
 # Receive the amount
 amount = eval(input("Enter an amount, for example, 11.56: "))
 
@@ -127,7 +129,6 @@ if numberOfPennies > 1:
     result += str(numberOfPennies) + " pennies\n" + "\t"
 elif numberOfPennies == 1:
     result += str(numberOfPennies) + " pennie\n" + "\t"
-
 print(result)
 这个程序里有一个计算精度问题，将浮点数转换成整型时可能会损失数字的精度，例如下面的例子：
 Enter an amount, for example, 11.56: 10.03
@@ -139,8 +140,8 @@ Your amount 10.03 consists of
 	 2 pennies
 Process finished with exit code 0
 解决问题的一个方法是输入以美分表示的整型数值。
-# 4.8
-a, b, c = eval(input("请输入"))
+# 4.8 三个整数按照升序排序。
+a, b, c = eval(input("请输入三个整数："))
 if a > b:
     a, b = b, a
     if b > c:
