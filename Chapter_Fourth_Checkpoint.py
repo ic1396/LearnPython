@@ -162,18 +162,80 @@ if count % 10 == 0:
     newLine = True
 else:
     newLine = False
-'''
 # 4.16
+# a
+if age < 16:
+    print("Cannot get a driver's license")
+if age >= 16:
+    print("Can get a driver's license")
+# b
+if age < 16:
+    print("Cannot get a driver's license")
+else:
+    print("Can get a driver's license")
 # 4.17
+number = 14
+# number = 15
+# number = 30
+# a
+if number % 2 == 0:
+    print(number, "is even")
+if number % 5 == 0:
+    print(number, "is multiple of 5")
+# b
+if number % 2 == 0:
+    print(number, "is even")
+elif number % 5 == 0:
+    print(number, "is multiple of 5")
 # 4.18
+# a
+if income <= 10000:
+    tax = income * 0.1
+elif income <= 20000:
+    tax = 1000 + (income - 10000) * 0.15
+# b
+if income <= 10000:
+    tax = income * 0.1
+elif income > 10000 and income <= 20000:
+    tax = 1000 + (income - 10000) * 0.15
 # 4.19
+income = 232323
+if income <= 10000:
+    tax = income * 0.1
+elif income > 10000 and income <= 20000:
+    tax = 1000 + (income - 10000) * 0.15
 # 4.20
+x = 1
+print(True and (3 > 4))
+print(not (x > 0) and (x > 0))
+print((x > 0) or (x < 0))
+print((x != 0) or (x == 0))
+print((x >= 0) or (x < 0))
+print((x != 1) == (not(x == 1)))   #print((x != 1) == not(x == 1))
 # 4.21
+print(1 <= x <= 100)
 # 4.22
+
 # 4.23
+x = 4
+y = 5
+print(x >= y >= 0)
+print(x <= y >= 0)
+print(x != y == 5)
+print((x != 0) or (x == 0))
 # 4.24
+# a
+(x >= 1) and (x < 10)
+# b
+(1 <= x < 10)
 # 4.25
 # 4.26
+x, y, z = eval(input("Enter three numbers:"))
+print("(x < y and y < z) is ", x < y and y < z)
+print("(x < y or y < z) is ", x < y or y < z)
+print("(x < y < z) is ", x < y < z)
+print("not(x < y < z) is ", not(x < y < z))
+'''
 # 4.27
 # 4.28
 # 4.29
