@@ -153,9 +153,23 @@ elif b > c:
     if a > b:
         a, b = b, a
 print(a, b, c)
+# 4.9　比较价格，同一商品的两种包装，输入每种包装的重量和价格，选择单价低的包装。
+price1, weight1 = eval(input("请依次输入第一种包装的价格和重量，用逗号隔开："))
+price2, weight2 = eval(input("请依次输入第二种包装的价格和重量，用逗号隔开："))
+if (price1 / weight1) < (price2 / weight2) :
+    print("第一种包装单价更低")
+elif (price1 / weight1) > (price2 / weight2) :
+    print("第二种包装单价更低")
+elif (price1 / weight1) == (price2 / weight2) :
+    print("两种包装单价一样")
+if price1 < price2 :
+    print("第一种包装价格更低")
+elif price1 > price2 :
+    print("第二种包装价格更低")
+elif price1 == price2 :
+    print("两种包装价格一样")
 '''
-# 4.9
-# 4.0
+# 4.10
 # 4.11
 # 4.12
 # 4.13
