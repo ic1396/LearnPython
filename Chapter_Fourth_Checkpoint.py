@@ -128,9 +128,41 @@ else:
     grade = 'F'
     print("Grade(else) is ", grade)
 print("Final Grade is ", grade)
-'''
 # 4.14
+# a
+if i > 0:
+    x = 0
+    y = 1
+else:
+    y = 0
+    z = 0
+# b
+if i > 0:
+    x = 0
+  y = 1
+else:
+    y = 0
+    z = 0
+# c
+if i > 0:
+  x = 0
+  y = 1
+else:
+    y = 0
+    z = 0
+# d
+if i > 0:
+  x = 0
+  y = 1
+else:
+    y = 0
+  z = 0
 # 4.15
+if count % 10 == 0:
+    newLine = True
+else:
+    newLine = False
+'''
 # 4.16
 # 4.17
 # 4.18
