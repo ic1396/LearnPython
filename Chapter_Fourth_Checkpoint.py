@@ -215,7 +215,18 @@ print((x != 1) == (not(x == 1)))   #print((x != 1) == not(x == 1))
 # 4.21
 print(1 <= x <= 100)
 # 4.22
-
+x = 101
+print( x < 0 or ( 1 < x < 100 ))
+x = 100
+print( x < 0 or ( 1 < x < 100 ))
+x = 90
+print( x < 0 or ( 1 < x < 100 ))
+x = 1
+print( x < 0 or ( 1 < x < 100 ))
+x = 0
+print( x < 0 or ( 1 < x < 100 ))
+x = -10
+print( x < 0 or ( 1 < x < 100 ))
 # 4.23
 x = 4
 y = 5
@@ -229,17 +240,29 @@ print((x != 0) or (x == 0))
 # b
 (1 <= x < 10)
 # 4.25
+ch = 'A'
+print((ch >= 'A' and ch <= 'Z'))
+ch = 'p'
+print((ch >= 'A' and ch <= 'Z'))
+ch = 'E'
+print((ch >= 'A' and ch <= 'Z'))
+ch = '5'
+print((ch >= 'A' and ch <= 'Z'))
 # 4.26
 x, y, z = eval(input("Enter three numbers:"))
 print("(x < y and y < z) is ", x < y and y < z)
 print("(x < y or y < z) is ", x < y or y < z)
 print("(x < y < z) is ", x < y < z)
 print("not(x < y < z) is ", not(x < y < z))
-'''
 # 4.27
+13 < age <18
 # 4.28
+weight > 50 or height < 160
 # 4.29
+weight > 50 and height < 160
 # 4.30
+(weight > 50 or height > 160) and (not (weight > 50 and height > 160))
+'''
 # 4.31
 # 4.32
 # 4.33
