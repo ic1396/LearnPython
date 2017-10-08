@@ -168,7 +168,6 @@ elif price1 > price2 :
     print("第二种包装价格更低")
 elif price1 == price2 :
     print("两种包装价格一样")
-'''
 # 4.10 程序清单４－４随机产生一个减法问题。修改程序随机产生两个小于１００的整数的乘法。
 # Generate random numbers
 number1 = random.randint(0, 99)
@@ -177,12 +176,25 @@ number2 = random.randint(0, 99)
 answer = eval(input("what is " + str(number1) + " * " + str(number2) + "?"))
 # Display result
 print(number1, "*", number2, "=", answer, "is", number1 * number2 == answer)
-
 # 4.11 （找出一个月中的天数）编写程序提示用户输入月和年，然后显示这个月的天数。
-
+year = eval(input("请输入："))
+month = eval(input("请输入："))
+if month == 1 or month == 3 or month == 5 or month == 7 or month == 8 or month == 10 or month == 12:
+    print("31")
+elif month == 4 or month == 6 or month == 9 or month == 11:
+    print("30")
+elif month == 2:
+    if (year % 4 == 0 and year % 100 != 0 or year % 400 == 0):
+        print("29")
+    else:
+        print("28")
+'''
 # 4.12 （检测一个数字）编写一个程序提示用户输入一个整数，然后检测该数字是否能被５和６都整除、能被５或６整除还是
 # 只被它们中的一个整除（但又不能被它们同时整除）。
-
+num = eval(input("请输入个整数："))
+if num % 5 == 0 and num % 6 == 0
+if num % 5 == 0 or num % 6 == 0
+if num % 5 == 0 and num % 6 == 0
 # 4.13 （财务应用程序：计算税款）程序清单４－７给出源代码计算单身报税人的税款。完善程序清单４－７给出其他纳税状态的源代码。
 
 # 4.14 （游戏：头或尾）编写程序让用户猜测一个弹起的硬币显示的是正面还是反面。程序提示用户输入一个猜测值，然后显示这个猜测值是正确的还是错误的。

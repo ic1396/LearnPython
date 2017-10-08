@@ -262,34 +262,54 @@ weight > 50 or height < 160
 weight > 50 and height < 160
 # 4.30
 (weight > 50 or height > 160) and (not (weight > 50 and height > 160))
-'''
 # 4.31 假设你在运行下列程序时，从控制台输入２，３，６。结果是什么？
 x, y, z = eval(input("Enter three numbers: "))
 print("sorted" if x > y and y < z else "not sorted")
 # 输出  not sorted
+
 # 4.32 使用一个条件表达式来改写下面的if语句：
 if ages >= 16:
     ticketPrice = 20
 else:
     ticketPrice = 10
+    
+ticketPrice = 20 if ages >= 16 else ticketPrice = 10
 
 if count % 10 == 0:
     print(count)
 else:
     print(count, end = " ")
-
+    
+print(count if count % 10 == 0 else )
+    
 # 4.33 使用if/else语句改写下面的条件表达式。
 # (a) score = 3 * scale if x > 10 else 4 * scale
-# (b) tax income * 0.2 if income > 10000 else income * 0.17 + 1000
+# (b) tax = income * 0.2 if income > 10000 else income * 0.17 + 1000
 # (c) print(i if number % 3 == 0 else j)
-
+(a)
+if x > 10:
+    score = 3 * scale
+else:
+    score = 4 * scale
+(b)
+if income > 10000:
+    tax = income * 0.2
+else:
+    tax = income * * 0.17 + 1000
+(c)
+if number % 3 == 0:
+    print(i)
+else:
+    print(j)
 # 4.34 列出布尔运算符的优先级。计算下面的表达式：
-True or True and False
-True and True or False
+print(True or True and False)   True
+print(True and True or False)   True
 # 4.35 除了 = 之外的其他所有二元运算符都是从左往右的结合顺序，这种说法是对还是错？
 
 # 4.36 计算下面的表达式：
-2 * 2 - 3 > 2 and 4 - 2 > 5
-2 * 2 - 3 > 2 or 4 - 2 > 5
-
+print(2 * 2 - 3 > 2 and 4 - 2 > 5)   False
+print(2 * 2 - 3 > 2 or 4 - 2 > 5)    False
 # 4.37 (x > 0 and x < 10)和((x > 0) and (x < 10))是否一样？(x > 0 or x < 10)和((x > 0) or (x < 10))是否一样？(x > 0 or x < 10 and y < 0)和(x > 0 or (x < 10 and y < 0))是否一样？
+(x > 0 and x < 10)和((x > 0) and (x < 10))  一样
+(x > 0 or x < 10)和((x > 0) or (x < 10))  一样
+'''
