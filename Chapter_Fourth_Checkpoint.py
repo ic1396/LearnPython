@@ -305,7 +305,7 @@ else:
 print(True or True and False)   True
 print(True and True or False)   True
 # 4.35 除了 = 之外的其他所有二元运算符都是从左往右的结合顺序，这种说法是对还是错？
-
+# 对。
 # 4.36 计算下面的表达式：
 print(2 * 2 - 3 > 2 and 4 - 2 > 5)   False
 print(2 * 2 - 3 > 2 or 4 - 2 > 5)    False
