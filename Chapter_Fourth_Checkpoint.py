@@ -312,4 +312,5 @@ print(2 * 2 - 3 > 2 or 4 - 2 > 5)    False
 # 4.37 (x > 0 and x < 10)和((x > 0) and (x < 10))是否一样？(x > 0 or x < 10)和((x > 0) or (x < 10))是否一样？(x > 0 or x < 10 and y < 0)和(x > 0 or (x < 10 and y < 0))是否一样？
 (x > 0 and x < 10)和((x > 0) and (x < 10))  一样
 (x > 0 or x < 10)和((x > 0) or (x < 10))  一样
+(x > 0 or x < 10 and y < 0)和(x > 0 or (x < 10 and y < 0))  一样
 '''
