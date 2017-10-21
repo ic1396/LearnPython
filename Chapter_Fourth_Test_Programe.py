@@ -188,7 +188,6 @@ elif month == 2:
         print(year,"年",month,"月共有","29","天")
     else:
         print(year,"年",month,"月共有","28","天")
-'''
 # 4.12 （检测一个数字）编写一个程序提示用户输入一个整数，然后检测该数字是否能被５和６都整除、能被５或６整除还是
 # 只被它们中的一个整除（但又不能被它们同时整除）。
 num = eval(input("请输入一个整数："))
@@ -200,8 +199,23 @@ if (num % 5 == 0 or num % 6 == 0):
 if (num % 5 == 0 or num % 6 == 0) and not (num % 5 == 0 and num % 6 == 0):
     print(num,"能被５整除","或","能被６整除","not","能被５整除","并且","能被６整除")
 # 4.13 （财务应用程序：计算税款）程序清单４－７给出源代码计算单身报税人的税款。完善程序清单４－７给出其他纳税状态的源代码。
-
+'''
 # 4.14 （游戏：头或尾）编写程序让用户猜测一个弹起的硬币显示的是正面还是反面。程序提示用户输入一个猜测值，然后显示这个猜测值是正确的还是错误的。
+userbool = False
+user = eval(input("Please input a bool, 0 (False) or 1 (True): "))
+if user == 0:
+    userbool = False
+if user == 1:
+    userbool = True
+num = random.randint(0,101)
+if num % 2 == 0:
+    bool = True
+else:
+    bool = False
+if userbool == bool:
+    print("True")
+else:
+    print("False")
 
 # 4.15 （游戏：彩票）改写程序清单４－１０产生一个三位彩票数。程序提示用户输入一个三位整数，然后根据下面的规则判断用户是否赢得奖金。
 
