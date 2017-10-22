@@ -199,7 +199,6 @@ if (num % 5 == 0 or num % 6 == 0):
 if (num % 5 == 0 or num % 6 == 0) and not (num % 5 == 0 and num % 6 == 0):
     print(num,"能被５整除","或","能被６整除","not","能被５整除","并且","能被６整除")
 # 4.13 （财务应用程序：计算税款）程序清单４－７给出源代码计算单身报税人的税款。完善程序清单４－７给出其他纳税状态的源代码。
-'''
 # 4.14 （游戏：头或尾）编写程序让用户猜测一个弹起的硬币显示的是正面还是反面。程序提示用户输入一个猜测值，然后显示这个猜测值是正确的还是错误的。
 userbool = False
 user = eval(input("Please input a bool, 0 (False) or 1 (True): "))
@@ -218,11 +217,67 @@ else:
     print("False")
 
 # 4.15 （游戏：彩票）改写程序清单４－１０产生一个三位彩票数。程序提示用户输入一个三位整数，然后根据下面的规则判断用户是否赢得奖金。
+# Generate a lottery number
+lottery = random.randint(100, 999)
+
+# Prompt the user to enter a guess
+guess = eval(input("Enter your lottery pick (three digits): "))
+
+# Get digits from lottery
+lotteryDigit0 = lottery // 100
+lotteryDigit1 = (lottery % 100) // 10
+lotteryDigit2 = lottery % 10
+
+# Get digits from guess
+guessDigit0 = guess // 100
+guessDigit1 = (guess % 100) // 10
+guessDigit2 = guess % 10
+
+print("The lottery number is", lottery)
+
+# Check the guess
+if guess == lottery:
+    print("Exact match: you win $10,000")
+elif ((guessDigit0 == lotteryDigit0 or guessDigit0 == lotteryDigit1 or guessDigit0 == lotteryDigit2) and \
+     (guessDigit1 == lotteryDigit0 or guessDigit1 == lotteryDigit1 or guessDigit1 == lotteryDigit2) and \
+     (guessDigit2 == lotteryDigit0 or guessDigit2 == lotteryDigit1 or guessDigit2 == lotteryDigit2)):
+    print("Match all digits: you win $3,000")
+elif ((guessDigit0 == lotteryDigit0 or guessDigit0 == lotteryDigit1 or guessDigit0 == lotteryDigit2) or \
+     (guessDigit1 == lotteryDigit0 or guessDigit1 == lotteryDigit1 or guessDigit1 == lotteryDigit2) or \
+     (guessDigit2 == lotteryDigit0 or guessDigit2 == lotteryDigit1 or guessDigit2 == lotteryDigit2)):
+    print("Match one digit: you win $1,000")
+else:
+    print("Sorry, no match")
 
 # 4.16 （随机字符）编写程序显示一个随机大写字母。
+num = random.randint(65, 90)
+print("ASCII", num, "is", chr(num))
 
 # 4.17 （游戏：剪刀、石头、布）编写程序来玩流行的剪刀－石头－布的游戏。
-
+SCISSOR = 0
+ROCK = 1
+PAPER = 2
+guess = eval(input("Enter a integer, 0(scissor),1(rock),2(paper): "))
+num = random.randint(0, 2)
+if guess == SCISSOR:
+    print("You are SCISSOR. ")
+elif guess == ROCK:
+    print("You are ROCK. ")
+elif guess == PAPER:
+    print("You are PAPER. ")
+if num == SCISSOR:
+    print("Computer are SCISSOR. ")
+elif num == ROCK:
+    print("Computer are ROCK. ")
+elif num == PAPER:
+    print("Computer are PAPER. ")
+if guess == num:
+    print("It is a draw.")
+elif (guess < num and not(num == PAPER and guess == SCISSOR)) or (num == SCISSOR and guess == PAPER):
+    print("You lost.")
+elif (guess > num and not(guess == PAPER and num == SCISSOR)) or (guess == SCISSOR and num == PAPER):
+    print("You won.")
+'''
 # 4.18 （金融问题：货币兑换）编写一个程序提示用户输入美元和人民币之间的货币汇率。
 
 # 4.19 （计算三角形的周长）编写程序读取三角形的三个边，如果输入都是合法的则计算它的周长。否则，显示这个输入是非法的。
