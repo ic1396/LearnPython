@@ -295,15 +295,66 @@ elif (guess < num and not(num == PAPER and guess == SCISSOR)) or (num == SCISSOR
     print("You lost.")
 elif (guess > num and not(guess == PAPER and num == SCISSOR)) or (guess == SCISSOR and num == PAPER):
     print("You won.")
-'''
+
 # 4.18 （金融问题：货币兑换）编写一个程序提示用户输入美元和人民币之间的货币汇率。
+rate = eval(input("Enter the exchange rate from Dollars to RMB: "))
+exchange = eval(input("Enter 0 to convert Dollars to RMB and 1 vice versa: "))
+# 0: convert Dollars to RMB; 1: convert RMB to Dollars
+if exchange == 0:
+    amount = eval(input("Enter the Dollars amount: "))
+    print("$", amount, "is", rate * amount, "yuan")
+else:
+    amount = eval(input("Enter the RMB amount: "))
+    print(amount, "yuan is $", amount / rate)
 
 # 4.19 （计算三角形的周长）编写程序读取三角形的三个边，如果输入都是合法的则计算它的周长。否则，显示这个输入是非法的。
+a, b, c = eval(input("Enter three edges: "))
+if (a + b > c) and (a + c > b) and (b + c > a):
+    print("The perimeter is", a + b + c, ".")
+else:
+    print("The input is invalid.")
 
 # 4.20 （）
+# Prompt the user to enter the temperature in Fahrenheit between -58 and 41
+temperature = eval(input("请输入室外温度，单位为华氏度："))
+# Prompt the user to enter the wind speed(miles per hour)
+speedOfWind = eval(input("请输入风速，单位为英里每小时："))
+if (-58 < temperature < 41) and (speedOfWind >= 2):
+    temperatureWindChill = 35.74 + 0.6215 * temperature - 35.75 * speedOfWind ** 0.16 + 0.4275 * temperature * speedOfWind ** 0.16
+    print("风寒温度为",temperatureWindChill,"华氏度")
+else:
+    print("The input is invalid.")
 
 # 4.21 （）
-
+year = eval(input("Enter year (e.g., 2008): "))
+month = eval(input("Enter month (1-12): "))
+day = eval(input("Enter the day of month (1-31): "))
+if month <= 2:
+    m = 12 + month
+    y = year - 1
+else:
+    m = month
+    y = year
+q = day
+k = y % 100
+j = y // 100
+h = (q + (26 * (m + 1) // 10) + k + (k // 4) + (j // 4) + 5 * j) % 7
+if h == 0:
+    dayOfweek = ""
+elif h == 1:
+    dayOfweek = ""
+elif h == 2:
+    dayOfweek = ""
+elif h == 3:
+    dayOfweek = ""
+elif h == 4:
+    dayOfweek = ""
+elif h == 5:
+    dayOfweek = ""
+elif h == 6:
+    dayOfweek = ""
+print(year, "", month, "", day, "", dayOfweek)
+'''
 # 4.22 （）
 
 # 4.23 （）
