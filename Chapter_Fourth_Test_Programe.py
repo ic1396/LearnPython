@@ -16,6 +16,7 @@ elif (b * b - 4 * a * c) == 0:
     print("方程" + str(a) + " * x * x + " + str(b) + " * x + " + str(c) + " = 0有两个相等实根：", "x1 == x2 == ", x1)
 else:
     print("方程" + str(a) + " * x * x + " + str(b) + " * x + " + str(c) + " = 0无实根。")
+    
 # 4.2 判断三个一位整数加法结果是否正确。
 # Generate random numbers
 number1 = random.randint(0, 9)
@@ -25,6 +26,7 @@ number3 = random.randint(0, 9)
 answer = eval(input("what is " + str(number1) + " + " + str(number2) +  " + " + str(number3) + "?"))
 # Display result
 print(number1, "+", number2, "+", number3, "=", answer, "is", number1 + number2 + number3 == answer)
+
 # 4.3 利用克莱姆法则求解二元一次线性方程组 a * x + b * y = e
 #                                       c * x + d * y = f
 a, b, c, d, e, f = eval(input("请依次输入二元一次线性方程组 a * x + b * y = e、c * x + d * y = f 中的常数a、b、c、d、e、f："))
@@ -35,7 +37,8 @@ if (a * d - b * c) == 0:
 else:
     print("解为：")
     print("x == ", (e * d - b * f) / (a * d - b * c))
-    print("y == ", (a * f - e * c) / (a * d - b * c))
+　  print("y == ", (a * f - e * c) / (a * d - b * c))
+
 # 4.4 判断个一位整数加法结果是否正确。
 # Generate random numbers
 number1 = random.randint(0, 99)
@@ -44,6 +47,7 @@ number2 = random.randint(0, 99)
 answer = eval(input("what is " + str(number1) + " + " + str(number2) + "?"))
 # Display result
 print(number1, "+", number2, "=", answer, "is", number1 + number2 == answer)
+
 # 4.5 输入今天是一星期的第几天（０代表星期日，１代表星期一，２代表星期二，依次类推），输入天数，计算从今天起经过输入的天数后，是星期几
 # 例如：输入１（代表今天星期一），再输入２（代表经过两天），得到结果３（代表从星期一开始经过两天后为星期三）。
 today = eval(input("请输入今天是星期几（一个整数，０代表星期日，１代表星期一，２代表星期二，依次类推）："))
@@ -52,6 +56,7 @@ day = today + (number % 7)
 if day > 7:
     day = day - 7
 print(day)
+
 # 4.6 改写《Python语言程序设计》程序清单４－６，输入身高时用英尺和英寸表示
 # Prompt the user to enter weight in pounds
 weight = eval(input("Enter weight in pounds: "))
@@ -81,6 +86,7 @@ elif bmi < 30:
     print("Overweight")
 else:
     print("Obese")
+
 # 4.7 改写《Python语言程序设计》程序清单３－４，在结果中使用单数和复数，去掉０个的行。
 # Receive the amount
 amount = eval(input("Enter an amount, for example, 11.56: "))
@@ -140,6 +146,7 @@ Your amount 10.03 consists of
 	 2 pennies
 Process finished with exit code 0
 解决问题的一个方法是输入以美分表示的整型数值。
+
 # 4.8 三个整数按照升序排序。
 a, b, c = eval(input("请输入三个整数："))
 if a > b:
@@ -153,6 +160,7 @@ elif b > c:
     if a > b:
         a, b = b, a
 print(a, b, c)
+
 # 4.9　比较价格，同一商品的两种包装，输入每种包装的重量和价格，选择单价低的包装。
 price1, weight1 = eval(input("请依次输入第一种包装的价格和重量，用逗号隔开："))
 price2, weight2 = eval(input("请依次输入第二种包装的价格和重量，用逗号隔开："))
@@ -168,6 +176,7 @@ elif price1 > price2 :
     print("第二种包装价格更低")
 elif price1 == price2 :
     print("两种包装价格一样")
+
 # 4.10 程序清单４－４随机产生一个减法问题。修改程序随机产生两个小于１００的整数的乘法。
 # Generate random numbers
 number1 = random.randint(0, 99)
@@ -176,6 +185,7 @@ number2 = random.randint(0, 99)
 answer = eval(input("what is " + str(number1) + " * " + str(number2) + "?"))
 # Display result
 print(number1, "*", number2, "=", answer, "is", number1 * number2 == answer)
+
 # 4.11 （找出一个月中的天数）编写程序提示用户输入月和年，然后显示这个月的天数。
 year = eval(input("请输入年份："))
 month = eval(input("请输入月份："))
@@ -188,6 +198,7 @@ elif month == 2:
         print(year,"年",month,"月共有","29","天")
     else:
         print(year,"年",month,"月共有","28","天")
+        
 # 4.12 （检测一个数字）编写一个程序提示用户输入一个整数，然后检测该数字是否能被５和６都整除、能被５或６整除还是
 # 只被它们中的一个整除（但又不能被它们同时整除）。
 num = eval(input("请输入一个整数："))
@@ -198,23 +209,27 @@ if (num % 5 == 0 or num % 6 == 0):
     print(num,"能被５整除","或","能被６整除")
 if (num % 5 == 0 or num % 6 == 0) and not (num % 5 == 0 and num % 6 == 0):
     print(num,"能被５整除","或","能被６整除","not","能被５整除","并且","能被６整除")
+    
 # 4.13 （财务应用程序：计算税款）程序清单４－７给出源代码计算单身报税人的税款。完善程序清单４－７给出其他纳税状态的源代码。
+# 不知道报税规则，没写代码
+
 # 4.14 （游戏：头或尾）编写程序让用户猜测一个弹起的硬币显示的是正面还是反面。程序提示用户输入一个猜测值，然后显示这个猜测值是正确的还是错误的。
 userbool = False
-user = eval(input("Please input a bool, 0 (False) or 1 (True): "))
+user = eval(input("请输入硬币是正面还是反面向上, 0 (反面) or 1 (正面): "))
 if user == 0:
     userbool = False
 if user == 1:
     userbool = True
-num = random.randint(0,101)
+# 随机生成一个０－１００范围内的整数，偶数当作正面，奇数当作背面。
+num = random.randint(0,100)
 if num % 2 == 0:
     bool = True
 else:
     bool = False
 if userbool == bool:
-    print("True")
+    print("猜对了")
 else:
-    print("False")
+    print("猜错了")
 
 # 4.15 （游戏：彩票）改写程序清单４－１０产生一个三位彩票数。程序提示用户输入一个三位整数，然后根据下面的规则判断用户是否赢得奖金。
 # Generate a lottery number
@@ -254,23 +269,26 @@ num = random.randint(65, 90)
 print("ASCII", num, "is", chr(num))
 
 # 4.17 （游戏：剪刀、石头、布）编写程序来玩流行的剪刀－石头－布的游戏。
+# 剪刀
 SCISSOR = 0
+# 石头
 ROCK = 1
+# 布
 PAPER = 2
-guess = eval(input("Enter a integer, 0(scissor),1(rock),2(paper): "))
+guess = eval(input("请输入0、１、２中的一个整数, 其中 0：剪刀, 1：石头, 2：布: "))
 num = random.randint(0, 2)
 if guess == SCISSOR:
-    print("You are SCISSOR. ")
+    print("You are 剪刀. ")
 elif guess == ROCK:
-    print("You are ROCK. ")
+    print("You are 石头. ")
 elif guess == PAPER:
-    print("You are PAPER. ")
+    print("You are 布. ")
 if num == SCISSOR:
-    print("Computer are SCISSOR. ")
+    print("Computer are 剪刀. ")
 elif num == ROCK:
-    print("Computer are ROCK. ")
+    print("Computer are 石头. ")
 elif num == PAPER:
-    print("Computer are PAPER. ")
+    print("Computer are 布. ")
 if guess == num:
     print("It is a draw.")
 elif (guess < num and not(num == PAPER and guess == SCISSOR)) or (num == SCISSOR and guess == PAPER):
