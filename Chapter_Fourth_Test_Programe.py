@@ -4,6 +4,7 @@
 # 第四章　编程题　４．１～４．３９
 
 import random
+import math
 '''
 # 4.1 求解一元二：次方程 a * x * x + b * x + c = 0
 a, b, c = eval(input("请依次输入一元二次方程 a * x * x + b * x + c = 0 中的常数a、b、c："))
@@ -356,13 +357,62 @@ elif h == 5:
 elif h == 6:
     dayOfweek = "星期五"
 print(year, "年", month, "月", day, "日是", dayOfweek, "。")
-'''
+
 # 4.22 （几何问题：点在圆内吗？）编写一个程序提示用户输入一个点(x, y)，然后检测这个点是否在圆心为(0, 0)半径为10的圆内。
+# 输入一个点(x, y)
+pointx, pointy = eval(input("请输入 x, y："))
+# 圆心为(0, 0)半径为10的圆
+cx = 0
+cy = 0
+cr = 10
+# 
+distance = math.sqrt(pow(pointx - cx, 2) + pow(pointy - cy, 2))
+if distance <= cr:
+    print("The point (", pointx, ",", pointy, ") in the circle.")
+else:
+    print("The point (", pointx, ",", pointy, ") out the circle.")
 
 # 4.23 （几何问题：点在矩形内吗？）编写一个程序提示用户输入一个点(x, y)，然后检测这个点是否在以(0, 0)为中心而宽为10高为5的矩形内。
+# 输入一个点(x, y)
+pointx, pointy = eval(input("请输入 x, y："))
+# 以(0, 0)为中心而宽为10高为5的矩形
+x = 0
+y = 0
+length = 10
+height = 5
+#
+if (x - length / 2) <= pointx <= (x + length / 2) and (y - height / 2) <= pointy <= (y + height / 2):
+    print("The point (", pointx, ",", pointy, ") in .")
+else:
+    print("The point (", pointx, ",", pointy, ") out .")
 
 # 4.24 （游戏：选出一张牌）编写程序模拟从５２张牌中选出一张。你的程序应该显示这张牌的大小和花色。
+#
+num = random.randint(1, 13)
+color = random.randint(0, 3)
+#
+if num == 1:
+    cardname = "Ace"
+elif num == 11:
+    cardname = "Jack"
+elif num == 12:
+    cardname = "Queen"
+elif num == 13:
+    cardname = "King"
+else:
+    cardname = str(num)
+#
+if color == 0:
+    cardcolor = "Club"
+elif color == 1:
+    cardcolor = "Diamond"
+elif color == 2:
+    cardcolor = "Heart"
+elif color == 3:
+    cardcolor = "Spade"
 
+print("The card is the", cardname, "of", cardcolor, ".")
+'''
 # 4.25 （几何问题：交点）编写程序提示用户输入四个点（代表两条直线），然后显示交点（求两条直线的交点坐标）。
 
 # 4.26 （回文数）编写程序提示用户输入一个三位整数，然后判断它是否是一个回文数。
