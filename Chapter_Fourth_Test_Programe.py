@@ -302,19 +302,19 @@ exchange = eval(input("Enter 0 to convert Dollars to RMB and 1 vice versa: "))
 # 0: convert Dollars to RMB; 1: convert RMB to Dollars
 if exchange == 0:
     amount = eval(input("Enter the Dollars amount: "))
-    print("$", amount, "is", rate * amount, "yuan")
+    print("$", amount, "is", rate * amount, "元")
 else:
     amount = eval(input("Enter the RMB amount: "))
-    print(amount, "yuan is $", amount / rate)
+    print(amount, "元 is $", amount / rate)
 
 # 4.19 （计算三角形的周长）编写程序读取三角形的三个边，如果输入都是合法的则计算它的周长。否则，显示这个输入是非法的。
-a, b, c = eval(input("Enter three edges: "))
+a, b, c = eval(input("请输入三角形三条边的边长，以逗号分隔："))
 if (a + b > c) and (a + c > b) and (b + c > a):
-    print("The perimeter is", a + b + c, ".")
+    print("三角形的周长是", a + b + c, ".")
 else:
-    print("The input is invalid.")
+    print("输入错误，不能构成三角形。")
 
-# 4.20 （）
+# 4.20 （科学方面：风寒温度）编程题２．９给出计算风寒温度的公式。实现在要求范围内计算风寒温度。
 # Prompt the user to enter the temperature in Fahrenheit between -58 and 41
 temperature = eval(input("请输入室外温度，单位为华氏度："))
 # Prompt the user to enter the wind speed(miles per hour)
@@ -323,12 +323,13 @@ if (-58 < temperature < 41) and (speedOfWind >= 2):
     temperatureWindChill = 35.74 + 0.6215 * temperature - 35.75 * speedOfWind ** 0.16 + 0.4275 * temperature * speedOfWind ** 0.16
     print("风寒温度为",temperatureWindChill,"华氏度")
 else:
-    print("The input is invalid.")
+    print("输入错误，室外温度或风速不在范围内，要求　-58华氏度 < 室外温度 < 41华氏度　并且　风速 >= 2米／秒　")
 
-# 4.21 （）
-year = eval(input("Enter year (e.g., 2008): "))
-month = eval(input("Enter month (1-12): "))
-day = eval(input("Enter the day of month (1-31): "))
+# 4.21 （科学问题：一周的星期几）泽勒的一致性是一个由泽勒开发的算法，用于计算一周的星期几。实现泽勒公式。
+year = eval(input("请输入年(例如：2008)："))
+month = eval(input("请输入月(在1-12范围内)："))
+day = eval(input("请输入日期(在1-31范围内)："))
+# 泽勒公式基础数据和条件
 if month <= 2:
     m = 12 + month
     y = year - 1
@@ -338,55 +339,58 @@ else:
 q = day
 k = y % 100
 j = y // 100
+# 泽勒公式计算
 h = (q + (26 * (m + 1) // 10) + k + (k // 4) + (j // 4) + 5 * j) % 7
 if h == 0:
-    dayOfweek = ""
+    dayOfweek = "星期六"
 elif h == 1:
-    dayOfweek = ""
+    dayOfweek = "星期日"
 elif h == 2:
-    dayOfweek = ""
+    dayOfweek = "星期一"
 elif h == 3:
-    dayOfweek = ""
+    dayOfweek = "星期二"
 elif h == 4:
-    dayOfweek = ""
+    dayOfweek = "星期三"
 elif h == 5:
-    dayOfweek = ""
+    dayOfweek = "星期四"
 elif h == 6:
-    dayOfweek = ""
-print(year, "", month, "", day, "", dayOfweek)
+    dayOfweek = "星期五"
+print(year, "年", month, "月", day, "日是", dayOfweek, "。")
 '''
-# 4.22 （）
+# 4.22 （几何问题：点在圆内吗？）编写一个程序提示用户输入一个点(x, y)，然后检测这个点是否在圆心为(0, 0)半径为10的圆内。
 
-# 4.23 （）
+# 4.23 （几何问题：点在矩形内吗？）编写一个程序提示用户输入一个点(x, y)，然后检测这个点是否在以(0, 0)为中心而宽为10高为5的矩形内。
 
-# 4.24 （）
+# 4.24 （游戏：选出一张牌）编写程序模拟从５２张牌中选出一张。你的程序应该显示这张牌的大小和花色。
 
-# 4.25 （）
+# 4.25 （几何问题：交点）编写程序提示用户输入四个点（代表两条直线），然后显示交点（求两条直线的交点坐标）。
 
-# 4.26 （）
+# 4.26 （回文数）编写程序提示用户输入一个三位整数，然后判断它是否是一个回文数。
 
-# 4.27 （）
+# 4.27 （几何问题：）
 
-# 4.28 （）
+# 4.28 （几何问题：）
 
-# 4.29 （）
+# 4.29 （几何问题：）
 
 # 4.30 （）
 
-# 4.31 （）
+# 4.31 （几何问题：）
 
-# 4.32 （）
+# 4.32 （几何问题：）
 
 # 4.33 （）
 
 # 4.34 （）
 
-# 4.35 （）
+# 4.35 （Tuttle：）
 
-# 4.36 （）
+# 4.36 （Tuttle：）
 
 # 4.37 （）
+# 书中没有题号 4.37
 
-# 4.38 （）
+# 4.38 （几何问题：两个矩形）编写程序提示用户输入两个矩形的中心的 x　坐标、　y　坐标、宽度和高度，然后决定第二个矩形是在
+# 第一个矩形内还是和第一个矩形有重叠，还是没有重叠。
 
-# 4.39 （）
+# 4.39 （Tuttle：两个圆）编写程序提示用户输入两个圆的圆心的坐标以及两个半径，然后确定第二个圆是在第一个圆内还是和第一个圆有重叠部分。
