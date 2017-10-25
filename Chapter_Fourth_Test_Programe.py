@@ -365,12 +365,12 @@ pointx, pointy = eval(input("请输入 x, y："))
 cx = 0
 cy = 0
 cr = 10
-# 
+# 计算点至圆心的距离，点在圆上按在圆内计算
 distance = math.sqrt(pow(pointx - cx, 2) + pow(pointy - cy, 2))
 if distance <= cr:
-    print("The point (", pointx, ",", pointy, ") in the circle.")
+    print("The point (", pointx, ",", pointy, ") 在以 (", cx, ",", cy, ")为圆心，半径为", cr, "的圆内。")
 else:
-    print("The point (", pointx, ",", pointy, ") out the circle.")
+    print("The point (", pointx, ",", pointy, ") 不在以 (", cx, ",", cy, ")为圆心，半径为", cr, "的圆内。")
 
 # 4.23 （几何问题：点在矩形内吗？）编写一个程序提示用户输入一个点(x, y)，然后检测这个点是否在以(0, 0)为中心而宽为10高为5的矩形内。
 # 输入一个点(x, y)
@@ -380,17 +380,17 @@ x = 0
 y = 0
 length = 10
 height = 5
-#
+# 比较坐标范围判断点是否在矩形内，点在矩形边界上按矩形内计算
 if (x - length / 2) <= pointx <= (x + length / 2) and (y - height / 2) <= pointy <= (y + height / 2):
-    print("The point (", pointx, ",", pointy, ") in .")
+    print("点 (", pointx, ",", pointy, ") 在以 (", x, ",", y, ")为中心，宽", length, "高", height, "的矩形内。")
 else:
-    print("The point (", pointx, ",", pointy, ") out .")
+    print("点 (", pointx, ",", pointy, ") 不在以 (", x, ",", y, ")为中心，宽", length, "高", height, "的矩形内。")
 
 # 4.24 （游戏：选出一张牌）编写程序模拟从５２张牌中选出一张。你的程序应该显示这张牌的大小和花色。
-#
+# １－１３为牌的数字，０－３为花色
 num = random.randint(1, 13)
 color = random.randint(0, 3)
-#
+# 将牌的数字转换为字符名称
 if num == 1:
     cardname = "Ace"
 elif num == 11:
@@ -401,41 +401,47 @@ elif num == 13:
     cardname = "King"
 else:
     cardname = str(num)
-#
+# 将牌的花色转换为字符名称
 if color == 0:
-    cardcolor = "Club"
+    cardcolor = "草花"
 elif color == 1:
-    cardcolor = "Diamond"
+    cardcolor ="方块"
 elif color == 2:
-    cardcolor = "Heart"
+    cardcolor = "红桃"
 elif color == 3:
-    cardcolor = "Spade"
+    cardcolor = "黑桃"
 
-print("The card is the", cardname, "of", cardcolor, ".")
+print("抽取的牌是", cardcolor, cardname,"。")
 '''
 # 4.25 （几何问题：交点）编写程序提示用户输入四个点（代表两条直线），然后显示交点（求两条直线的交点坐标）。
 
 # 4.26 （回文数）编写程序提示用户输入一个三位整数，然后判断它是否是一个回文数。
 
-# 4.27 （几何问题：）
+# 4.27 （几何问题：点在三角形内吗？）编写程序提示用户输入一个带 x 坐标和 y 坐标的点，然后决定这个点是否在三角形内。
 
-# 4.28 （几何问题：）
+# 4.28 （几何问题：两个矩形）编写程序提示用户输入两个矩形中心的 x 坐标和 y 坐标以及他们的宽和高，然后决定第二个矩形是否
+# 在第一个矩形里还是和第一个矩形有重叠部分。
 
-# 4.29 （几何问题：）
+# 4.29 （几何问题：两个圆）编写程序提示用户输入两个圆的中心的 x 坐标和 y 坐标以及他们的半径，然后决定第二个圆是否
+# 在第一个圆里还是和第一个圆有重叠部分。
 
-# 4.30 （）
+# 4.30 （当前时间）使用１２小时的时钟修改编程题 2.18 来显示小时数。
 
-# 4.31 （几何问题：）
+# 4.31 （几何问题：点的位置）编写程序提示用户输入三个点 p0、p1、p2 的 x 坐标和 y 坐标，然后显示 p2 是在从 p0 到 p1 的线
+# 的左边、右边还是在同一线上。
 
-# 4.32 （几何问题：）
+# 4.32 （几何问题：线段上的点）编程题 4.31 显示如何测试一个点是否在一个无界的行上。修改编程题 4.31 来测试一个点是否在一
+# 个线段上。
 
-# 4.33 （）
+# 4.33 （十进制转十六进制）编写一个程序提示用户输入一个０到１５之间的整数，然后显示它对应的十六进制数。
 
-# 4.34 （）
+# 4.34 （十六进制转十进制）编写一个程序提示用户输入一个十六进制的字符，然后显示它对应的十进制整数。
 
-# 4.35 （Tuttle：）
+# 4.35 （Tuttle：点的位置）编写程序提示用户输入三个点 p0、p1、p2 的 x 坐标和 y 坐标，然后显示 p2 是在从 p0 到 p1 的线
+# 的左边、右边还是在线上。参见编程题 4.31 确定点的位置。
 
-# 4.36 （Tuttle：）
+# 4.36 （Tuttle：点在矩形内吗？）编写一个程序提示用户输入一个点(x, y)，然后检测这个点是否在以(0, 0)为中心、宽为 100、高
+# 为 50 的矩形内。
 
 # 4.37 （）
 # 书中没有题号 4.37
