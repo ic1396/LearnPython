@@ -514,7 +514,7 @@ else:
 
 # 4.37 （）
 # 书中没有题号 4.37
-
+'''
 # 4.38 （几何问题：两个矩形）编写程序提示用户输入两个矩形的中心的 x　坐标、　y　坐标、宽度和高度，然后决定第二个矩形是在
 # 第一个矩形内还是和第一个矩形有重叠，还是没有重叠。
 # 输入第一个矩形的中心坐标、长和宽，矩形的长边平行于Ｘ轴，宽边平行于Ｙ轴
@@ -538,9 +538,21 @@ if (abs(x1 - x0) > l0 / 2 + l1 / 2) or (abs(y1 - y0) > h0 / 2 + h1 / 2):
     print("第二个矩形在第一个矩形外。")
     result = "第二个矩形在第一个矩形外。"
 # 绘制第一个矩形
-
+turtle.penup()
+turtle.goto(x0 - l0 / 2, y0 + h0 / 2)
+turtle.pendown()
+turtle.goto(x0 + l0 / 2, y0 + h0 / 2)
+turtle.goto(x0 + l0 / 2, y0 - h0 / 2)
+turtle.goto(x0 - l0 / 2, y0 - h0 / 2)
+turtle.goto(x0 - l0 / 2, y0 + h0 / 2)
 # 绘制第二个矩形
-
+turtle.penup()
+turtle.goto(x1 - l1 / 2, y1 + h1 / 2)
+turtle.pendown()
+turtle.goto(x1 + l1 / 2, y1 + h1 / 2)
+turtle.goto(x1 + l1 / 2, y1 - h1 / 2)
+turtle.goto(x1 - l1 / 2, y1 - h1 / 2)
+turtle.goto(x1 - l1 / 2, y1 + h1 / 2)
 # 结论
 turtle.color("green")
 turtle.penup()       # Pull the pen up
@@ -550,7 +562,7 @@ turtle.write(result, font = ("Times", 18, "bold"))
 turtle.hideturtle()
 
 turtle.done()
-'''
+
 # 4.39 （Tuttle：两个圆）编写程序提示用户输入两个圆的圆心的坐标以及两个半径，然后确定第二个圆是在第一个圆内还是和第一个
 # 圆有重叠部分。
 # 输入第一个圆的圆心坐标和半径
