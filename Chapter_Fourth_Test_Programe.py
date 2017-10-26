@@ -5,6 +5,8 @@
 
 import random
 import math
+import turtle
+import time
 '''
 # 4.1 求解一元二：次方程 a * x * x + b * x + c = 0
 a, b, c = eval(input("请依次输入一元二次方程 a * x * x + b * x + c = 0 中的常数a、b、c："))
@@ -49,7 +51,8 @@ answer = eval(input("what is " + str(number1) + " + " + str(number2) + "?"))
 # Display result
 print(number1, "+", number2, "=", answer, "is", number1 + number2 == answer)
 
-# 4.5 输入今天是一星期的第几天（０代表星期日，１代表星期一，２代表星期二，依次类推），输入天数，计算从今天起经过输入的天数后，是星期几
+# 4.5 输入今天是一星期的第几天（０代表星期日，１代表星期一，２代表星期二，依次类推），输入天数，计算从今天起
+# 经过输入的天数后，是星期几
 # 例如：输入１（代表今天星期一），再输入２（代表经过两天），得到结果３（代表从星期一开始经过两天后为星期三）。
 today = eval(input("请输入今天是星期几（一个整数，０代表星期日，１代表星期一，２代表星期二，依次类推）："))
 number = eval(input("请输入经过的天数（整数）"))
@@ -211,10 +214,12 @@ if (num % 5 == 0 or num % 6 == 0):
 if (num % 5 == 0 or num % 6 == 0) and not (num % 5 == 0 and num % 6 == 0):
     print(num,"能被５整除","或","能被６整除","not","能被５整除","并且","能被６整除")
     
-# 4.13 （财务应用程序：计算税款）程序清单４－７给出源代码计算单身报税人的税款。完善程序清单４－７给出其他纳税状态的源代码。
+# 4.13 （财务应用程序：计算税款）程序清单４－７给出源代码计算单身报税人的税款。完善程序清单４－７给出其他纳
+# 税状态的源代码。
 # 不知道报税规则，没写代码
 
-# 4.14 （游戏：头或尾）编写程序让用户猜测一个弹起的硬币显示的是正面还是反面。程序提示用户输入一个猜测值，然后显示这个猜测值是正确的还是错误的。
+# 4.14 （游戏：头或尾）编写程序让用户猜测一个弹起的硬币显示的是正面还是反面。程序提示用户输入一个猜测值，然后
+# 显示这个猜测值是正确的还是错误的。
 userbool = False
 user = eval(input("请输入硬币是正面还是反面向上, 0 (反面) or 1 (正面): "))
 if user == 0:
@@ -232,7 +237,8 @@ if userbool == bool:
 else:
     print("猜错了")
 
-# 4.15 （游戏：彩票）改写程序清单４－１０产生一个三位彩票数。程序提示用户输入一个三位整数，然后根据下面的规则判断用户是否赢得奖金。
+# 4.15 （游戏：彩票）改写程序清单４－１０产生一个三位彩票数。程序提示用户输入一个三位整数，然后根据下面的规则
+# 判断用户是否赢得奖金。
 # Generate a lottery number
 lottery = random.randint(100, 999)
 
@@ -308,7 +314,8 @@ else:
     amount = eval(input("Enter the RMB amount: "))
     print(amount, "元 is $", amount / rate)
 
-# 4.19 （计算三角形的周长）编写程序读取三角形的三个边，如果输入都是合法的则计算它的周长。否则，显示这个输入是非法的。
+# 4.19 （计算三角形的周长）编写程序读取三角形的三个边，如果输入都是合法的则计算它的周长。否则，显示这个输入
+# 是非法的。
 a, b, c = eval(input("请输入三角形三条边的边长，以逗号分隔："))
 if (a + b > c) and (a + c > b) and (b + c > a):
     print("三角形的周长是", a + b + c, ".")
@@ -321,10 +328,11 @@ temperature = eval(input("请输入室外温度，单位为华氏度："))
 # Prompt the user to enter the wind speed(miles per hour)
 speedOfWind = eval(input("请输入风速，单位为英里每小时："))
 if (-58 < temperature < 41) and (speedOfWind >= 2):
-    temperatureWindChill = 35.74 + 0.6215 * temperature - 35.75 * speedOfWind ** 0.16 + 0.4275 * temperature * speedOfWind ** 0.16
+    temperatureWindChill = 35.74 + 0.6215 * temperature - 35.75 * speedOfWind ** 0.16 + 0.4275 * \
+                        temperature * speedOfWind ** 0.16
     print("风寒温度为",temperatureWindChill,"华氏度")
 else:
-    print("输入错误，室外温度或风速不在范围内，要求　-58华氏度 < 室外温度 < 41华氏度　并且　风速 >= 2米／秒　")
+    print("输入错误，室外温度或风速不在范围内，要求　-58华氏度 < 室外温度 < 41华氏度　并且　风速 >= 2米／秒")
 
 # 4.21 （科学问题：一周的星期几）泽勒的一致性是一个由泽勒开发的算法，用于计算一周的星期几。实现泽勒公式。
 year = eval(input("请输入年(例如：2008)："))
@@ -358,7 +366,8 @@ elif h == 6:
     dayOfweek = "星期五"
 print(year, "年", month, "月", day, "日是", dayOfweek, "。")
 
-# 4.22 （几何问题：点在圆内吗？）编写一个程序提示用户输入一个点(x, y)，然后检测这个点是否在圆心为(0, 0)半径为10的圆内。
+# 4.22 （几何问题：点在圆内吗？）编写一个程序提示用户输入一个点(x, y)，然后检测这个点是否在圆心为(0, 0)半径
+# 为10的圆内。
 # 输入一个点(x, y)
 pointx, pointy = eval(input("请输入 x, y："))
 # 圆心为(0, 0)半径为10的圆
@@ -372,9 +381,10 @@ if distance <= cr:
 else:
     print("The point (", pointx, ",", pointy, ") 不在以 (", cx, ",", cy, ")为圆心，半径为", cr, "的圆内。")
 
-# 4.23 （几何问题：点在矩形内吗？）编写一个程序提示用户输入一个点(x, y)，然后检测这个点是否在以(0, 0)为中心而宽为10高为5的矩形内。
+# 4.23 （几何问题：点在矩形内吗？）编写一个程序提示用户输入一个点(x, y)，然后检测这个点是否在以(0, 0)为中心
+# 而宽为10高为5的矩形内。
 # 输入一个点(x, y)
-pointx, pointy = eval(input("请输入 x, y："))
+pointx, pointy = eval(input("请输入点的坐标 x, y："))
 # 以(0, 0)为中心而宽为10高为5的矩形
 x = 0
 y = 0
@@ -418,7 +428,7 @@ print("抽取的牌是", cardcolor, cardname,"。")
 p0x, p0y, p1x, p1y = eval(input("请输入点的坐标 p0x, p0y, p1x, p1y："))
 # 输入第二条直线
 p2x, p2y, p3x, p3y = eval(input("请输入点的坐标 p2x, p2y, p3x, p3y："))
-#
+# 计算交点方程参数
 a = p0y - p1y
 b = -(p0x - p1x)
 c = p2y - p3y
@@ -427,48 +437,63 @@ e = (p0y - p1y) * p0x - (p0x - p1x) * p0y
 f = (p2y - p3y) * p2x - (p2x - p3x) * p2y
 # 根据计算结果判断两条直线相交还是平行
 if a * d - b * c == 0:
-    print("parallel")
+    print("两条直线平行")
 else:
 # 计算两条直线的交点坐标
     px = (e * d - b * f) / (a * d - b * c)
     py = (a * f - e * c) / (a * d - b * c)
-    print("交点坐标为(", px, ",",py, ")")
+    print("两条直线的交点坐标为(", px, ",",py, ")")
 '''
 # 4.26 （回文数）编写程序提示用户输入一个三位整数，然后判断它是否是一个回文数。
 
 # 4.27 （几何问题：点在三角形内吗？）编写程序提示用户输入一个带 x 坐标和 y 坐标的点，然后决定这个点是否在三角形内。
 # 输入一个点(x, y)
-#x0, y0 = eval(input("请输入点的坐标 x, y："))
+# x0, y0 = eval(input("请输入点的坐标 x, y："))
 # 输入三角形三个顶点的坐标
-#x1, y1, x2, y2, x3, y3 = eval(input("请输入三角形三个顶点的坐标 x1, y1, x2, y2, x3, y3："))
+# x1, y1, x2, y2, x3, y3 = eval(input("请输入三角形三个顶点的坐标 x1, y1, x2, y2, x3, y3："))
 # 判断是否构成三角形，以三点不在一条直线上为条件
 
 # 判断点在三角形内还是三角形外
-
-# 4.28 （几何问题：两个矩形）编写程序提示用户输入两个矩形中心的 x 坐标和 y 坐标以及他们的宽和高，然后决定第二个矩形是否
-# 在第一个矩形里还是和第一个矩形有重叠部分。
+'''
+# 4.28 （几何问题：两个矩形）编写程序提示用户输入两个矩形中心的 x 坐标和 y 坐标以及他们的宽和高，然后决定
+# 第二个矩形是否在第一个矩形里还是和第一个矩形有重叠部分。
 # 输入第一个矩形的中心坐标、长和宽，矩形的长边平行于Ｘ轴，宽边平行于Ｙ轴
-x0, y0, l0, h0 = eval(input("请输入点的坐标 x, y, l, h："))
+x0, y0, l0, h0 = eval(input("请输入矩形中心的坐标、长、宽，依次为 x, y, l, h："))
 # 输入第二个矩形的中心坐标、长和宽，矩形的长边平行于Ｘ轴，宽边平行于Ｙ轴
-x1, y1, l1, h1 = eval(input("请输入点的坐标 x, y, l, h："))
+x1, y1, l1, h1 = eval(input("请输入矩形中心的坐标、长、宽，依次为 x, y, l, h："))
 # 判断两个矩形是否包含或重叠
-#
+# 判断矩形包含的条件为两个矩形中心Ｘ轴方向的距离小于等于两个矩形长之差的一半，
+# 并且Ｙ轴方向的距离小于等于宽之差的一半。
 if (abs(x1 - x0) <= abs(l0 - l1) / 2) and (abs(y1 - y0) <= abs(h0 - h1) / 2):
-    print("1 in 0")
-#
-if (abs(l0 - l1) / 2 <= abs(x1 - x0) <= l0 / 2 + l1 / 2) and (abs(h0 - h1) / 2 <= abs(y1 - y0) <= h0 / 2 + h1 / 2):
-    print("1 add 0")
-#
+    print("第二个矩形在第一个矩形中。")
+# 判断矩形重叠的条件为两个矩形中心Ｘ轴方向的距离大于两个矩形长之差的一半，小于等于两个矩形的长度一半的和；
+# 并且Ｙ轴方向的距离大于宽之差的一半，小于等于两个矩形的宽度一半的和。
+if (abs(l0 - l1) / 2 < abs(x1 - x0) <= l0 / 2 + l1 / 2) and (abs(h0 - h1) / 2 < abs(y1 - y0) <= h0 / 2 + h1 / 2):
+    print("第二个矩形和第一个矩形有重叠。")
+# 判断矩形分离的条件为两个矩形中心Ｘ轴方向的距离大于两个矩形的长度一半的和；
+# 或Ｙ轴方向的距离大于两个矩形的宽度一半的和。
 if (abs(x1 - x0) > l0 / 2 + l1 / 2) or (abs(y1 - y0) > h0 / 2 + h1 / 2):
-    print("1 out 0")
+    print("第二个矩形在第一个矩形外。")
+
 # 4.29 （几何问题：两个圆）编写程序提示用户输入两个圆的中心的 x 坐标和 y 坐标以及他们的半径，然后决定第二个圆是否
 # 在第一个圆里还是和第一个圆有重叠部分。
 # 输入第一个圆的圆心坐标和半径
-
+x0, y0, r0 = eval(input("请输入第一个圆的圆心坐标和半径，依次为 x, y, r："))
 # 输入第二个圆的圆心坐标和半径
-
+x1, y1, r1 = eval(input("请输入第二个圆的圆心坐标和半径，依次为 x, y, r："))
+# 计算两个圆心间的距离
+distance = math.sqrt(pow(x1 - x0, 2) + pow(y1 - y0, 2))
 # 判断两个圆是否包含或重叠
-
+if distance <= abs(r1 - r0):
+    # 两个圆包含的条件：圆心的距离小于等于半径之差
+    print("两个圆包含。")
+elif abs(r1 - r0) < distance <= r1 + r0:
+    # 两个圆重叠的条件：圆心的距离大于半径之差，小于等于半径之和
+    print("两个圆相交。")
+else:
+    # 两个圆分离的条件：圆心的距离大于半径之和
+    print("两个圆分离。")
+'''
 # 4.30 （当前时间）使用１２小时的时钟修改编程题 2.18 来显示小时数。
 
 # 4.31 （几何问题：点的位置）编写程序提示用户输入三个点 p0、p1、p2 的 x 坐标和 y 坐标，然后显示 p2 是在从 p0 到 p1 的线
@@ -492,6 +517,91 @@ if (abs(x1 - x0) > l0 / 2 + l1 / 2) or (abs(y1 - y0) > h0 / 2 + h1 / 2):
 
 # 4.38 （几何问题：两个矩形）编写程序提示用户输入两个矩形的中心的 x　坐标、　y　坐标、宽度和高度，然后决定第二个矩形是在
 # 第一个矩形内还是和第一个矩形有重叠，还是没有重叠。
+# 输入第一个矩形的中心坐标、长和宽，矩形的长边平行于Ｘ轴，宽边平行于Ｙ轴
+x0, y0, l0, h0 = eval(input("请输入矩形中心的坐标、长、宽，依次为 x, y, l, h："))
+# 输入第二个矩形的中心坐标、长和宽，矩形的长边平行于Ｘ轴，宽边平行于Ｙ轴
+x1, y1, l1, h1 = eval(input("请输入矩形中心的坐标、长、宽，依次为 x, y, l, h："))
+# 判断两个矩形是否包含或重叠
+# 判断矩形包含的条件为两个矩形中心Ｘ轴方向的距离小于等于两个矩形长之差的一半，
+# 并且Ｙ轴方向的距离小于等于宽之差的一半。
+if (abs(x1 - x0) <= abs(l0 - l1) / 2) and (abs(y1 - y0) <= abs(h0 - h1) / 2):
+    print("第二个矩形在第一个矩形中。")
+    result = "第二个矩形在第一个矩形中。"
+# 判断矩形重叠的条件为两个矩形中心Ｘ轴方向的距离大于两个矩形长之差的一半，小于等于两个矩形的长度一半的和；
+# 并且Ｙ轴方向的距离大于宽之差的一半，小于等于两个矩形的宽度一半的和。
+if (abs(l0 - l1) / 2 < abs(x1 - x0) <= l0 / 2 + l1 / 2) and (abs(h0 - h1) / 2 < abs(y1 - y0) <= h0 / 2 + h1 / 2):
+    print("第二个矩形和第一个矩形有重叠。")
+    result = "第二个矩形和第一个矩形有重叠。"
+# 判断矩形分离的条件为两个矩形中心Ｘ轴方向的距离大于两个矩形的长度一半的和；
+# 或Ｙ轴方向的距离大于两个矩形的宽度一半的和。
+if (abs(x1 - x0) > l0 / 2 + l1 / 2) or (abs(y1 - y0) > h0 / 2 + h1 / 2):
+    print("第二个矩形在第一个矩形外。")
+    result = "第二个矩形在第一个矩形外。"
+# 绘制第一个矩形
 
+# 绘制第二个矩形
+
+# 结论
+turtle.color("green")
+turtle.penup()       # Pull the pen up
+turtle.goto(200, -200)
+turtle.pendown()      # Pull the pen down
+turtle.write(result, font = ("Times", 18, "bold"))
+turtle.hideturtle()
+
+turtle.done()
+'''
 # 4.39 （Tuttle：两个圆）编写程序提示用户输入两个圆的圆心的坐标以及两个半径，然后确定第二个圆是在第一个圆内还是和第一个
 # 圆有重叠部分。
+# 输入第一个圆的圆心坐标和半径
+x0, y0, r0 = eval(input("请输入第一个圆的圆心坐标和半径，依次为 x, y, r："))
+# 输入第二个圆的圆心坐标和半径
+x1, y1, r1 = eval(input("请输入第二个圆的圆心坐标和半径，依次为 x, y, r："))
+# 计算两个圆心间的距离
+distance = math.sqrt(pow(x1 - x0, 2) + pow(y1 - y0, 2))
+# 判断两个圆是否包含或重叠
+if distance <= abs(r1 - r0):
+    # 两个圆包含的条件：圆心的距离小于等于半径之差
+    print("两个圆包含。")
+    result = "两个圆包含。"
+elif abs(r1 - r0) < distance <= r1 + r0:
+    # 两个圆重叠的条件：圆心的距离大于半径之差，小于等于半径之和
+    print("两个圆相交。")
+    result = "两个圆相交。"
+else:
+    # 两个圆分离的条件：圆心的距离大于半径之和
+    print("两个圆分离。")
+    result = "两个圆分离。"
+
+# 绘图：第一个圆
+turtle.penup()       # Pull the pen up
+turtle.goto(x0, y0 - r0)
+turtle.setheading(0)
+turtle.left(0)
+turtle.pendown()      # Pull the pen down
+# turtle.begin_fill()   # Begin to fill color in a shape
+turtle.color("purple")
+turtle.circle(r0)  # Draw a circle
+# turtle.end_fill()     # Fill the shape
+
+# 绘图：第二个圆
+turtle.penup()       # Pull the pen up
+turtle.goto(x1, y1 - r1)
+turtle.setheading(0)
+turtle.left(0)
+turtle.pendown()      # Pull the pen down
+# turtle.begin_fill()   # Begin to fill color in a shape
+turtle.color("red")
+turtle.circle(r1)  # Draw a circle
+# turtle.end_fill()     # Fill the shape
+
+# 结论
+turtle.color("green")
+turtle.penup()       # Pull the pen up
+turtle.goto(200, -200)
+turtle.pendown()      # Pull the pen down
+turtle.write(result, font = ("Times", 18, "bold"))
+turtle.hideturtle()
+
+turtle.done()
+'''
