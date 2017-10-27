@@ -7,6 +7,7 @@ import random
 import math
 import turtle
 import time
+import re
 '''
 # 4.1 求解一元二：次方程 a * x * x + b * x + c = 0
 a, b, c = eval(input("请依次输入一元二次方程 a * x * x + b * x + c = 0 中的常数a、b、c："))
@@ -443,10 +444,23 @@ else:
     px = (e * d - b * f) / (a * d - b * c)
     py = (a * f - e * c) / (a * d - b * c)
     print("两条直线的交点坐标为(", px, ",",py, ")")
-'''
-# 4.26 （回文数）编写程序提示用户输入一个三位整数，然后判断它是否是一个回文数。
 
-'''
+# 4.26 （回文数）编写程序提示用户输入一个三位整数，然后判断它是否是一个回文数。
+#
+num = eval(input("请输入："))
+# 
+new_num = (num % 10) *100 + (num // 10 % 10) * 10 + num // 100
+if num == new_num:
+    print(True)
+else:
+    print(False)
+# 
+num_s = str(num)
+if num == int(num_s[::-1]):
+    print(True)
+else:
+    print(False)
+
 # 4.27 （几何问题：点在三角形内吗？）编写程序提示用户输入一个带 x 坐标和 y 坐标的点，然后决定这个点是否在三角形内。
 # 输入一个点(x, y)
 x0, y0 = eval(input("请输入点的坐标 x, y："))
@@ -530,26 +544,106 @@ elif abs(r1 - r0) < distance <= r1 + r0:
 else:
     # 两个圆分离的条件：圆心的距离大于半径之和
     print("两个圆分离。")
-'''
-# 4.30 （当前时间）使用１２小时的时钟修改编程题 2.18 来显示小时数。
 
+# 4.30 （当前时间）使用１２小时的时钟修改编程题 2.18 来显示小时数。
+# Prompt the user to enter the integer between -12 and 12 for Time Zone
+timeZone = eval(input("请输入整数代表时区，在-12到12之间："))
+# 计算指定时区相对GMT偏差的秒数
+offsetTime = timeZone * 60 * 60
+
+currentTime = time.time()
+
+# Obtain the total seconds since midnight, Jan 1, 1970
+totalSeconds = int(currentTime + offsetTime)
+
+# Get the current second
+currentSecond = totalSeconds % 60
+
+# Obtain the total minutes
+totalMinutes = totalSeconds // 60
+
+# Compute current minute in the hour
+currentMinutes = totalMinutes % 60
+
+# Obtain the total hours
+totalHours = totalMinutes // 60
+
+# Compute current hour in the day
+currentHour = totalHours % 24
+if currentHour > 12:
+    currentHour_12 = currentHour % 12
+    currentHour_s = str(currentHour_12) + "PM"
+else:
+    currentHour_s = str(currentHour) + "AM"
+
+# Display results
+print("Time is ", currentHour,":", currentMinutes, ":", currentSecond, "in",timeZone,"Time Zone (24H)")
+print("Time is ", currentHour_s,":", currentMinutes, ":", currentSecond, "in",timeZone,"Time Zone (12H)")
+'''
 # 4.31 （几何问题：点的位置）编写程序提示用户输入三个点 p0、p1、p2 的 x 坐标和 y 坐标，然后显示 p2 是在从 p0 到 p1 的线
 # 的左边、右边还是在同一线上。
 
 # 4.32 （几何问题：线段上的点）编程题 4.31 显示如何测试一个点是否在一个无界的行上。修改编程题 4.31 来测试一个点是否在一
 # 个线段上。
 
+'''
 # 4.33 （十进制转十六进制）编写一个程序提示用户输入一个０到１５之间的整数，然后显示它对应的十六进制数。
-
+dec = eval(input("请输入："))
+print("十进制数为：", dec)
+print("转换为二进制为：", bin(dec))
+print("转换为八进制为：", oct(dec))
+print("转换为十六进制为：", hex(dec))
+'''
 # 4.34 （十六进制转十进制）编写一个程序提示用户输入一个十六进制的字符，然后显示它对应的十进制整数。
+s_hex = input("请输入：")
+#
+re_Hex = r'\A[0-9a-fA-F]+\Z'
+p_hex = re.compile(re_Hex)
 
+print("十进制数为：", int(s_hex, 16))
 # 4.35 （Tuttle：点的位置）编写程序提示用户输入三个点 p0、p1、p2 的 x 坐标和 y 坐标，然后显示 p2 是在从 p0 到 p1 的线
 # 的左边、右边还是在线上。参见编程题 4.31 确定点的位置。
 
+'''
 # 4.36 （Tuttle：点在矩形内吗？）编写一个程序提示用户输入一个点(x, y)，然后检测这个点是否在以(0, 0)为中心、宽为 100、高
 # 为 50 的矩形内。
+# 输入一个点(x, y)
+pointx, pointy = eval(input("请输入点的坐标 x, y："))
+# 以(0, 0)为中心而宽为100高为50的矩形
+x = 0
+y = 0
+length = 100
+height = 50
+# 比较坐标范围判断点是否在矩形内，点在矩形边界上按矩形内计算
+if (x - length / 2) <= pointx <= (x + length / 2) and (y - height / 2) <= pointy <= (y + height / 2):
+    print("点 (", pointx, ",", pointy, ") 在以 (", x, ",", y, ")为中心，宽", length, "高", height, "的矩形内。")
+    result = "In"
+else:
+    print("点 (", pointx, ",", pointy, ") 不在以 (", x, ",", y, ")为中心，宽", length, "高", height, "的矩形内。")
+    result = "Out"
+#
+turtle.penup()
+turtle.goto(x - length / 2, y + height / 2)
+turtle.pendown()
+turtle.goto(x + length / 2, y + height / 2)
+turtle.goto(x + length / 2, y - height / 2)
+turtle.goto(x - length / 2, y - height / 2)
+turtle.goto(x - length / 2, y + height / 2)
+#
+turtle.penup()
+turtle.goto(pointx, pointy)
+turtle.pendown()
+turtle.dot(3, "red")
+#
+turtle.color("green")
+turtle.penup()       # Pull the pen up
+turtle.goto(200, -200)
+turtle.pendown()      # Pull the pen down
+turtle.write(result, font = ("Times", 18, "bold"))
+turtle.hideturtle()
 
-'''
+turtle.done()
+
 # 4.37 （）
 # 书中没有题号 4.37
 
