@@ -579,10 +579,19 @@ else:
 # Display results
 print("Time is ", currentHour,":", currentMinutes, ":", currentSecond, "in",timeZone,"Time Zone (24H)")
 print("Time is ", currentHour_s,":", currentMinutes, ":", currentSecond, "in",timeZone,"Time Zone (12H)")
-'''
+
 # 4.31 （几何问题：点的位置）编写程序提示用户输入三个点 p0、p1、p2 的 x 坐标和 y 坐标，然后显示 p2 是在从 p0 到 p1 的线
 # 的左边、右边还是在同一线上。
-
+pointx, pointy = eval(input("请输入点的坐标 x, y："))
+x0, y0 = eval(input("请输入点的坐标 x0, y0："))
+x1, y1 = eval(input("请输入点的坐标 x1, y1："))
+if (x1 - x0) * (pointy - y0) - (pointx - x0) * (y1 - y0) > 0:
+    print("left")
+elif (x1 - x0) * (pointy - y0) - (pointx - x0) * (y1 - y0) == 0:
+    print("on")
+else:
+    print("right")
+'''
 # 4.32 （几何问题：线段上的点）编程题 4.31 显示如何测试一个点是否在一个无界的行上。修改编程题 4.31 来测试一个点是否在一
 # 个线段上。
 
@@ -593,7 +602,7 @@ print("十进制数为：", dec)
 print("转换为二进制为：", bin(dec))
 print("转换为八进制为：", oct(dec))
 print("转换为十六进制为：", hex(dec))
-'''
+
 # 4.34 （十六进制转十进制）编写一个程序提示用户输入一个十六进制的字符，然后显示它对应的十进制整数。
 s_hex = input("请输入：")
 #
@@ -601,6 +610,7 @@ re_Hex = r'\A[0-9a-fA-F]+\Z'
 p_hex = re.compile(re_Hex)
 
 print("十进制数为：", int(s_hex, 16))
+'''
 # 4.35 （Tuttle：点的位置）编写程序提示用户输入三个点 p0、p1、p2 的 x 坐标和 y 坐标，然后显示 p2 是在从 p0 到 p1 的线
 # 的左边、右边还是在线上。参见编程题 4.31 确定点的位置。
 
