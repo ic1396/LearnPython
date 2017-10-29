@@ -446,15 +446,15 @@ else:
     print("两条直线的交点坐标为(", px, ",",py, ")")
 
 # 4.26 （回文数）编写程序提示用户输入一个三位整数，然后判断它是否是一个回文数。
-#
-num = eval(input("请输入："))
-# 
+# 读入一个三位整数
+num = eval(input("请输入一个三位整数："))
+# 使用整数方式判断
 new_num = (num % 10) *100 + (num // 10 % 10) * 10 + num // 100
 if num == new_num:
     print(True)
 else:
     print(False)
-# 
+# 使用字符串方式判断
 num_s = str(num)
 if num == int(num_s[::-1]):
     print(True)
@@ -586,28 +586,28 @@ pointx, pointy = eval(input("请输入点的坐标 x, y："))
 x0, y0 = eval(input("请输入点的坐标 x0, y0："))
 x1, y1 = eval(input("请输入点的坐标 x1, y1："))
 if (x1 - x0) * (pointy - y0) - (pointx - x0) * (y1 - y0) > 0:
-    print("left")
+    print("点在直线左侧")
 elif (x1 - x0) * (pointy - y0) - (pointx - x0) * (y1 - y0) == 0:
-    print("on")
+    print("点在直线上")
 else:
-    print("right")
+    print("点在直线右侧")
 
 # 4.32 （几何问题：线段上的点）编程题 4.31 显示如何测试一个点是否在一个无界的行上。修改编程题 4.31 来测试一个点是否在一
 # 个线段上。
 pointx, pointy = eval(input("请输入点的坐标 x, y："))
-x0, y0 = eval(input("请输入点的坐标 x0, y0："))
-x1, y1 = eval(input("请输入点的坐标 x1, y1："))
+x0, y0 = eval(input("请输入有向线段起始点的坐标 x0, y0："))
+x1, y1 = eval(input("请输入有向线段结束点的坐标 x1, y1："))
 if (x1 - x0) * (pointy - y0) - (pointx - x0) * (y1 - y0) > 0:
-    print("left")
+    print("点在线段所在直线左侧")
 elif (x1 - x0) * (pointy - y0) - (pointx - x0) * (y1 - y0) == 0:
-    print("on")
+    print("点在线段所在直线上")
     if abs(pointx - x0) < abs(x1 - x0) and abs(pointx - x1) < abs(x1 - x0) and \
        abs(pointy - y0) < abs(y1 - y0) and abs(pointy - y1) < abs(y1 - y0):
-        print("on the line segment")
+        print("同时点在线段内")
     else:
-        print(" not on the line segment")
+        print("同时点在线段外")
 else:
-    print("right")
+    print("点在线段所在直线右侧")
 
 # 4.33 （十进制转十六进制）编写一个程序提示用户输入一个０到１５之间的整数，然后显示它对应的十六进制数。
 dec = eval(input("请输入："))
@@ -627,8 +627,8 @@ print("十进制数为：", int(s_hex, 16))
 # 4.35 （Tuttle：点的位置）编写程序提示用户输入三个点 p0、p1、p2 的 x 坐标和 y 坐标，然后显示 p2 是在从 p0 到 p1 的线
 # 的左边、右边还是在线上。参见编程题 4.31 确定点的位置。
 pointx, pointy = eval(input("请输入点的坐标 x, y："))
-x0, y0 = eval(input("请输入点的坐标 x0, y0："))
-x1, y1 = eval(input("请输入点的坐标 x1, y1："))
+x0, y0 = eval(input("请输入有向线段起始点的坐标 x0, y0："))
+x1, y1 = eval(input("请输入有向线段结束点的坐标 x1, y1："))
 if (x1 - x0) * (pointy - y0) - (pointx - x0) * (y1 - y0) > 0:
     print("left")
     result = "left"
@@ -642,18 +642,18 @@ elif (x1 - x0) * (pointy - y0) - (pointx - x0) * (y1 - y0) == 0:
 else:
     print("right")
     result = "right"
-#
+# 绘制有向线段，从起始点到结束点
 turtle.penup()
 turtle.goto(x0, y0)
 turtle.pendown()
 turtle.goto(x1, y1)
 
-#
+# 绘制点
 turtle.penup()
 turtle.goto(pointx, pointy)
 turtle.pendown()
 turtle.dot(3, "red")
-#
+# 结论
 turtle.color("green")
 turtle.penup()       # Pull the pen up
 turtle.goto(150, -150)
@@ -675,11 +675,13 @@ height = 50
 # 比较坐标范围判断点是否在矩形内，点在矩形边界上按矩形内计算
 if (x - length / 2) <= pointx <= (x + length / 2) and (y - height / 2) <= pointy <= (y + height / 2):
     print("点 (", pointx, ",", pointy, ") 在以 (", x, ",", y, ")为中心，宽", length, "高", height, "的矩形内。")
-    result = "In"
+    result = "点 (" + str(pointx) + "," + str(pointy) + ") 在以 (" + str(x) + "," + str(y) + \ 
+    ")为中心，宽" + str(length) + "高" + str(height) + "的矩形内。"
 else:
     print("点 (", pointx, ",", pointy, ") 不在以 (", x, ",", y, ")为中心，宽", length, "高", height, "的矩形内。")
-    result = "Out"
-#
+    result = "点 (" + str(pointx) + "," + str(pointy) + ") 不在以 (" + str(x) + "," + str(y) + \ 
+    ")为中心，宽" + str(length) + "高" + str(height) + "的矩形内。"
+# 绘制矩形
 turtle.penup()
 turtle.goto(x - length / 2, y + height / 2)
 turtle.pendown()
@@ -687,12 +689,12 @@ turtle.goto(x + length / 2, y + height / 2)
 turtle.goto(x + length / 2, y - height / 2)
 turtle.goto(x - length / 2, y - height / 2)
 turtle.goto(x - length / 2, y + height / 2)
-#
+# 绘制点
 turtle.penup()
 turtle.goto(pointx, pointy)
 turtle.pendown()
 turtle.dot(3, "red")
-#
+# 结论
 turtle.color("green")
 turtle.penup()       # Pull the pen up
 turtle.goto(200, -200)
