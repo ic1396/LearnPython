@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# 《Python语言程序设计》程序清单５－2
+# 《Python语言程序设计》程序清单５－２
 # Programed List 5-2
 #
 
