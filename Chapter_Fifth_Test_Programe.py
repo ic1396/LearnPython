@@ -3,10 +3,61 @@
 # Programed List 5-Test Programme
 # 第五章　编程题　５．１～５．５５
 
+import random
+import time
+
+'''
 # 5.1 （统计正数和负数的个数然后计算这些数的平均值）
+positive_Number = 0
+negative_Number = 0
+average = 0
+total = 0
+number = eval(input("Enter an integer, the input ends if it is 0: "))
+while number != 0:
+    if number > 0:
+        positive_Number += 1
+    else:
+        negative_Number += 1
+    total = total + number
+    number = eval(input("Enter an integer, the input ends if it is 0: "))
+average = total / (positive_Number + negative_Number)
+print("Positive Number: ", positive_Number)
+print("Negative Number: ", negative_Number)
+print("Total: ", total)
+print("Average: ", average)
 
 # 5.2 （累加）
+correctCount = 0 # Count the number of correct answers
+count = 0 # Count the number of questions
+NUMBER_OF_QUESTIONS = 5 # Constant
 
+startTime = time.time() # Get start time
+
+while count < NUMBER_OF_QUESTIONS:
+    # 1. Generate two random single-digit integers
+    number1 = random.randint(1, 16)
+    number2 = random.randint(1, 16)
+
+    # 2. Prompt the student to answer "what is number1 - number2?"
+    answer = eval(input("What is " + str(number1) + " + " +
+        str(number2) + "? "))
+
+    # 5. Grade the answer and display the result
+    if number1 + number2 == answer:
+        print("You are correct!")
+        correctCount += 1
+    else:
+        print("Your answer is wrong.\n", number1, "+",
+            number2, "should be", (number1 + number2))
+
+    # Increase the count
+    count += 1
+
+endTime = time.time() # Get end time
+testTime = int(endTime - startTime) # Get test time
+print("Correct count is", correctCount, "out of",
+    NUMBER_OF_QUESTIONS, "\nTest time is", testTime, "seconds")
+'''
 # 5.3 （公斤转换成磅）
 
 # 5.4 （英里转换成公里）
