@@ -5,7 +5,7 @@
 
 import random
 
-NUMBER_OF_TRIALS = 100000 # Constant
+NUMBER_OF_TRIALS = 10000000 # Constant
 numberOfHits = 0
 
 for i in range(NUMBER_OF_TRIALS):
