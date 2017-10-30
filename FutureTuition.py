@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # 《Python语言程序设计》程序清单５－９
-# Programed List 5-8
+# Programed List 5-9
 #
 
 year = 0 # Year 0
