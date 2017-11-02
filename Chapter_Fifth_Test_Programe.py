@@ -60,15 +60,67 @@ endTime = time.time() # Get end time
 testTime = int(endTime - startTime) # Get test time
 print("Correct count is", correctCount, "out of",
     NUMBER_OF_QUESTIONS, "\nTest time is", testTime, "seconds")
-'''
+
 # 5.3 （公斤转换成磅）编写一个程序能显示下面的表格（１公斤是２．２磅）。
+#
+print("______________")
+print("   k  |   b   ")
+for i in range(1,200):
+    if i % 2 == 1:
+        print("--------------")
+        print(format(i,"4d"), end='')
+        print("  |  ", end='')
+        print(format(i * 2.2,".1f"))
+print("______________")
 
 # 5.4 （英里转换成公里）编写一个程序能显示下面的表格（注意：１英里是１．６０９公里）。
+i = 1
+print("________________")
+print("   m  |   km    ")
+while i < 11:
+    print("----------------")
+    print(format(i,"4d"), end='')
+    print("  |  ", end='')
+    print(format(i * 1.609,".3f"))
+    i += 1
+print("________________")
 
 # 5.5 （公斤转换成磅，磅转换成公斤）编写一个程序能显示下面两个相邻的表格（注意：１公斤等于２．２磅）。
+j = 20
+print("____________________________________")
+print("   k  |   b   ||   k  |   b   ")
+for i in range(1,200):
+    if i % 2 == 1:
+        print("------------------------------------")
+        print(format(i,"4d"), end='')
+        print("  |  ", end='')
+        print(format(i * 2.2,".1f"), end='')
+        print("  ||  ", end='')
+        print(format(j / 2.2, ".2f"), end='')
+        print("  |  ", end='')
+        print(j)
+    if i % 2 == 0:
+        j += 5
+print("____________________________________")
 
 # 5.6 （将英里转换成公里，公里转换成英里）编写一个程序能显示下面两个相邻的表格（注意：１英里等于１．６０９公里）。。
-
+i = 1
+j = 20
+print("___________________________________")
+print("   m  |   km    ||   m    |   km   ")
+while i < 11:
+    print("-----------------------------------")
+    print(format(i,"4d"), end='')
+    print("  |  ", end='')
+    print(format(i * 1.609,".3f"), end='')
+    print("  ||  ", end='')
+    print(format(j / 1.609, ".3f"), end='')
+    print("|  ", end='')
+    print(format(j, "4d"))
+    j = j + 5
+    i += 1
+print("___________________________________")
+'''
 # 5.7 （使用三角函数）打印下面的表格显示从０度到３６０度每隔１０度的角度的ｓｉｎ值和ｃｏｓ值。四舍五入这些值，保持小数点
 # 后四位。
 
