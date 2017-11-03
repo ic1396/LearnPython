@@ -5,6 +5,7 @@
 
 import random
 import time
+import math
 
 '''
 # 5.1 （统计正数和负数的个数然后计算这些数的平均值）编写一个程序来读入不指定个数的整数，然后决定已经读取的整数
@@ -120,12 +121,34 @@ while i < 11:
     j = j + 5
     i += 1
 print("___________________________________")
-'''
+
 # 5.7 （使用三角函数）打印下面的表格显示从０度到３６０度每隔１０度的角度的ｓｉｎ值和ｃｏｓ值。四舍五入这些值，保持小数点
 # 后四位。
+i = 10
+print("___________________________")
+print("   d  |   sin    |   cos   ")
+while i <= 360:
+    print("----------------------------")
+    print(format(i,"4d"), end='')
+    print("  |  ", end='')
+    print(format(math.sin(math.radians(i)),".4f"), end='')
+    print("  |  ", end='')
+    print(format(math.cos(math.radians(i)), ".4f"))
+    i += 10
+print("___________________________")
 
 # 5.8 （使用ｍａｔｈ．ｓｑｒｔ函数）使用ｍａｔｈ模块中的ｓｑｒｔ函数来编写程序输出下面的表格。
-
+i = 0
+print("___________________________")
+print("  Number  | Square Root   ")
+while i <= 20:
+    print("----------------------------")
+    print(format(i,"4d"), end='')
+    print("  |  ", end='')
+    print(format(math.sqrt(i),".4f"))
+    i += 2
+print("___________________________")
+'''
 # 5.9 （财务应用程序：计算未来学费）假设大学今年的学费是１００００美元，且以每年５％增长。编写程序计算十年之后的学费以及
 # 从现在开始到十年后大学四年的总学费。
 
@@ -173,9 +196,34 @@ print("___________________________________")
 # 5.26 （数列求和）编写程序对下面的数列求和。
 
 # 5.27 （计算Ｐｉ）使用下面的数列近似计算ｅ。
-
+'''
 # 5.28 （计算ｅ）使用下面的数列近似计算ｅ。
-
+number = eval(input("Enter an integer: "))
+#
+e = 1
+item = 1
+for i in range(1, number + 1):
+    item = item * i
+    e = e + 1 / item
+print(format(e, ".100f"))
+#
+e = 1
+item = 1
+for i in range(1, number + 1):
+    item = item / i
+    e = e + item
+print(format(e, ".100f"))
+#
+e = 0
+while number > 0:
+    item = 1
+    for j in range(1, number + 1):
+        item = item * j
+    e = e + 1 / item
+    number -= 1
+e = e + 1
+print(format(e, ".100f"))
+'''
 # 5.29 （显示闰年）编写程序显示２１世纪（从２００１年到２１００年）里所有的闰年，每行显示１０个闰年。这些年被一个空格隔开。
 
 # 5.30 （显示每个月的第一天）编写程序提示用户输入年份以及该年的第一天是星期几，然后在控制台上显示该年每个月的第一天是
