@@ -63,21 +63,20 @@ print("Correct count is", correctCount, "out of",
     NUMBER_OF_QUESTIONS, "\nTest time is", testTime, "seconds")
 
 # 5.3 （公斤转换成磅）编写一个程序能显示下面的表格（１公斤是２．２磅）。
-#
 print("______________")
-print("   k  |   b   ")
+print("   公斤  |   磅   ")
 for i in range(1,200):
     if i % 2 == 1:
         print("--------------")
         print(format(i,"4d"), end='')
-        print("  |  ", end='')
+        print("    |  ", end='')
         print(format(i * 2.2,".1f"))
 print("______________")
 
 # 5.4 （英里转换成公里）编写一个程序能显示下面的表格（注意：１英里是１．６０９公里）。
 i = 1
 print("________________")
-print("   m  |   km    ")
+print("   英里  |   公里    ")
 while i < 11:
     print("----------------")
     print(format(i,"4d"), end='')
@@ -189,37 +188,81 @@ print("___________________________")
 
 # 5.24 （财务应用程序：贷款摊销时间表）编写程序让用户输入贷款额、年数以及利率，然后显示贷款摊销时间表。
 
+'''
 # 5.25 （演示消除错误）当你操作一个非常大的数和非常小的数时，就会出现消除错误。大数可能会抵消比较小的数。为了避免消除
 # 错误并获取更精确的结果，应该仔细选择计算的顺序。例如：在计算下面数列的过程中，可以从右向左而不是从左向右计算，这样将
 # 会获取更精确地结果。
+# 使用１＋１／２＋１／３＋．．．＋１／ｎ的顺序计算
+total = 0
+for i in range(1, 50001):
+    total = total + 1 / i
+print(format(total, ".100f"))
+total = 0
+number = 50000
+while number > 0:
+    total = total + 1 / number
+    number -= 1
+print(format(total, ".100f"))
+# 使用１／ｎ＋．．．＋１／３＋１／２＋１的顺序计算
 
 # 5.26 （数列求和）编写程序对下面的数列求和。
+# 使用１／３＋３／５＋５／７＋．．．＋９７／９９计算
+item = 0
+for i in range(1, 98):
+    if i % 2 == 1:
+        item = item + i / (i + 2)
+print(item)
 
 # 5.27 （计算Ｐｉ）使用下面的数列近似计算ｅ。
-'''
+number = eval(input("Enter an integer: "))
+number0 = number
+# 使用（－１）的（ｉ＋１）次幂除以（２ｉ－１）
+item = 0
+while number > 0:
+    if number % 2 == 0:
+        item = item - 1 / (2 * number - 1)
+    if number % 2 == 1:
+        item = item + 1 / (2 * number - 1)
+    number -= 1
+Pi = 4 * item
+print("Pi is", format(Pi, ".100f"))
+
 # 5.28 （计算ｅ）使用下面的数列近似计算ｅ。
 number = eval(input("Enter an integer: "))
-#
+number0 = number
+# 使用 １＋１／１！＋１／２！＋１／３！＋．．．＋１／ｎ！计算，使用１＊２＊３＊．．．＊ｎ的方式计算ｎ！
 e = 1
 item = 1
 for i in range(1, number + 1):
     item = item * i
     e = e + 1 / item
 print(format(e, ".100f"))
-#
+# 使用 １＋１／１！＋１／２！＋１／３！＋．．．＋１／ｎ！计算，使用１／（ｎ－１）！／ｎ的方式计算１／ｎ！
 e = 1
 item = 1
 for i in range(1, number + 1):
     item = item / i
     e = e + item
 print(format(e, ".100f"))
-#
+# 使用 １／ｎ！＋．．．＋１／３！＋１／２！＋１／１！＋１计算，使用１＊２＊３＊．．．＊ｎ的方式计算ｎ！
 e = 0
+number = number0
 while number > 0:
     item = 1
     for j in range(1, number + 1):
         item = item * j
     e = e + 1 / item
+    number -= 1
+e = e + 1
+print(format(e, ".100f"))
+# 使用 １／ｎ！＋．．．＋１／３！＋１／２！＋１／１！＋１计算，使用１／（ｎ－１）！／ｎ的方式计算１／ｎ！
+e = 0
+number = number0
+while number > 0:
+    item = 1
+    for j in range(1, number + 1):
+        item = item / j
+    e = e + item
     number -= 1
 e = e + 1
 print(format(e, ".100f"))
