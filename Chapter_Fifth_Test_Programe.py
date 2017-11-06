@@ -147,10 +147,26 @@ while i <= 20:
     print(format(math.sqrt(i),".4f"))
     i += 2
 print("___________________________")
-'''
+
 # 5.9 （财务应用程序：计算未来学费）假设大学今年的学费是１００００美元，且以每年５％增长。编写程序计算十年之后的学费以及
 # 从现在开始到十年后大学四年的总学费。
-
+costCurrent = 10000
+costSumFourYear = 0
+costYear1 = 0
+costYear2 = 0
+costYear3 = 0
+costYear4 = 0
+for i in range(1, 14):
+    costYear1 = costYear2
+    costYear2 = costYear3
+    costYear3 = costYear4
+    costYear4 = costCurrent
+    costSumFourYear = costYear1 + costYear2 + costYear3 + costYear4
+    print("第", i, "年的学费为", costCurrent, "美元。")
+    if i > 3:
+        print("第", i - 3, "到第", i, "年的四年学费合计为", costSumFourYear, "美元")
+    costCurrent = costCurrent + costCurrent * 0.05
+'''
 # 5.10 （找出最高分）编写程序提示用户输入学生个数以及每个学生的分数，然后显示最高分。假设输入是存储在一个名
 # 为ｓｃｏｒｅ．ｔｘｔ的文件，程序从这个文件获取输入。
 
