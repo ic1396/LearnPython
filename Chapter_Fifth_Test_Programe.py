@@ -252,7 +252,26 @@ print()
 
 # 5.22 （显示在２和１０００之间的素数）修改程序清单５－１３，显示在２和１０００之间且包括２和１０００的素数，每行显示８
 # 个素数。
+j = 0
+isPrime = False
+def is_prime(n):
+    if n == 1:
+        return False
+    for i in range(2, int(sqrt(n))+1):
+        if n % i == 0:
+            return False
+    return True
 
+for i in range(2, 1001):
+    for j in range(2, int(sqrt(i)) + 1):
+        if i % j == 0:
+            break
+
+            print(i, end = " ")
+            j += 1
+        else:
+            print(i)
+            j = 0
 # 5.23 （财务应用程序：比较不同利率的贷款）编写程序让用户输入贷款额以及以年为单位的贷款周期，然后显示利率从５％开始，
 # 每次增加１／８，直到８％的每月还贷额和总的还款额。
 
