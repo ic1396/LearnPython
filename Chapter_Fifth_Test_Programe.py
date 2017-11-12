@@ -171,6 +171,7 @@ for i in range(1, 14):
 # 为ｓｃｏｒｅ．ｔｘｔ的文件，程序从这个文件获取输入。
 
 # 5.11 （找出两个最高分）编写程序提示用户输入学生个数以及每个学生的分数，然后显示最高分和次高分的分数。
+
 '''
 # 5.12 （找出可被５和６同时整除的数）编写程序找出在１００和１０００之间所有被５和６同时整除的数，每行显示１０个数。这
 # 些数被一个空格隔开。
@@ -263,11 +264,40 @@ for i in range(1, n + 1):
     for j in range(1, n - i):
         print(" ", " ", end="")
     print()
-'''
+
 # 5.20 （使用循环显示四种模式）使用嵌套循环在四个独立的程序中显示下面四种模式。
+for i in range(1, 8):
+    for j in range(1, i):
+        print(j, end=" ")
+    print()
+for i in range(1, 7):
+    for j in range(1, 8 - i):
+        print(j, end=" ")
+    print()
+for i in range(1, 7):
+    for j in range(1, 7 - i):
+        print(" ", end=" ")
+    for k in range(i - 0, 0, -1):
+        print(k, end=" ")
+    print()
+for i in range(1, 7):
+    for j in range(1, i):
+        print(" ", end=" ")
+    for k in range(1, 8 - i):
+        print(k, end=" ")
+    print()
 
 # 5.21 （在金字塔模式中显示数字）编写一个嵌套ｆｏｒ循环来显示下面的输出。
-'''
+n = 10
+for i in range(0, n):
+    for j in range(0, n - 1 - i):
+        print(format(" ", "4s"), end="")
+    for k in range(0, i + 1):
+        print(format(pow(2, k), "4d"), end="")
+    for k in range(i - 1, -1 , -1):
+        print(format(pow(2, k), "4d"), end="")
+    print()
+
 # 5.22 （显示在２和１０００之间的素数）修改程序清单５－１３，显示在２和１０００之间且包括２和１０００的素数，每行显示８
 # 个素数。
 # 没有使用程序清单５－１３的方法，
@@ -288,13 +318,61 @@ for i in range(2, 1001):
     elif (isPrime):
         print(i)
         k = 0
-'''
+
 # 5.23 （财务应用程序：比较不同利率的贷款）编写程序让用户输入贷款额以及以年为单位的贷款周期，然后显示利率从５％开始，
 # 每次增加１／８，直到８％的每月还贷额和总的还款额。
+# Enter annual interest rate as a percentage, e.g., 7.25
+#annualInterestRate = eval(input("Enter annual interest rate, e.g., 7.25 : "))
+
+#Enter loan amount
+loanAmount = eval(input("Enter loan amount, e.g., 120000.95 :"))
+
+# Enter number of years
+numberofYears = eval(input("Enter number of years as an integer, e.g., 5 :"))
+
+print("Interest Rate       Monthly Payment     Total Payment       ")
+for i in range(0, 25):
+    annualInterestRate = 5 + i * 0.125
+    monthlyInterestRate = annualInterestRate / 1200
+    # Calculate payment
+    monthlyPayment = loanAmount * monthlyInterestRate / (1 - 1 / (1 + monthlyInterestRate) ** (numberofYears * 12))
+    totalPayment = monthlyPayment * numberofYears * 12
+    # Display results
+    print(format(annualInterestRate / 100, "20.3%"), end="")
+    print(format(monthlyPayment, "20.2f"), end="")
+    print(format(totalPayment, "20.2f"))
 
 # 5.24 （财务应用程序：贷款摊销时间表）编写程序让用户输入贷款额、年数以及利率，然后显示贷款摊销时间表。
+# Enter annual interest rate as a percentage, e.g., 7.25
+annualInterestRate = eval(input("Enter annual interest rate, e.g., 7.25 : "))
+monthlyInterestRate = annualInterestRate / 1200
 
-'''
+# Enter number of years
+numberofYears = eval(input("Enter number of years as an integer, e.g., 5 :"))
+
+#Enter loan amount
+loanAmount = eval(input("Enter loan amount, e.g., 120000.95 :"))
+
+# Calculate payment
+monthlyPayment = loanAmount * monthlyInterestRate / (1 - 1 / (1 + monthlyInterestRate) ** (numberofYears * 12))
+totalPayment = monthlyPayment * numberofYears * 12
+
+# Display results
+print("The monthly payment is ",int(monthlyPayment * 100) / 100)
+print("The total payment is ",int(totalPayment * 100) / 100)
+balance = loanAmount
+principal = 0
+print("Payments#      Interest       Principal      Balance        ")
+for i in range(1, numberofYears * 12 + 1):
+    interest = monthlyInterestRate * balance
+    principal = monthlyPayment - interest
+    balance = balance - principal
+    # Display results
+    print(format(i, "7d"), end="")
+    print(format(interest, "15.2f"), end="")
+    print(format(principal, "15.2f"), end="")
+    print(format(balance, "15.2f"))
+
 # 5.25 （演示消除错误）当你操作一个非常大的数和非常小的数时，就会出现消除错误。大数可能会抵消比较小的数。为了避免消除
 # 错误并获取更精确的结果，应该仔细选择计算的顺序。例如：在计算下面数列的过程中，可以从右向左而不是从左向右计算，这样将
 # 会获取更精确地结果。
@@ -303,13 +381,13 @@ total = 0
 for i in range(1, 50001):
     total = total + 1 / i
 print(format(total, ".100f"))
+# 使用１／ｎ＋．．．＋１／３＋１／２＋１的顺序计算
 total = 0
 number = 50000
 while number > 0:
     total = total + 1 / number
     number -= 1
 print(format(total, ".100f"))
-# 使用１／ｎ＋．．．＋１／３＋１／２＋１的顺序计算
 
 # 5.26 （数列求和）编写程序对下面的数列求和。
 # 使用１／３＋３／５＋５／７＋．．．＋９７／９９计算
