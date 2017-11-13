@@ -325,12 +325,12 @@ for i in range(2, 1001):
 #annualInterestRate = eval(input("Enter annual interest rate, e.g., 7.25 : "))
 
 #Enter loan amount
-loanAmount = eval(input("Enter loan amount, e.g., 120000.95 :"))
+loanAmount = eval(input("请输入贷款总额，例如　120000.95："))
 
 # Enter number of years
-numberofYears = eval(input("Enter number of years as an integer, e.g., 5 :"))
+numberofYears = eval(input("请输入贷款年限，以年为单位，整年计算，例如　5："))
 
-print("Interest Rate       Monthly Payment     Total Payment       ")
+print("    利率                月还款额            总还款额        ")
 for i in range(0, 25):
     annualInterestRate = 5 + i * 0.125
     monthlyInterestRate = annualInterestRate / 1200
@@ -362,7 +362,7 @@ print("The monthly payment is ",int(monthlyPayment * 100) / 100)
 print("The total payment is ",int(totalPayment * 100) / 100)
 balance = loanAmount
 principal = 0
-print("Payments#      Interest       Principal      Balance        ")
+print("    第  月         利息           还款额         余额       ")
 for i in range(1, numberofYears * 12 + 1):
     interest = monthlyInterestRate * balance
     principal = monthlyPayment - interest
@@ -464,15 +464,66 @@ for i in range(2001, 2101):
 '''
 # 5.30 （显示每个月的第一天）编写程序提示用户输入年份以及该年的第一天是星期几，然后在控制台上显示该年每个月的第一天是
 # 星期几。
-
+year = eval(input("请输入年份："))
+weekdayOfFirstDay = eval(input("请输入本年的第一天（一月一日）是星期几（星期日输入０，其它输入对应数字）："))
+month = 1
+weekday = 0
+print(year, "年", month, "月 １ 日是星期", weekday)
 # 5.31 （显示日历）编写程序提示用户输入年份以及该年的第一天是星期几，然后在控制台上显示该年的日历表。
+year = eval(input("请输入年份："))
+weekdayOfFirstDay = eval(input("请输入本年的第一天（一月一日）是星期几（星期日输入０，其它输入对应数字）："))
+month = 1
+weekday = 0
+print("             ", year, "年", month, "月           ")
+print("---------------------------------------------------")
+print("星期日  星期一  星期二  星期三  星期四  星期五  星期六")
 
 # 5.32 （财务应用程序：复合值）编写程序提使用户输入一个数额、年利率和月份数，然后显示给定的月份之后的储蓄账户上的数额。
+yearInterestRate = eval(input("请输入年利率，例如　7.25："))
+
+amountOfMonths = eval(input("请输入月存款额，例如　120.95："))
+
+numberofMonth = eval(input("请输入存款总月数　5："))
+print("    月份    存款总额    ")
 
 # 5.33 （财务应用程序：计算ＣＤ值）编写程序提使用户输入一个数额、年收益率以及月份数，然后显示如下所示的示例运行结果。
+annualPercentageYield = eval(input("请输入年收益率，例如　7.25："))
+
+initialDepositAmount = eval(input("请输入投资总额，例如　120.95："))
+
+numberofMonths = eval(input("请输入投资总月数　5："))
+print("    月份        总收益额    ")
 
 # 5.34 （游戏：彩票）改写程序清单４－１０来随机产生一个两位数的抽奖数。数字中的两位是不同的。
+# Generate a lottery number
+lottery = random.randint(0, 99)
 
+# Prompt the user to enter a guess
+guess = eval(input("Enter your lottery pick (two digits): "))
+
+# Get digits from lottery
+lotteryDigit1 = lottery // 10
+lotteryDigit2 = lottery % 10
+
+# Get digits from guess
+guessDigit1 = guess // 10
+guessDigit2 = guess % 10
+
+print("The lottery number is", lottery)
+
+# Check the guess
+if guess == lottery:
+    print("Exact match: you win $10,000")
+elif (guessDigit2 == lotteryDigit1 and \
+  guessDigit1 == lotteryDigit2):
+    print("Match all digits: you win $3,000")
+elif (guessDigit1 == lotteryDigit1
+        or guessDigit1 == lotteryDigit2
+        or guessDigit2 == lotteryDigit1
+        or guessDigit2 == lotteryDigit2):
+    print("Match one digit: you win $1,000")
+else:
+    print("Sorry, no match")
 '''
 # 5.35 （完全数）如果一个正整数等于除了它本身之外所有正因子的和，那么这个数被称为完全数。例如６＝３＋２＋１，
 # ２８＝１４＋７＋４＋２＋１。小于１００００的完全数有四个。编写程序找出这四个数。
@@ -488,6 +539,32 @@ for i in range(2, 10001):
 '''
 # 5.36 （游戏：石头、剪刀、布）编程题４．１７给出玩石头、剪刀、布游戏的程序。改写程序让用户不断玩直到用户或计算机中的某
 # 一方能够赢得游戏超过两次。
+# 剪刀
+SCISSOR = 0
+# 石头
+ROCK = 1
+# 布
+PAPER = 2
+guess = eval(input("请输入0、１、２中的一个整数, 其中 0：剪刀, 1：石头, 2：布: "))
+num = random.randint(0, 2)
+if guess == SCISSOR:
+    print("You are 剪刀. ")
+elif guess == ROCK:
+    print("You are 石头. ")
+elif guess == PAPER:
+    print("You are 布. ")
+if num == SCISSOR:
+    print("Computer are 剪刀. ")
+elif num == ROCK:
+    print("Computer are 石头. ")
+elif num == PAPER:
+    print("Computer are 布. ")
+if guess == num:
+    print("It is a draw.")
+elif (guess < num and not(num == PAPER and guess == SCISSOR)) or (num == SCISSOR and guess == PAPER):
+    print("You lost.")
+elif (guess > num and not(guess == PAPER and num == SCISSOR)) or (guess == SCISSOR and num == PAPER):
+    print("You won.")
 
 # 5.37 （求和）编写程序计算下面的和。
 
