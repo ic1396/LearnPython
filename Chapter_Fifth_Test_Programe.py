@@ -461,23 +461,60 @@ for i in range(2001, 2101):
         else:
             print(i)
             j = 0
-'''
+
 # 5.30 （显示每个月的第一天）编写程序提示用户输入年份以及该年的第一天是星期几，然后在控制台上显示该年每个月的第一天是
 # 星期几。
 year = eval(input("请输入年份："))
 weekdayOfFirstDay = eval(input("请输入本年的第一天（一月一日）是星期几（星期日输入０，其它输入对应数字）："))
-month = 1
-weekday = 0
-print(year, "年", month, "月 １ 日是星期", weekday)
+weekday = weekdayOfFirstDay
+monthday = 31
+for i in range(1, 13):
+    print(year, "年", i, "月 １ 日是星期", weekday)
+    if (i == 2) and (((year % 4 == 0) and (year % 100 != 0)) or (year % 400 == 0)):
+        monthday = 29
+    elif i == 2:
+        monthday = 28
+    elif (i == 1 or i == 3 or i == 5 or i == 7 or i == 8 or i == 10 or i == 12):
+        monthday = 31
+    elif (i == 4 or i == 6 or i == 9 or i == 11):
+        monthday = 30
+    for j in range(1, monthday + 1):
+        weekday += 1
+        if weekday == 7:
+            weekday = 0
+
 # 5.31 （显示日历）编写程序提示用户输入年份以及该年的第一天是星期几，然后在控制台上显示该年的日历表。
 year = eval(input("请输入年份："))
 weekdayOfFirstDay = eval(input("请输入本年的第一天（一月一日）是星期几（星期日输入０，其它输入对应数字）："))
 month = 1
-weekday = 0
-print("             ", year, "年", month, "月           ")
-print("---------------------------------------------------")
-print("星期日  星期一  星期二  星期三  星期四  星期五  星期六")
-
+monthday = 0
+weekday = weekdayOfFirstDay
+for month in range(1, 13):
+    print("             ", year, "年", month, "月           ")
+    print("---------------------------------------------------")
+    print("  星期日  星期一  星期二  星期三  星期四  星期五  星期六")
+    if (month == 2) and (((year % 4 == 0) and (year % 100 != 0)) or (year % 400 == 0)):
+        monthday = 29
+    elif month == 2:
+        monthday = 28
+    elif (month == 1 or month == 3 or month == 5 or month == 7 or month == 8 or month == 10 or \
+                      month == 12):
+        monthday = 31
+    elif (month == 4 or month == 6 or month == 9 or month == 11):
+        monthday = 30
+    for j in range(1, monthday + 1):
+        if j == 1:
+            for i in range(1, weekday):
+                print(format(" ", "10s"), end="")
+            print(format(j, "6d"), end="")
+        else:
+            print(format(j, "6d"), end="")
+        weekday += 1
+        if weekday == 7:
+            weekday = 0
+            print()
+    print()
+'''
 # 5.32 （财务应用程序：复合值）编写程序提使用户输入一个数额、年利率和月份数，然后显示给定的月份之后的储蓄账户上的数额。
 yearInterestRate = eval(input("请输入年利率，例如　7.25："))
 
