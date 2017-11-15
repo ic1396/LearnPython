@@ -6,6 +6,7 @@
 import random
 import time
 import math
+import turtle
 
 '''
 # 5.1 （统计正数和负数的个数然后计算这些数的平均值）编写一个程序来读入不指定个数的整数，然后决定已经读取的整数
@@ -514,27 +515,36 @@ for month in range(1, 13):
             weekday = 0
             print()
     print()
-'''
+
 # 5.32 （财务应用程序：复合值）编写程序提使用户输入一个数额、年利率和月份数，然后显示给定的月份之后的储蓄账户上的数额。
 yearInterestRate = eval(input("请输入年利率，例如　7.25："))
-
 amountOfMonths = eval(input("请输入月存款额，例如　120.95："))
-
 numberofMonth = eval(input("请输入存款总月数　5："))
-print("    月份    存款总额    ")
+total = 0
+print("    月份      存款总额    ")
+print("-----------------------")
+for i in range(1, numberofMonth + 1):
+    total= (total + amountOfMonths) * (1 + yearInterestRate / 12 / 100)
+    print(format(i, "8d"), format(total, "10.3f"))
 
 # 5.33 （财务应用程序：计算ＣＤ值）编写程序提使用户输入一个数额、年收益率以及月份数，然后显示如下所示的示例运行结果。
 annualPercentageYield = eval(input("请输入年收益率，例如　7.25："))
-
 initialDepositAmount = eval(input("请输入投资总额，例如　120.95："))
-
 numberofMonths = eval(input("请输入投资总月数　5："))
+total = initialDepositAmount
 print("    月份        总收益额    ")
+print("---------------------------")
+for i in range(1, numberofMonths + 1):
+    total= total * (1 + annualPercentageYield / 12 / 100)
+    print(format(i, "8d"), format(total, "10.3f"))
 
 # 5.34 （游戏：彩票）改写程序清单４－１０来随机产生一个两位数的抽奖数。数字中的两位是不同的。
 # Generate a lottery number
-lottery = random.randint(0, 99)
-
+lottery0 = random.randint(0, 9)
+lottery1 = lottery0
+while lottery1 == lottery0:
+    lottery1 = random.randint(0, 9)
+lottery = lottery1 * 10 + lottery0
 # Prompt the user to enter a guess
 guess = eval(input("Enter your lottery pick (two digits): "))
 
@@ -561,7 +571,7 @@ elif (guessDigit1 == lotteryDigit1
     print("Match one digit: you win $1,000")
 else:
     print("Sorry, no match")
-'''
+
 # 5.35 （完全数）如果一个正整数等于除了它本身之外所有正因子的和，那么这个数被称为完全数。例如６＝３＋２＋１，
 # ２８＝１４＋７＋４＋２＋１。小于１００００的完全数有四个。编写程序找出这四个数。
 for i in range(2, 10001):
@@ -573,7 +583,7 @@ for i in range(2, 10001):
         j += 1
     if i == total:
         print(i)
-'''
+
 # 5.36 （游戏：石头、剪刀、布）编程题４．１７给出玩石头、剪刀、布游戏的程序。改写程序让用户不断玩直到用户或计算机中的某
 # 一方能够赢得游戏超过两次。
 # 剪刀
@@ -582,31 +592,43 @@ SCISSOR = 0
 ROCK = 1
 # 布
 PAPER = 2
-guess = eval(input("请输入0、１、２中的一个整数, 其中 0：剪刀, 1：石头, 2：布: "))
-num = random.randint(0, 2)
-if guess == SCISSOR:
-    print("You are 剪刀. ")
-elif guess == ROCK:
-    print("You are 石头. ")
-elif guess == PAPER:
-    print("You are 布. ")
-if num == SCISSOR:
-    print("Computer are 剪刀. ")
-elif num == ROCK:
-    print("Computer are 石头. ")
-elif num == PAPER:
-    print("Computer are 布. ")
-if guess == num:
-    print("It is a draw.")
-elif (guess < num and not(num == PAPER and guess == SCISSOR)) or (num == SCISSOR and guess == PAPER):
-    print("You lost.")
-elif (guess > num and not(guess == PAPER and num == SCISSOR)) or (guess == SCISSOR and num == PAPER):
-    print("You won.")
+computer = 0
+person = 0
+while abs(computer - person) < 2:
+    guess = eval(input("请输入0、１、２中的一个整数, 其中 0：剪刀, 1：石头, 2：布: "))
+    num = random.randint(0, 2)
+    if guess == SCISSOR:
+        print("You are 剪刀. ")
+    elif guess == ROCK:
+        print("You are 石头. ")
+    elif guess == PAPER:
+        print("You are 布. ")
+    if num == SCISSOR:
+        print("Computer are 剪刀. ")
+    elif num == ROCK:
+        print("Computer are 石头. ")
+    elif num == PAPER:
+        print("Computer are 布. ")
+    if guess == num:
+        print("It is a draw.")
+    elif (guess < num and not(num == PAPER and guess == SCISSOR)) or \
+            (num == SCISSOR and guess == PAPER):
+        print("You lost.")
+        computer += 1
+    elif (guess > num and not(guess == PAPER and num == SCISSOR)) or \
+            (guess == SCISSOR and num == PAPER):
+        print("You won.")
+        person += 1
 
 # 5.37 （求和）编写程序计算下面的和。
-
+total = 0
+for i in range(625, 1, -1):
+    total = total + 1 / (math.sqrt(i) + math.sqrt(i - 1))
+print(total)
+'''
 # 5.38 （模拟：时钟倒计时）你可以使用ｔｉｍｅ模块中的ｔｉｍｅ．ｓｌｅｅｐ（ｓｅｃｏｎｄｓ）函数让程序暂停指定的秒数。
 
+'''
 # 5.39 （财务应用程序：找出销售额）编写程序找出为了挣３００００美元，你的最小销售额。
 
 # 5.40 （模拟：硬币正反面）编写程序模拟将硬币翻一百万次，然后显示硬币出现正面和反面的次数。
@@ -640,5 +662,18 @@ elif (guess > num and not(guess == PAPER and num == SCISSOR)) or (guess == SCISS
 # 5.53 （Turtle：绘制ｓｉｎ函数和ｃｏｓ函数）编写程序绘制蓝色的ｓｉｎ函数和红色的ｃｏｓ函数。
 
 # 5.54 （Turtle：绘制平方函数）编写程序绘制平方函数示意图。
-
+'''
 # 5.55 （Turtle：棋盘）编写程序绘制一个棋盘，如图所示（国际象棋棋盘）。
+width = 30
+length = 30
+for i in range(4, -5, -1):
+    turtle.penup()
+    turtle.goto(0 - 4 * width, i * length)
+    turtle.pendown()
+    turtle.goto(0 + 4 * width, i * length)
+for i in range(4, -5, -1):
+    turtle.penup()
+    turtle.goto(i * width, 0 + 4 * length)
+    turtle.pendown()
+    turtle.goto(i * width, 0 - 4 * length)
+turtle.done()
