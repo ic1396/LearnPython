@@ -658,22 +658,62 @@ print(total)
 
 # 5.52 （Turtle：绘制ｓｉｎ函数）编写程序绘制ｓｉｎ函数，如图所示。在点（－１００，－１５）处显示－２Ｐｉ，坐标原点在
 # （０，０）处，在点（１００，－１５）出显示２Ｐｉ。
-
+'''
 # 5.53 （Turtle：绘制ｓｉｎ函数和ｃｏｓ函数）编写程序绘制蓝色的ｓｉｎ函数和红色的ｃｏｓ函数。
 
-# 5.54 （Turtle：绘制平方函数）编写程序绘制平方函数示意图。
 '''
+# 5.54 （Turtle：绘制平方函数）编写程序绘制平方函数示意图。
+# Ｙ轴
+turtle.penup()
+turtle.goto(-300, 0)
+turtle.pendown()
+turtle.goto(300, 0)
+# Ｘ轴
+turtle.penup()
+turtle.goto(0, -300)
+turtle.pendown()
+turtle.goto(0, 300)
+# Ｆ（ｘ）＝ ｘ * ｘ 曲线
+turtle.penup()
+turtle.goto(-15, 15 * 15)
+turtle.pendown()
+for x in range(-15, 16, 1):
+    turtle.goto(x, x * x)
+turtle.done()
+
 # 5.55 （Turtle：棋盘）编写程序绘制一个棋盘，如图所示（国际象棋棋盘）。
 width = 30
 length = 30
-for i in range(4, -5, -1):
-    turtle.penup()
-    turtle.goto(0 - 4 * width, i * length)
-    turtle.pendown()
-    turtle.goto(0 + 4 * width, i * length)
-for i in range(4, -5, -1):
-    turtle.penup()
-    turtle.goto(i * width, 0 + 4 * length)
-    turtle.pendown()
-    turtle.goto(i * width, 0 - 4 * length)
+centerX = 0
+centerY = 0
+fillcolorFirst = "black"
+for x in range(4, -4, -1):
+    fillcolor = fillcolorFirst
+    if fillcolorFirst == "white":
+        fillcolorFirst = "black"
+    elif fillcolorFirst == "black":
+        fillcolorFirst = "white"
+    for y in range(4, -4, -1):
+        turtle.penup()
+        turtle.goto(centerX + x * width, centerY + y * length)
+        turtle.pendown()
+        turtle.begin_fill()
+        turtle.color(fillcolor)
+        turtle.goto(centerX + x * width, centerY + (y - 1) * length)
+        turtle.goto(centerX + (x - 1) * width, centerY + (y - 1) * length)
+        turtle.goto(centerX + (x - 1) * width, centerY + y * length)
+        turtle.goto(centerX + x * width, centerY + y * length)
+        turtle.end_fill()
+        if fillcolor == "white":
+            fillcolor = "black"
+        elif fillcolor == "black":
+            fillcolor = "white"
+turtle.penup()
+turtle.goto(centerX + 4 * width, centerY + 4 * length)
+turtle.pendown()
+turtle.goto(centerX + 4 * width, centerY - 4 * length)
+turtle.goto(centerX - 4 * width, centerY - 4 * length)
+turtle.goto(centerX - 4 * width, centerY + 4 * length)
+turtle.goto(centerX + 4 * width, centerY + 4 * length)
 turtle.done()
+'''
