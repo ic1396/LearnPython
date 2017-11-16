@@ -651,17 +651,74 @@ print(total)
 # 5.48 （Turtle：绘制圆）编写程序绘制１０个圆，中心选在（０，０）。
 
 # 5.49 （Turtle：显示乘法口诀表）编写程序显示一个乘法口诀表。
-
+'''
 # 5.50 （Turtle：显示三角形图案的数字）编写程序显示三角形图案的数字。
 
+'''
 # 5.51 （Turtle：显示一个格子）编写程序显示１８＊１８的格子。
+width = 15
+length = 15
+centerX = 0
+centerY = 0
+for i in range(-9, 10):
+    turtle.penup()
+    turtle.goto(centerX + i * width, centerY - 9 * length)
+    turtle.pendown()
+    turtle.goto(centerX + i * width, centerY + 9 * length)
+for i in range(-9, 10):
+    turtle.penup()
+    turtle.goto(centerX - 9 * width, centerY + i * length)
+    turtle.pendown()
+    turtle.goto(centerX + 9 * width, centerY + i * length)
+turtle.done()
 
 # 5.52 （Turtle：绘制ｓｉｎ函数）编写程序绘制ｓｉｎ函数，如图所示。在点（－１００，－１５）处显示－２Ｐｉ，坐标原点在
 # （０，０）处，在点（１００，－１５）出显示２Ｐｉ。
-'''
-# 5.53 （Turtle：绘制ｓｉｎ函数和ｃｏｓ函数）编写程序绘制蓝色的ｓｉｎ函数和红色的ｃｏｓ函数。
+# Ｙ轴
+turtle.penup()
+turtle.goto(-300, 0)
+turtle.pendown()
+turtle.goto(300, 0)
+# Ｘ轴
+turtle.penup()
+turtle.goto(0, -300)
+turtle.pendown()
+turtle.goto(0, 300)
+# Ｆ（ｘ）＝ ｘ * ｘ 曲线
+turtle.penup()
+turtle.goto(-290, 50 * math.sin((-290 / 100) * 2 * math.pi))
+turtle.pendown()
+for x in range(-290, 291):
+    turtle.goto(x, 50 * math.sin((x / 100) * 2 * math.pi))
+turtle.done()
 
-'''
+# 5.53 （Turtle：绘制ｓｉｎ函数和ｃｏｓ函数）编写程序绘制蓝色的ｓｉｎ函数和红色的ｃｏｓ函数。
+# Ｙ轴
+turtle.penup()
+turtle.goto(-300, 0)
+turtle.pendown()
+turtle.goto(300, 0)
+# Ｘ轴
+turtle.penup()
+turtle.goto(0, -300)
+turtle.pendown()
+turtle.goto(0, 300)
+# Ｆ（ｘ）＝ ｘ * ｘ 曲线
+turtle.penup()
+turtle.goto(-175, 50 * math.sin((-175 / 100) * 2 * math.pi))
+turtle.pendown()
+turtle.color("blue")
+for x in range(-175, 176):
+    turtle.goto(x, 50 * math.sin((x / 100) * 2 * math.pi))
+# Ｆ（ｘ）＝ ｘ * ｘ 曲线
+turtle.penup()
+turtle.goto(-175, 50 * math.cos((-175 / 100) * 2 * math.pi))
+turtle.pendown()
+turtle.color("red")
+for x in range(-175, 176):
+    turtle.goto(x, 50 * math.cos((x / 100) * 2 * math.pi))
+turtle.done()
+
 # 5.54 （Turtle：绘制平方函数）编写程序绘制平方函数示意图。
 # Ｙ轴
 turtle.penup()
@@ -675,10 +732,10 @@ turtle.pendown()
 turtle.goto(0, 300)
 # Ｆ（ｘ）＝ ｘ * ｘ 曲线
 turtle.penup()
-turtle.goto(-15, 15 * 15)
+turtle.goto(-150, 150 * 150 / 100)
 turtle.pendown()
-for x in range(-15, 16, 1):
-    turtle.goto(x, x * x)
+for x in range(-150, 150, 1):
+    turtle.goto(x, x * x / 100)
 turtle.done()
 
 # 5.55 （Turtle：棋盘）编写程序绘制一个棋盘，如图所示（国际象棋棋盘）。
