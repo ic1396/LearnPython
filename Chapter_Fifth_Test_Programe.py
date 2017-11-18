@@ -641,20 +641,126 @@ print(total)
 # 5.43 （数学问题：组合）编写程序显示从１到７的整数中选取两个数的所有可能组合，同时显示组合的总个数。
 
 # 5.44 （十进制到二进制）编写程序提示用户输入一个十进制数，然后显示它对应的二进制数。
-
+'''
 # 5.45 （十进制到十六进制）编写程序提示用户输入一个十进制数，然后显示它对应的十六进制数。
 
+'''
 # 5.46 （统计方面：计算均值和标准方差）编写一个程序提示用户输入１０个数字，然后使用下面的公式显示均值和标准方差。
+# 
+# total = 0
+# x2 = 0
+# n = eval(input("Enter an integer: "))
+# for i in range(1, n + 1):
+#     number = eval(input("Enter an number: "))
+#     total = total + number
+#     x2 = x2 + number * number
+# print(total)
+# print(x2)
+# mean = total / n
+# deviation = math.sqrt((x2 - total * total) / (n - 1))
+# print(mean)
+# print(deviation)
+# 
+total = 0
+numbers = []
+x2 = 0
+n = eval(input("Enter an integer: "))
+for i in range(1, n + 1):
+    number = eval(input("Enter an number: "))
+    numbers.append(number)
+    total = total + number
+mean = total / n
+for i in range(0, n):
+    x2 = x2 + (numbers[i] - mean) * (numbers[i] - mean)
+deviation = math.sqrt(x2 / (n - 1))
+print(mean)
+print(deviation)
+# 
 
 # 5.47 （Turtle：绘制随机球）编写程序显示１０个随机球，它们在一个宽１２０高１００的矩形里，这个矩形的中心点在（０，０）。
+#
+x = 0
+y = 0
+#
+width = 120
+height = 100
+#
+r = 2
+#
+turtle.penup()
+turtle.goto(x - width / 2, y - height / 2)
+turtle.pendown()
+turtle.goto(x + width / 2, y - height / 2)
+turtle.goto(x + width / 2, y + height / 2)
+turtle.goto(x - width / 2, y + height / 2)
+turtle.goto(x - width / 2, y - height / 2)
+#
+for i in range(1, 11):
+    #
+    x1 = random.randint(x - width / 2 + r, x + width / 2 - r)
+    y1 = random.randint(y - height / 2 + r, y + height / 2 -r)
+    #
+    turtle.penup()
+    turtle.goto(x1, y1 - r)
+    turtle.pendown()
+    turtle.begin_fill()
+    turtle.color("red")
+    turtle.circle(r)
+    turtle.end_fill()
+turtle.done()
 
 # 5.48 （Turtle：绘制圆）编写程序绘制１０个圆，中心选在（０，０）。
+# 
+x = 0
+y = 0
+# 
+r = 10
+# 
+for i in range(1, 11):
+    turtle.penup()
+    turtle.goto(x, y - r * i)
+    turtle.pendown()
+    turtle.circle(r * i)
+turtle.done()
 
 # 5.49 （Turtle：显示乘法口诀表）编写程序显示一个乘法口诀表。
-'''
-# 5.50 （Turtle：显示三角形图案的数字）编写程序显示三角形图案的数字。
+s = ""
+x = 0
+y = 0
+s = "       1  2  3  4  5  6  7  8  9"
+turtle.penup()
+turtle.goto(x, y + 11 * 10)
+turtle.pendown()
+turtle.write(s)
+s = "---------------------------------"
+turtle.penup()
+turtle.goto(x, y + 10 * 10)
+turtle.pendown()
+turtle.write(s)
+for i in range(1, 10):
+    s = format(i, "2d") + "  |"
+    for j in range(1, 10):
+        s = s + format(i * j, "3d")
+    turtle.penup()
+    turtle.goto(x, y + (10 - i) * 10)
+    turtle.pendown()
+    turtle.write(s)
+turtle.done()
 
-'''
+# 5.50 （Turtle：显示三角形图案的数字）编写程序显示三角形图案的数字
+s = ""
+x = 0
+y = 0
+for i in range(1, 11):
+    s = ""
+    for j in range(1, i + 1):
+        s = s + str(j) + " "
+    turtle.penup()
+    turtle.goto(x, y + (10 - i) * 10)
+    turtle.pendown
+    turtle.write(s)
+turtle.done()
+
 # 5.51 （Turtle：显示一个格子）编写程序显示１８＊１８的格子。
 width = 15
 length = 15
