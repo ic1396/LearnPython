@@ -646,12 +646,12 @@ print(total)
 
 '''
 # 5.46 （统计方面：计算均值和标准方差）编写一个程序提示用户输入１０个数字，然后使用下面的公式显示均值和标准方差。
-# 
+# 下面注释的代码是按照书上的计算方法进行编程，给出的标准方差计算公式不正确。
 # total = 0
 # x2 = 0
-# n = eval(input("Enter an integer: "))
+# n = eval(input("请输入一个整数，确定共有多少个数字参见计算: "))
 # for i in range(1, n + 1):
-#     number = eval(input("Enter an number: "))
+#     number = eval(input("请输入一个数后回车: "))
 #     total = total + number
 #     x2 = x2 + number * number
 # print(total)
@@ -660,13 +660,14 @@ print(total)
 # deviation = math.sqrt((x2 - total * total) / (n - 1))
 # print(mean)
 # print(deviation)
-# 
+# 执行的结果和书上的答案不同。
+# 下面的代码使用列表，不是本章内容。
 total = 0
 numbers = []
 x2 = 0
-n = eval(input("Enter an integer: "))
+n = eval(input("请输入一个整数，确定共有多少个数字参见计算: "))
 for i in range(1, n + 1):
-    number = eval(input("Enter an number: "))
+    number = eval(input("请输入一个数后回车: "))
     numbers.append(number)
     total = total + number
 mean = total / n
@@ -675,18 +676,18 @@ for i in range(0, n):
 deviation = math.sqrt(x2 / (n - 1))
 print(mean)
 print(deviation)
-# 
+# 执行的结果和书上的答案不同，书上的平均值计算错误。
 
 # 5.47 （Turtle：绘制随机球）编写程序显示１０个随机球，它们在一个宽１２０高１００的矩形里，这个矩形的中心点在（０，０）。
-#
+# 矩形中心坐标
 x = 0
 y = 0
-#
+# 矩形的宽和高
 width = 120
 height = 100
-#
+# 每个点的半径，假设每个点都一样大，且要保证不将点的任何部分画在矩形外
 r = 2
-#
+# 画矩形
 turtle.penup()
 turtle.goto(x - width / 2, y - height / 2)
 turtle.pendown()
@@ -694,12 +695,12 @@ turtle.goto(x + width / 2, y - height / 2)
 turtle.goto(x + width / 2, y + height / 2)
 turtle.goto(x - width / 2, y + height / 2)
 turtle.goto(x - width / 2, y - height / 2)
-#
+# 画出随机点
 for i in range(1, 11):
-    #
+    # 随机生成点的中心坐标，注意在生成坐标时已考虑点的半径，确保不画在矩形外
     x1 = random.randint(x - width / 2 + r, x + width / 2 - r)
     y1 = random.randint(y - height / 2 + r, y + height / 2 -r)
-    #
+    # 画点
     turtle.penup()
     turtle.goto(x1, y1 - r)
     turtle.pendown()
@@ -710,12 +711,12 @@ for i in range(1, 11):
 turtle.done()
 
 # 5.48 （Turtle：绘制圆）编写程序绘制１０个圆，中心选在（０，０）。
-# 
+# 圆心坐标
 x = 0
 y = 0
-# 
+# 初始圆半径
 r = 10
-# 
+# 画圆
 for i in range(1, 11):
     turtle.penup()
     turtle.goto(x, y - r * i)
