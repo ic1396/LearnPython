@@ -845,7 +845,7 @@ turtle.pendown()
 for x in range(-150, 150, 1):
     turtle.goto(x, x * x / 100)
 turtle.done()
-
+'''
 # 5.55 （Turtle：棋盘）编写程序绘制一个棋盘，如图所示（国际象棋棋盘）。
 width = 30
 length = 30
@@ -881,4 +881,3 @@ turtle.goto(centerX - 4 * width, centerY - 4 * length)
 turtle.goto(centerX - 4 * width, centerY + 4 * length)
 turtle.goto(centerX + 4 * width, centerY + 4 * length)
 turtle.done()
-'''
