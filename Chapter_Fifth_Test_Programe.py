@@ -645,21 +645,78 @@ while count < NUMBER_OF_COUNT:
         front += 1
     count += 1
 print("count is", count, "; front is", front, "; back is ", back)
-'''
 
 # 5.41 （最大数的出现）编写程序读取整数，找出它们中的最大值，然后计算它的出现次数。假使输入以数字０结束。
-
+count = 0
+n_max = 0
+n = eval(input("请输入一个十进制整数: "))
+while n != 0:
+    if n > n_max:
+        n_max = n
+        count = 1
+    elif n == n_max:
+        count += 1
+    n = eval(input("请输入一个十进制整数: "))
+print("最大的数是：",n_max,"，出现了",count,"次")
+'''
 # 5.42 （蒙特卡罗模拟）一个正方形被分为四个更小的区域，如图ａ所示。如果你投掷一个飞镖到这个正方形一百万次，这个飞镖落
 # 在一个奇数区域里的概率是多少？编写程序模拟这个过程然后显示结果。
 
+'''
 # 5.43 （数学问题：组合）编写程序显示从１到７的整数中选取两个数的所有可能组合，同时显示组合的总个数。
+n = 1
+m = 7
+for i in range(n,m):
+    for j in range(i+1,m+1):
+        print(i,j)
+    print("-----------------")
 
 # 5.44 （十进制到二进制）编写程序提示用户输入一个十进制数，然后显示它对应的二进制数。
+n = eval(input("请输入一个十进制正整数: "))
+# 商
+quotient = 0
+# 余数
+remainder = 0
+# n的二进制串
+n2 = ''
 
+quotient = n
+while quotient > 0 :
+    remainder = quotient % 2
+    n2 = str(remainder) + n2
+    quotient //= 2
+
+print(n2)
 # 5.45 （十进制到十六进制）编写程序提示用户输入一个十进制数，然后显示它对应的十六进制数。
-n = eval(input("请输入一个十进制整数: "))
+n = eval(input("请输入一个十进制正整数: "))
+# 商
+quotient = 0
+# 余数
+remainder = 0
+# n的二进制串
+n2 = ''
 
-'''
+quotient = n
+while quotient > 0 :
+    remainder = quotient % 16
+    if remainder < 10:
+        n2 = str(remainder) + n2
+    elif remainder == 10:
+        n2 = 'A' + n2
+    elif remainder == 11:
+        n2 = 'B' + n2
+    elif remainder == 12:
+        n2 = 'C' + n2
+    elif remainder == 13:
+        n2 = 'D' + n2
+    elif remainder == 14:
+        n2 = 'E' + n2
+    elif remainder == 15:
+        n2 = 'F' + n2
+    quotient //= 16
+
+print(n2)
+
 # 5.46 （统计方面：计算均值和标准方差）编写一个程序提示用户输入１０个数字，然后使用下面的公式显示均值和标准方差。
 # 下面注释的代码是按照书上的计算方法进行编程，给出的标准方差计算公式不正确。
 # total = 0
