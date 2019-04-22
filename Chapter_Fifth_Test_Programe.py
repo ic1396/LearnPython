@@ -167,13 +167,55 @@ for i in range(1, 14):
     if i > 3:
         print("第", i - 3, "到第", i, "年的四年学费合计为", costSumFourYear, "美元")
     costCurrent = costCurrent + costCurrent * 0.05
-'''
+
 # 5.10 （找出最高分）编写程序提示用户输入学生个数以及每个学生的分数，然后显示最高分。假设输入是存储在一个名
 # 为ｓｃｏｒｅ．ｔｘｔ的文件，程序从这个文件获取输入。
+# 未考虑成绩并列情况。
+# 输入学生个数
+number = eval(input("Enter the number of students: "))
+
+student1 = input("Enter a student name: ")
+score1 = eval(input("Enter a student score: "))
+
+for i in range(number - 1):
+    student = input("Enter a student name: ")
+    score = eval(input("Enter a student score: "))
+
+    if score > score1:
+        student1 = student
+        score1 = score
+
+print("Top student " + student1 + "'s score is " + str(score1))
+
+# 
 
 # 5.11 （找出两个最高分）编写程序提示用户输入学生个数以及每个学生的分数，然后显示最高分和次高分的分数。
+# 未考虑成绩并列情况。
+# 输入学生个数
+number = eval(input("Enter the number of students: "))
 
-'''
+student1 = input("Enter a student name: ")
+score1 = eval(input("Enter a student score: "))
+
+student2 = input("Enter a student name: ")
+score2 = eval(input("Enter a student score: "))
+
+for i in range(number - 2):
+    student = input("Enter a student name: ")
+    score = eval(input("Enter a student score: "))
+
+    if score > score1:
+        student2 = student1
+        score2 = score1
+        student1 = student
+        score1 = score
+    elif score < score1 and score > score2:
+        student2 = student
+        score2 = score
+
+print("First student " + student1 + "'s score is " + str(score1))
+print("Second student " + student2 + "'s score is " + str(score2))
+
 # 5.12 （找出可被５和６同时整除的数）编写程序找出在１００和１０００之间所有被５和６同时整除的数，每行显示１０个数。这
 # 些数被一个空格隔开。
 j = 0
@@ -658,11 +700,112 @@ while n != 0:
         count += 1
     n = eval(input("请输入一个十进制整数: "))
 print("最大的数是：",n_max,"，出现了",count,"次")
-'''
+
 # 5.42 （蒙特卡罗模拟）一个正方形被分为四个更小的区域，如图ａ所示。如果你投掷一个飞镖到这个正方形一百万次，这个飞镖落
 # 在一个奇数区域里的概率是多少？编写程序模拟这个过程然后显示结果。
+# 图像程序执行一百万次时间太长，设定为100次。
+NUMBER_OF_TRIALS = 100
+numberOfHits = 0
+# 矩形中心坐标
+x = 0
+y = 0
+# 正方形的边长
+length = 300
+# 每个点的半径
+r = 1
+# 画矩形
+turtle.penup()
+turtle.goto(x - length / 2, y - length / 2)
+turtle.pendown()
+turtle.goto(x + length / 2, y - length / 2)
+turtle.goto(x + length / 2, y + length / 2)
+turtle.goto(x - length / 2, y + length / 2)
+turtle.goto(x - length / 2, y - length / 2)
 
-'''
+turtle.penup()
+turtle.goto(x, y - length / 2)
+turtle.pendown()
+turtle.goto(x, y + length / 2)
+
+turtle.penup()
+turtle.goto(x, y)
+turtle.pendown()
+turtle.goto(x + length / 2, y)
+turtle.goto(x, y + length / 2)
+
+turtle.penup()
+turtle.goto(x - length / 2 + 10, y + length / 2 - 20)
+turtle.pendown
+turtle.write('1')
+
+turtle.penup()
+turtle.goto(x + length / 2 - 20, y + length / 2 - 20)
+turtle.pendown
+turtle.write('2')
+
+turtle.penup()
+turtle.goto(x + 10, y + 10)
+turtle.pendown
+turtle.write('3')
+
+turtle.penup()
+turtle.goto(x + length / 2 - 20, y - length / 2 + 10)
+turtle.pendown
+turtle.write('4')
+
+# 画出随机点
+for i in range(NUMBER_OF_TRIALS):
+
+    turtle.color("red")
+    # 生成随机数
+    x1 = random.random() * 2.0 - 1;
+    y1 = random.random() * 2.0 - 1;
+    if x1 < 0:
+        numberOfHits += 1
+        turtle.color("blue")
+    elif not (x1 > 1 or x1 < 0 or y1 > 1 or y1 < 0):
+        slope = (1.0 - 0) / (0 - 1.0)
+        x2 = x1 + -y1 * slope
+        if x2 <= 1:
+          numberOfHits += 1
+          turtle.color("blue")
+
+    # 转换为图形坐标
+    x = x1 * length / 2
+    y = y1 * length / 2
+    # 画点
+    turtle.penup()
+    turtle.goto(x, y - r)
+    turtle.pendown()
+    turtle.begin_fill()
+    turtle.circle(r)
+    turtle.end_fill()
+
+print("The probability in Region 1 and 3 is", 1.0 * numberOfHits / NUMBER_OF_TRIALS)
+# 当前比例
+turtle.penup()
+turtle.goto(-40, length / 2 + 40)
+turtle.color("black")
+turtle.write('当前比例：' + str(numberOfHits) + ' : ' + str(i))
+turtle.done()
+
+NUMBER_OF_TRIALS = 1000000
+numberOfHits = 0
+
+for i in range(NUMBER_OF_TRIALS):
+    x = random.random() * 2.0 - 1;
+    y = random.random() * 2.0 - 1;
+    if x < 0:
+        numberOfHits += 1
+    elif not (x > 1 or x < 0 or y > 1 or y < 0):
+        slope = (1.0 - 0) / (0 - 1.0)
+        x1 = x + -y * slope
+        if x1 <= 1:
+          numberOfHits += 1
+
+print("The probability in Region 1 and 3 is", 1.0 * numberOfHits / NUMBER_OF_TRIALS)
+
+
 # 5.43 （数学问题：组合）编写程序显示从１到７的整数中选取两个数的所有可能组合，同时显示组合的总个数。
 n = 1
 m = 7
