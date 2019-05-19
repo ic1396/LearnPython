@@ -64,7 +64,73 @@ main() # Call the main function
 # 6.14
 
 # 6.15
+# a)
+'''
+def main():
+    max = 0
+    getmax(1, 2, max)
+    print(max)
+def getmax(value1, value2, max):
+    if value1 > value2:
+        max = value1
+    else:
+        max = value2
 
+main()
+'''
+# b)
+'''
+def main():
+    i = 1
+    while i <= 6:
+        print(function(i, 2))
+        i += 1
+
+def function(i, num):
+    line = ""
+    for j in range(1, i):
+        line += str(num) + " "
+        num *= 2
+    return line
+main()
+'''
+# c)
+'''
+def main():
+    # Initialize times
+    times = 3
+    print("Before the call, variable", "times is", times)
+
+    # Invoke nPrintln and display times
+    nPrint("Welcome to CS!", times)
+    print("After the call, variable", "times is", times)
+
+# Print the message n times
+def nPrint(message, n):
+    while n > 0:
+        print("n = ", n)
+        print(message)
+        n -= 1
+main()
+'''
+# d)
+'''
+def main():
+    i = 0
+    while i <= 4:
+        function1(i)
+        i += 1
+        print("i is ", i)
+
+def function1(i):
+    line = " "
+    while i >= 1:
+        if i % 3 != 0:
+            line += str(i) + " "
+            i -= 1
+    print(line)
+main()
+'''
 # 6.16
 
 # 6.17
