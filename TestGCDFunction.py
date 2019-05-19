@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-# 《Python语言程序设计》程序清单6－5
-# Programed List 6-5
+# 《Python语言程序设计》程序清单6－6
+# Programed List 6-6
 # 测试返回两个数的最大公约数函数。
 
 from GCDFunction import gcd     # Import the GCD function
