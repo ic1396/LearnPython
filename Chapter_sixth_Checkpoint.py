@@ -134,19 +134,81 @@ main()
 # 6.16
 
 # 6.17
-
+# a
+'''
+def function(x):
+    print(x)
+    x = 4.5
+    y = 3.4
+    print(y)
+x = 2
+y = 4
+function(x)
+print(x)
+print(y)
+'''
+# b
+'''
+def f(x, y = 1, z = 2):
+    return x + y + z
+print(f(1, 1, 1))
+print(f(y = 1, x = 2, z = 3))
+print(f(1, z = 3))
+'''
 # 6.18
-
+'''
+def function():
+    x = 4.5
+    y = 3.4
+    print(x)
+    print(y)
+function()
+print(x)
+print(y)
+'''
 # 6.19
-
+'''
+x = 10
+if x < 0:
+    y = -1
+else:
+    y = 1
+print("y is", y)
+'''
 # 6.20
+'''
+def f(w = 1, h = 2):
+    print(w, h)
+f()
+f(w = 5)
+f(h = 24)
+f(4, 5)
+'''
+
 
 # 6.21
+'''
+def main():
+    nPrintln(5)
 
+
+def nPrintln(n, message="Welcome to Python!"):
+    for i in range(n):
+        print(message)
+
+
+main()  # Call the main function
+'''
 # 6.22
 
 # 6.23
+'''
+def f(x, y):
+    return x + y, x - y, x * y, x / y
 
+t1, t2, t3, t4 = f(9, 5)
+print(t1, t2, t3, t4)
+'''
 # 6.24
 
 # 6.25
@@ -154,4 +216,3 @@ main()
 # 6.26
 
 # 6.27
-
