@@ -3,14 +3,71 @@
 # Programed List 6-Test Programme
 # 第六章　编程题　６．１～６．４８
 
+'''
 # 6.1
-
+# 一个返回五角数（n * （3 * n - 1） / 2， 其中 n = 1、2、3...）的函数。
+def getPentagonalNumber(n):
+    return int(n * (3 * n - 1) / 2)
+def main():
+    for i in range(1, 101, 1):
+        print(format(getPentagonalNumber(i), "5d"), end=" ")
+        if i % 10 == 0:
+            print()
+main()
 # 6.2
+# 计算一个整数各数字和的函数。
+def sumDigits(n):
+    sum = 0
+    while n > 0:
+        sum = sum + n % 10
+        n = n // 10
+    return sum
 
+def main():
+    n = eval(input("请输入一个正整数："))
+    print("各数字之和为（若输入负数返回 0 ）：", sumDigits(n))
+main()
 # 6.3
-
+# 判断一个数是否为回文数。
+# 生成一个数的反向数
+def reverse(number):
+    if number <= 0:
+        return  0
+    re_number = 0
+    while number > 0:
+        re_number = re_number * 10
+        re_number = re_number + number % 10
+        number = number // 10
+    return re_number
+# 判断一个数是否为回文数
+def isPalindrome(number):
+    if number <= 0:
+        return False
+    return True if number == reverse(number) else False
+def main():
+    n = eval(input("请输入一个正整数："))
+    if isPalindrome(n):
+        print(n, "是一个回文数。")
+    else:
+        print(n, "不是一个回文数。")
+main()
 # 6.4
-
+# 反向显示一个整数
+# 生成一个数的反向数
+def reverse(number):
+    if number <= 0:
+        return  0
+    re_number = 0
+    while number > 0:
+        re_number = re_number * 10
+        re_number = re_number + number % 10
+        number = number // 10
+    return re_number
+def main():
+    n = eval(input("请输入一个正整数："))
+    print(n, "的反向数是", reverse(n))
+main()
+'''
 # 6.5
 
 # 6.6
