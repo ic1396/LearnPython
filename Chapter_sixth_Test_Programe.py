@@ -67,11 +67,31 @@ def main():
     n = eval(input("请输入一个正整数："))
     print(n, "的反向数是", reverse(n))
 main()
-'''
 # 6.5
-
+# 对三个数按升序进行排序。
+def displaySortedNumbers(num1, num2, num3):
+    minnum1 = num1
+    if num2 < num1:
+        minnum1 = num2
+        num2 = num1
+        num1 = minnum1
+    if num3 < num1:
+        minnum1 = num3
+        num3 = num2
+        num2 = num1
+        num1 = minnum1
+    elif num3 < num2:
+        minnum1 = num3
+        num3 = num2
+        num2 = minnum1
+    print("按升序排序为：", num1, num2, num3)
+def main():
+    num1, num2, num3 = eval(input("请输入三个数："))
+    displaySortedNumbers(num1, num2, num3)
+main():
+'''
 # 6.6
-
+# def displayPattern(n):
 # 6.7
 
 # 6.8
