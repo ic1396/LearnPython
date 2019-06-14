@@ -3,6 +3,8 @@
 # Programed List 6-Test Programme
 # 第六章　编程题　６．１～６．４８
 
+from PrimeNumberFunction import *
+
 '''
 # 6.1
 # 一个返回五角数（n * （3 * n - 1） / 2， 其中 n = 1、2、3...）的函数。
@@ -136,13 +138,57 @@ def main():
         print("  ", format(cel - i, "5.1f"), "  |  ", format(celsiusToFahrenheit(cel - i), "8.1f"),"  ||  ",
               format(fah - i * 10, "8.1f"), "  |  ", format(fahrenheitToCelsius(fah - i * 10), "4.2f"))
 main()
-'''
 # 6.9
-
+# 英尺和米间的互相转换
+# 英尺转米
+def footToMeter(foot):
+    return 0.305 * foot
+# 米转英尺
+def meterToFoot(meter):
+    return meter / 0.305
+def main():
+    print("______________________________________________________")
+    print("  Feet  |  Meters  ||  Meters  |  Feet  ")
+    print("------------------------------------------------------")
+    feet = 1.0
+    meters = 20.0
+    for i in range(0, 10, 1):
+        print("  ", format(feet + i, "2.1f"), "  |  ", format(footToMeter(feet + i), "1.3f"),"  ||  ",
+              format(meters + i * 5, "2.1f"), "  |  ", format(meterToFoot(meters + i * 5), "3.3f"))
+main()
 # 6.10
-
+# 计算小于 10000 的素数的个数
+# 列出个数并打印所有小于 10000 的素数
+def main():
+    count = 0
+    Number_Per_line = 10
+    for i in range(2, 10001):
+        if isPrime(i):
+            count += 1
+            print(format(i,"6d"), end='')
+            if count % Number_Per_line == 0:
+                print()
+    print()
+    print("共有", count, "个小于 10000 的素数。")
+main()
 # 6.11
-
+# 计算佣金
+def computeCommission(salesAmount):
+    if 0.01 <= salesAmount <= 5000:
+        return salesAmount * 0.08
+    elif 5000.01 <= salesAmount <= 10000:
+        return 5000 * 0.08 + (salesAmount - 5000) * 0.1
+    elif 10000.01 <= salesAmount:
+        return 5000 * 0.08 + 5000 * 0.1 + (salesAmount - 10000) * 0.12
+def main():
+    print("_______________________________")
+    print("  Sales Amount  |  Commission  ")
+    print("-------------------------------")
+    amount = 10000
+    for i in range(0, 19, 1):
+        print("  ", format(amount + i * 5000, "7d"), "     |  ", format(computeCommission(amount + i * 5000), "6.1f"))
+main()
+'''
 # 6.12
 
 # 6.13
