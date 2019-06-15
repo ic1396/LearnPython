@@ -3,7 +3,7 @@
 # Programed List 6-Test Programme
 # 第六章　编程题　６．１～６．４８
 
-from PrimeNumberFunction import *
+# from PrimeNumberFunction import *
 
 '''
 # 6.1
@@ -188,13 +188,58 @@ def main():
     for i in range(0, 19, 1):
         print("  ", format(amount + i * 5000, "7d"), "     |  ", format(computeCommission(amount + i * 5000), "6.1f"))
 main()
-'''
 # 6.12
-
+# 按规则打印字符串
+def printChars(ch1, ch2, numberPerLine):
+    if ord(ch1) <= ord(ch2):
+        j = 1
+    else:
+        j = -1
+    count = 0
+    for i in range(ord(ch1), ord(ch2) + j, j):
+        print(chr(i), end='')
+        count += 1
+        if count % numberPerLine == 0:
+            print()
+def main():
+    printChars("1", "Z", 10)
+main()
 # 6.13
-
+# 计算指定数列的和
+def computeSum(feed):
+    if feed <= 0:
+        return 0
+    sum = 0
+    for i in range(1, feed + 1, 1):
+        sum += i / (i + 1)
+    return sum
+def main():
+    print("___________________________")
+    print("     i    |      m(i)      ")
+    print("---------------------------")
+    count = 20
+    for i in range(1, count + 1, 1):
+        print("  ", format(i, "3d"), "   |    ", format(computeSum(i), "2.4f"))
+main()
 # 6.14
-
+# 估算 Pi 值
+def computePi(feed):
+    if feed <= 0:
+        return 0
+    sum = 0
+    for i in range(1, feed + 1, 1):
+        sum += 4 * (pow(-1, i + 1) / (2 * i - 1))
+    return sum
+def main():
+    print("___________________________")
+    print("      i    |      Pi(i)    ")
+    print("---------------------------")
+    count = 20
+    print("  ", format(1, "4d"), "   |    ", format(computePi(1), "2.4f"))
+    for i in range(101, 1000, 100):
+        print("  ", format(i, "4d"), "   |    ", format(computePi(i), "2.4f"))
+main()
+'''
 # 6.15
 
 # 6.16
