@@ -239,13 +239,112 @@ def main():
     for i in range(101, 1000, 100):
         print("  ", format(i, "4d"), "   |    ", format(computePi(i), "2.4f"))
 main()
-'''
 # 6.15
-
+# 依据 Programed List 4-7 计算税款
+def computeTax(status, taxableIncome):
+    # Compute tax
+    tax = 0
+    if status == 0:  # Compute tax for single filers
+        if taxableIncome <= 8350:
+            tax = taxableIncome * 0.10
+        elif taxableIncome <= 33950:
+            tax = 8350 * 0.10 + (taxableIncome - 8350) * 0.15
+        elif taxableIncome <= 82250:
+            tax = 8350 * 0.10 + (33950 - 8350) * 0.15 + \
+                (taxableIncome - 33950) * 0.25
+        elif taxableIncome <= 171550:
+            tax = 8350 * 0.10 + (33950 - 8350) * 0.15 + \
+                (82250 - 33950) * 0.25 + (taxableIncome - 82250) * 0.28
+        elif taxableIncome <= 372950:
+            tax = 8350 * 0.10 + (33950 - 8350) * 0.15 + \
+                (82250 - 33950) * 0.25 + (171550 - 82250) * 0.28 + \
+                (taxableIncome - 171550) * 0.33
+        else:
+            tax = 8350 * 0.10 + (33950 - 8350) * 0.15 + \
+                (82250 - 33950) * 0.25 + (171550 - 82250) * 0.28 + \
+                (372950 - 171550) * 0.33 + (taxableIncome - 372950) * 0.35
+    elif status == 1:  # Compute tax for married file jointly
+        if taxableIncome <= 16700:
+            tax = taxableIncome * 0.10
+        elif taxableIncome <= 67900:
+            tax = 16700 * 0.10 + (taxableIncome - 16700) * 0.15
+        elif taxableIncome <= 137050:
+            tax = 16700 * 0.10 + (67900 - 16700) * 0.15 + (taxableIncome - 67900) * 0.25
+        elif taxableIncome <= 208850:
+            tax = 16700 * 0.10 + (67900 - 16700) * 0.15 + (137050 - 67900) * 0.25 + (taxableIncome - 137050) * 0.28
+        elif taxableIncome <= 372950:
+            tax = 16700 * 0.10 + (67900 - 16700) * 0.15 + (137050 - 67900) * 0.25 + (208850 - 137050) * 0.28 + \
+                  (taxableIncome - 208850) * 0.33
+        else:
+            tax = 16700 * 0.10 + (67900 - 16700) * 0.15 + (137050 - 67900) * 0.25 + (208850 - 137050) * 0.28 + \
+                  (372950 - 208850) * 0.33 + (taxableIncome - 372950) * 0.35
+    elif status == 2:  # Compute tax for married separately
+        if taxableIncome <= 8350:
+            tax = taxableIncome * 0.10
+        elif taxableIncome <= 33950:
+            tax = 8350 * 0.10 + (taxableIncome - 8350) * 0.15
+        elif taxableIncome <= 68525:
+            tax = 8350 * 0.10 + (33950 - 8350) * 0.15 + (taxableIncome - 33950) * 0.25
+        elif taxableIncome <= 104425:
+            tax = 8350 * 0.10 + (33950 - 8350) * 0.15 + (68525 - 33950) * 0.25 + (taxableIncome - 68525) * 0.28
+        elif taxableIncome <= 186475:
+            tax = 8350 * 0.10 + (33950 - 8350) * 0.15 + (68525 - 33950) * 0.25 + (104425 - 68525) * 0.28 + \
+                  (taxableIncome - 104425) * 0.33
+        else:
+            tax = 8350 * 0.10 + (33950 - 8350) * 0.15 + (68525 - 33950) * 0.25 + (104425 - 68525) * 0.28 + \
+                  (186475 - 104425) * 0.33 + (taxableIncome - 186475) * 0.35
+    elif status == 3:  # Compute tax for head of household
+        if taxableIncome <= 11950:
+            tax = taxableIncome * 0.10
+        elif taxableIncome <= 45500:
+            tax = 11950 * 0.10 + (taxableIncome - 11950) * 0.15
+        elif taxableIncome <= 117450:
+            tax = 11950 * 0.10 + (45500 - 11950) * 0.15 + (taxableIncome - 45500) * 0.25
+        elif taxableIncome <= 190200:
+            tax = 11950 * 0.10 + (45500 - 11950) * 0.15 + (117450 - 45500) * 0.25 + (taxableIncome - 117450) * 0.28
+        elif taxableIncome <= 372950:
+            tax = 11950 * 0.10 + (45500 - 11950) * 0.15 + (117450 - 45500) * 0.25 + (190200 - 117450) * 0.28 + \
+                  (taxableIncome - 190200) * 0.33
+        else:
+            tax = 11950 * 0.10 + (45500 - 11950) * 0.15 + (117450 - 45500) * 0.25 + (190200 - 117450) * 0.28 + \
+                  (372950 - 190200) * 0.33 + (taxableIncome - 372950) * 0.35
+    return tax
+def main():
+    print("________________________________________________________________________________________")
+    print("  Taxable Income  |  Single  |  Married Joint  |  Married Separate  |  Head of a House  ")
+    print("----------------------------------------------------------------------------------------")
+    for i in range(50000, 60050, 50):
+        print("    ", format(i, "8d"), "    | ", format(computeTax(0, i), "5.0f"), "  |   ",
+              format(computeTax(1, i), "7.0f"), "     |    ", format(computeTax(2, i), "8.0f"), "      |   ",
+              format(computeTax(3, i), "8.0f"))
+main()
 # 6.16
-
+# 判断是否为闰年，闰年返回 366，否则返回 365
+def numberOfDaysInAYear(year):
+    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+        return 366
+    else:
+        return 365
+def main():
+    for i in range(2010, 2021, 1):
+        print(i, "  |  ", numberOfDaysInAYear(i))
+main()
 # 6.17
-
+#  依据三角形三边长计算三角形的面积
+def isValid(side1, side2, side3):
+    return (side1 + side2 > side3) and (side1 + side3 > side2) and (side2 + side3 > side1)
+def area(side1, side2, side3):
+    if isValid(side1, side2, side3):
+        s = (side1 + side2 + side3) / 2
+        areaTriangle = (s * (s - side1) * (s - side2) * (s - side3)) ** 0.5
+        print("三角形的面积为", areaTriangle)
+    else:
+        print("输入错误，边长不构成三角形。")
+def main():
+    side1, side2, side3 = eval(input("请输入三角形的三个边长: "))
+    area(side1, side2, side3)
+main()
+'''
 # 6.18
 
 # 6.19
