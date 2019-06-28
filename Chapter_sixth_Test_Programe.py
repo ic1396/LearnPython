@@ -4,6 +4,7 @@
 # 第六章　编程题　６．１～６．４８
 
 # from PrimeNumberFunction import *
+# import random
 
 '''
 # 6.1
@@ -344,9 +345,17 @@ def main():
     side1, side2, side3 = eval(input("请输入三角形的三个边长: "))
     area(side1, side2, side3)
 main()
-'''
 # 6.18
-
+def printMatrix(n):
+    for i in range(1, n + 1, 1):
+        for j in range(1, n + 1, 1):
+            print(random.randint(0, 1), ' ', end='')
+        print()
+def main():
+    n = eval(input("请输入一个正整数: "))
+    printMatrix(n)
+main()
+'''
 # 6.19
 
 # 6.20
