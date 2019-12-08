@@ -382,11 +382,37 @@ def main():
     elif onTheLineSegment(x0, y0, x1, y1, pointx, pointy):
         print("点在直线上")
 main()
-'''
 # 6.20
-
+def distance(x1, y1, x2, y2):
+    return ((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2)) ** 0.5
+def main():
+    # Enter the first point with two float values
+    x1, y1 = eval(input("Enter x1 and y1 for Point 1: "))
+    # Enter the second point with two float values
+    x2, y2 = eval(input("Enter x2 and y2 for Point 2: "))
+    # Compute the distance
+    distance1 = distance(x1, y1, x2, y2)
+    print("The distance between the two points is ", distance1)
+main()
 # 6.21
-
+def sqrt_Babylon(n):
+    if n <= 0:
+        return n
+    lastGuess = n / 2
+    nextGuess = (lastGuess + (n / lastGuess)) / 2
+    while abs(nextGuess - lastGuess) > 0.00001:
+        lastGuess = nextGuess
+        nextGuess = (lastGuess + (n / lastGuess)) / 2
+    return nextGuess
+def main():
+    n = eval(input("请输入数："))
+    x1 = sqrt_Babylon(n)
+    if x1 < 0:
+        print(n, "是负数，没有平方根")
+    else:
+        print(n, "的平方根是", x1)
+main()
+'''
 # 6.22
 
 # 6.23
