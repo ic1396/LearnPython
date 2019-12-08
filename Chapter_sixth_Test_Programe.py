@@ -355,9 +355,34 @@ def main():
     n = eval(input("请输入一个正整数: "))
     printMatrix(n)
 main()
-'''
 # 6.19
-
+# Return true if point (x2, y2) is on the left side of the
+#  directed line from (x0, y0) to (x1, y1)
+def leftOfTheLine(x0, y0, x1, y1, pointx, pointy):
+    if (x1 - x0) * (pointy - y0) - (pointx - x0) * (y1 - y0) > 0:
+        return True
+# Return true if point (x2, y2) is on the
+#  line segment from (x0, y0) to (x1, y1)
+def onTheLineSegment(x0, y0, x1, y1, pointx, pointy):
+    if (x1 - x0) * (pointy - y0) - (pointx - x0) * (y1 - y0) == 0:
+        return True
+# Return true if point (x2, y2) is on the right side of the
+#  directed line from (x0, y0) to (x1, y1)
+def rightOfTheLine(x0, y0, x1, y1, pointx, pointy):
+    if (x1 - x0) * (pointy - y0) - (pointx - x0) * (y1 - y0) < 0:
+        return True
+def main():
+    x0, y0 = eval(input("请输入点的坐标 x0, y0："))
+    x1, y1 = eval(input("请输入点的坐标 x1, y1："))
+    pointx, pointy = eval(input("请输入点的坐标 x, y："))
+    if leftOfTheLine(x0, y0, x1, y1, pointx, pointy):
+        print("点在直线左侧")
+    elif rightOfTheLine(x0, y0, x1, y1, pointx, pointy):
+        print("点在直线右侧")
+    elif onTheLineSegment(x0, y0, x1, y1, pointx, pointy):
+        print("点在直线上")
+main()
+'''
 # 6.20
 
 # 6.21
