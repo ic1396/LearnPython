@@ -5,9 +5,11 @@
 
 # from PrimeNumberFunction import *
 # import random
+import time
+import datetime
 
 '''
-# 6.1
+# 6.1 （数学方面：五角数）
 # 一个返回五角数（n * （3 * n - 1） / 2， 其中 n = 1、2、3...）的函数。
 def getPentagonalNumber(n):
     return int(n * (3 * n - 1) / 2)
@@ -17,7 +19,7 @@ def main():
         if i % 10 == 0:
             print()
 main()
-# 6.2
+# 6.2 （求一个整数各个数字的和）
 # 计算一个整数各数字和的函数。
 def sumDigits(n):
     sum = 0
@@ -30,7 +32,7 @@ def main():
     n = eval(input("请输入一个正整数："))
     print("各数字之和为（若输入负数返回 0 ）：", sumDigits(n))
 main()
-# 6.3
+# 6.3 （回文整数）
 # 判断一个数是否为回文数。
 # 生成一个数的反向数
 def reverse(number):
@@ -54,7 +56,7 @@ def main():
     else:
         print(n, "不是一个回文数。")
 main()
-# 6.4
+# 6.4 （反向显示一个整数）
 # 反向显示一个整数
 # 生成一个数的反向数
 def reverse(number):
@@ -70,7 +72,7 @@ def main():
     n = eval(input("请输入一个正整数："))
     print(n, "的反向数是", reverse(n))
 main()
-# 6.5
+# 6.5 （对三个数排序）
 # 对三个数按升序进行排序。
 def displaySortedNumbers(num1, num2, num3):
     minnum1 = num1
@@ -92,7 +94,7 @@ def main():
     num1, num2, num3 = eval(input("请输入三个数："))
     displaySortedNumbers(num1, num2, num3)
 main():
-# 6.6
+# 6.6 （显示模式）
 def displayPattern(n):
     for i in range(1, n + 1, 1):
         j = 0
@@ -106,7 +108,7 @@ def main():
     n = eval(input("请输入一个正整数："))
     displayPattern(n)
 main()
-# 6.7
+# 6.7 （财务应用程序：计算未来投资值）
 # 用指定的投资额度、年数和给定的利率计算未来投资价值
 def futureInvestmentValue(investmentAmount, monthlyInterestRate, years):
     return investmentAmount * pow(1 + monthlyInterestRate, years * 12)
@@ -121,7 +123,7 @@ def main():
     for i in range(1, years + 1, 1):
         print(format(i, "3d"), "    ", format(futureInvestmentValue(investmentAmount, yearInterestRate / 12 / 100, i), "6.2f"))
 main()
-# 6.8
+# 6.8 （摄氏度和华氏度之间的转换）
 # 摄氏度和华氏度间的互相转换
 # 摄氏度转华氏度
 def celsiusToFahrenheit(celsius):
@@ -139,7 +141,7 @@ def main():
         print("  ", format(cel - i, "5.1f"), "  |  ", format(celsiusToFahrenheit(cel - i), "8.1f"),"  ||  ",
               format(fah - i * 10, "8.1f"), "  |  ", format(fahrenheitToCelsius(fah - i * 10), "4.2f"))
 main()
-# 6.9
+# 6.9 （英尺和米之间的转换）
 # 英尺和米间的互相转换
 # 英尺转米
 def footToMeter(foot):
@@ -157,7 +159,7 @@ def main():
         print("  ", format(feet + i, "2.1f"), "  |  ", format(footToMeter(feet + i), "1.3f"),"  ||  ",
               format(meters + i * 5, "2.1f"), "  |  ", format(meterToFoot(meters + i * 5), "3.3f"))
 main()
-# 6.10
+# 6.10 （使用 isPrime 函数）
 # 计算小于 10000 的素数的个数
 # 列出个数并打印所有小于 10000 的素数
 def main():
@@ -172,7 +174,7 @@ def main():
     print()
     print("共有", count, "个小于 10000 的素数。")
 main()
-# 6.11
+# 6.11 （财务应用程序：计算佣金）
 # 计算佣金
 def computeCommission(salesAmount):
     if 0.01 <= salesAmount <= 5000:
@@ -189,7 +191,7 @@ def main():
     for i in range(0, 19, 1):
         print("  ", format(amount + i * 5000, "7d"), "     |  ", format(computeCommission(amount + i * 5000), "6.1f"))
 main()
-# 6.12
+# 6.12 （显示字符）
 # 按规则打印字符串
 def printChars(ch1, ch2, numberPerLine):
     if ord(ch1) <= ord(ch2):
@@ -205,7 +207,7 @@ def printChars(ch1, ch2, numberPerLine):
 def main():
     printChars("1", "Z", 10)
 main()
-# 6.13
+# 6.13 （数列求和）
 # 计算指定数列的和
 def computeSum(feed):
     if feed <= 0:
@@ -222,7 +224,7 @@ def main():
     for i in range(1, count + 1, 1):
         print("  ", format(i, "3d"), "   |    ", format(computeSum(i), "2.4f"))
 main()
-# 6.14
+# 6.14 （估算 pi 值）
 # 估算 Pi 值
 def computePi(feed):
     if feed <= 0:
@@ -240,7 +242,7 @@ def main():
     for i in range(101, 1000, 100):
         print("  ", format(i, "4d"), "   |    ", format(computePi(i), "2.4f"))
 main()
-# 6.15
+# 6.15 （财务应用程序：打印税款表）
 # 依据 Programed List 4-7 计算税款
 def computeTax(status, taxableIncome):
     # Compute tax
@@ -319,7 +321,7 @@ def main():
               format(computeTax(1, i), "7.0f"), "     |    ", format(computeTax(2, i), "8.0f"), "      |   ",
               format(computeTax(3, i), "8.0f"))
 main()
-# 6.16
+# 6.16 （一年的天数）
 # 判断是否为闰年，闰年返回 366，否则返回 365
 def numberOfDaysInAYear(year):
     if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
@@ -330,7 +332,7 @@ def main():
     for i in range(2010, 2021, 1):
         print(i, "  |  ", numberOfDaysInAYear(i))
 main()
-# 6.17
+# 6.17 （MyTriangle模块）
 #  依据三角形三边长计算三角形的面积
 def isValid(side1, side2, side3):
     return (side1 + side2 > side3) and (side1 + side3 > side2) and (side2 + side3 > side1)
@@ -345,7 +347,7 @@ def main():
     side1, side2, side3 = eval(input("请输入三角形的三个边长: "))
     area(side1, side2, side3)
 main()
-# 6.18
+# 6.18 （显示 0 和 1 构成的矩阵）
 def printMatrix(n):
     for i in range(1, n + 1, 1):
         for j in range(1, n + 1, 1):
@@ -355,7 +357,7 @@ def main():
     n = eval(input("请输入一个正整数: "))
     printMatrix(n)
 main()
-# 6.19
+# 6.19 （几何问题：点的位置）
 # Return true if point (x2, y2) is on the left side of the
 #  directed line from (x0, y0) to (x1, y1)
 def leftOfTheLine(x0, y0, x1, y1, pointx, pointy):
@@ -382,7 +384,7 @@ def main():
     elif onTheLineSegment(x0, y0, x1, y1, pointx, pointy):
         print("点在直线上")
 main()
-# 6.20
+# 6.20 （几何问题：显示角）
 def distance(x1, y1, x2, y2):
     return ((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2)) ** 0.5
 def main():
@@ -394,7 +396,7 @@ def main():
     distance1 = distance(x1, y1, x2, y2)
     print("The distance between the two points is ", distance1)
 main()
-# 6.21
+# 6.21 （数学问题：平方跟的近似求法）
 def sqrt_Babylon(n):
     if n <= 0:
         return n
@@ -412,57 +414,120 @@ def main():
     else:
         print(n, "的平方根是", x1)
 main()
+# 6.22 （显示当前日期和时间）
+# 改进程序清单２－７，显示当前日期和时间
+
+# 获取当前时间，GMT 格林威治标准时间。
+def getGMTCurrentTime():
+    currentTime = time.time()
+    # Obtain the total seconds since midnight, Jan 1, 1970
+    totalSeconds = int(currentTime)
+
+    # Get the current second
+    currentSecond = totalSeconds % 60
+
+    # Obtain the total minutes
+    totalMinutes = totalSeconds // 60
+
+    # Compute current minute in the hour
+    currentMinutes = totalMinutes % 60
+
+    # Obtain the total hours
+    totalHours = totalMinutes // 60
+
+    # Compute current hour in the day
+    currentHour = totalHours % 24
+
+    return currentHour, currentMinutes, currentSecond
+
+# 获取当前日期，GMT 格林威治标准时间。
+# 简化方法，直接获取日期，没有取秒数计算。
+# 可以参考程序清单6-13的方法计算，利用 getGMTCurrentTime 中得到的 totalHours 值计算当前日期。
+def getGMTCurrentDate():
+
+    year = datetime.datetime.now().year
+    month = datetime.datetime.now().month
+    day = datetime.datetime.now().day
+    return year, month, day
+
+def main():
+
+    # Get current date and time
+    currentyear, currentmonth, currentday = getGMTCurrentDate()
+    currentHour, currentMinutes, currentSecond = getGMTCurrentTime()
+    # Display results
+    print("Current date is ", currentyear, ":", currentmonth, ":", currentday, "GMT")
+    print("Current time is ", currentHour,":", currentMinutes, ":", currentSecond, "GMT")
+
+main()
+
+# 6.23 （将毫秒换成小时数、分钟数和秒数）
+# 将给定的毫秒数转化为小时数、分钟数、秒数，采用下列格式：h:m:s，不足一秒的部分舍掉。
+def convertMillis(millis):
+    h = 0
+    m = 0
+    s = 0
+    total_s = millis // 1000
+    s = total_s % 60
+    total_m = total_s // 60
+    m = total_m % 60
+    h = total_m // 60
+
+    str_millis = str(h)+':'+str(m)+':'+str(s)
+    return str_millis
+def main():
+    # 输入一个毫秒数
+    n = eval(input("请输入一个毫秒值（整数值）："))
+    print("输入的毫秒数转换为", convertMillis(n))
+
+main()
 '''
-# 6.22
+# 6.24 （回文素数）
 
-# 6.23
+# 6.25 （反素数）
 
-# 6.24
+# 6.26 （梅森素数）
 
-# 6.25
+# 6.27 （双素数）
 
-# 6.26
+# 6.28 （游戏：掷骰子）
 
-# 6.27
+# 6.29 （财务应用程序：信用卡号的合法性）
 
-# 6.28
+# 6.30 （游戏：赢取骰子游戏的机会）
 
-# 6.29
+# 6.31 （当前时间和日期）
 
-# 6.30
+# 6.32 （打印日历）
 
-# 6.31
+# 6.33 （几何问题：五边形的面积）
 
-# 6.32
+# 6.34 （几何问题：正多边形的面积）
 
-# 6.33
+# 6.35 （计算概率）
 
-# 6.34
+# 6.36 （随机生成字符）
 
-# 6.35
+# 6.37 （Turtle模块：随机生成字符）
 
-# 6.36
+# 6.38 （绘制一条线）
 
-# 6.37
+# 6.39 （Turtle：绘制一颗星）
 
-# 6.38
+# 6.40 （Turtle：填充矩形和园）
 
-# 6.39
+# 6.41 （Turtle：绘制点、矩形和圆）
 
-# 6.40
+# 6.42 （Turtle：绘制 sin 函数）
 
-# 6.41
+# 6.43 （Turtle：绘制 sin 和 cos 函数）
 
-# 6.42
+# 6.44 （Turtle：绘制平方函数）
 
-# 6.43
+# 6.45 （Turtle：绘制一个正多边形）
 
-# 6.44
+# 6.46 （Turtle：连接六边形的所有顶点）
 
-# 6.45
+# 6.47 （Turtle：两个棋盘）
 
-# 6.46
-
-# 6.47
-
-# 6.48
+# 6.48 （格式化一个整型数）
