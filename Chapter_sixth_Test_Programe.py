@@ -531,3 +531,25 @@ main()
 # 6.47 （Turtle：两个棋盘）
 
 # 6.48 （格式化一个整型数）
+# 格式化正整数，负数返回空。
+def format(number, width):
+    formattedNumber = ''
+    if number < 0:
+        return formattedNumber
+    i = 1
+    formattedNumber = str(number % 10)
+    number = number // 10
+    while number > 0:
+        formattedNumber = str(number % 10) + formattedNumber
+        number = number // 10
+        i = i + 1
+    if i < width:
+        for j in range(i, width, 1):
+            formattedNumber = str(0) + formattedNumber
+    return formattedNumber
+def main():
+    n = eval(input("请输入一个正整数："))
+    width = eval(input("请输入数字的宽度："))
+    print("格式化后的数字为", format(n, width))
+
+main()
