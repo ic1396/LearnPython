@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # 《Python语言程序设计》程序清单７－８
 # Programed List 7-8
-# 示例：类的抽象与封装 利率类
+# 示例：类的抽象与封装 利息类
 
 class Loan:
     def __init__(self, annualInterestRate = 2.5,
