@@ -26,13 +26,13 @@ class Loan:
     def setAnnualInterestRate(self, annualInterestRate):
         self.__annualInterestRate = annualInterestRate
 
-    def getNumberOfYears(self, numberOfYears):
+    def setNumberOfYears(self, numberOfYears):
         self.__numberOfYears = numberOfYears
 
-    def getLoanAmount(self, loanAmount):
+    def setLoanAmount(self, loanAmount):
         self.__loanAmount = loanAmount
 
-    def getBorrower(self, borrower):
+    def setBorrower(self, borrower):
         self.__borrower = borrower
 
     def getMonthlyPayment(self):
