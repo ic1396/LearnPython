@@ -20,9 +20,24 @@
 # 7.8
 
 # 7.9
-
+# class A:
+#     def __init__(self, i):  # def __init__(self, i = 0):
+#         self.i = i
+# def main():
+#     a = A()
+#     print(a.i)
+# main() # Call the main function
 # 7.10
-
+# class A:
+#     # Construct an object of the class
+#     def A(self):
+#         radius = 3
+# class A:
+#     # Construct an object of the class
+#     def __init__(self):
+#         radius = 3
+#     def setRadius(radius):
+#         self.radius = radius
 # 7.11
 
 # 7.12
