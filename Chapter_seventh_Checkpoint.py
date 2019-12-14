@@ -57,29 +57,69 @@
 #
 # main()    # Call the main function
 # 7.12
-class Count:
-    def __init__(self, count = 0):
-        self.count = count
-
-def main():
-    c = Count()
-    n = 1
-    m(c, n)
-
-    print("count is", c.count)
-    print("n is", n)
-
-def m(c, n):
-    c = Count(5)
-    n = 3
-
-main()    # Call the main function
+# class Count:
+#     def __init__(self, count = 0):
+#         self.count = count
+#
+# def main():
+#     c = Count()
+#     n = 1
+#     m(c, n)
+#
+#     print("count is", c.count)
+#     print("n is", n)
+#
+# def m(c, n):
+#     c = Count(5)
+#     n = 3
+#
+# main()    # Call the main function
 # 7.13
-
+# class A:
+#     def __init__(self, i):
+#         self.__i = i
+# def main():
+#     a = A(5)
+#     print(a.__i)
+# main() # Call the main function
+# 修改后：
+# class A:
+#     def __init__(self, i):
+#         self.__i = i
+#     def getI(self):
+#         return self.__i
+# def main():
+#     a = A(5)
+#     print(a.getI())
+# main()    # Call the main function
 # 7.14
-
+# def main():
+#     a = A()
+#     a.print()
+# class A:
+#     def __init__(self, newS = "Welcome"):
+#         self.__s = newS
+#     def print(self):
+#         print(self.__s)
+# main()    # Call the main function
 # 7.15
-
+# class A:
+#     def __init__(self, on):
+#         self.__on = not on
+# def main():
+#     a = A(False)
+#     print(a.on)
+# main()    # Call the main function
+# 修改后：
+# class A:
+#     def __init__(self, on):
+#         self.__on = not on
+#     def getOn(self):
+#         return self.__on
+# def main():
+#     a = A(False)
+#     print(a.getOn())
+# main()    # Call the main function
 # 7.16
 
 # 7.17
