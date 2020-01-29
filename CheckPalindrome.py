@@ -12,6 +12,7 @@ def main():
     else:
         print(s, "is not a palindrome")
 
+
 # Check if a string is a palindrome
 def isPalindrome(s):
     # The index of the first character in the string
@@ -22,10 +23,11 @@ def isPalindrome(s):
 
     while low < high:
         if s[low] != s[high]:
-            return False # Not a palindrome
+            return False  # Not a palindrome
         low += 1
         high -= 1
 
-    return True # The string is a palindrome
+    return True  # The string is a palindrome
 
-main()    # Call the main function
+
+main()  # Call the main function
