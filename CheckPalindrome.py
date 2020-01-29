@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # 《Python语言程序设计》程序清单８－１
-# Programed List 7-8
+# Programed List 8-1
 # 示例：校验回文串
 
 def main():
