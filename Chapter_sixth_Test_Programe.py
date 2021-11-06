@@ -532,6 +532,7 @@ main()
 
 # 6.48 （格式化一个整型数）
 # 格式化正整数，负数返回空。
+'''
 def format(number, width):
     formattedNumber = ''
     if number < 0:
@@ -553,3 +554,4 @@ def main():
     print("格式化后的数字为", format(n, width))
 
 main()
+'''
