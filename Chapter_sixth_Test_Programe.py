@@ -7,6 +7,9 @@
 # import random
 import time
 import datetime
+import math
+import turtle
+
 
 '''
 # 6.1 （数学方面：五角数）
@@ -528,11 +531,55 @@ main()
 
 # 6.46 （Turtle：连接六边形的所有顶点）
 
-# 6.47 （Turtle：两个棋盘）
+# 6.47 （Turtle：两个棋盘）编写一个程序显示两个棋盘，必须至少定义成下面的函数：
+# Draw one chessboard whose upper-left corner is at
+# (startx, starty) and bottom-right corner is at (endx, endy)
+'''
+def drawchessboard(startx, starty, endx, endy):
 
+    width = (endx - startx) / 8
+    length = (starty - endy) / 8
+    centerX = startx + (endx - startx) / 2
+    centerY = starty - (starty - endy) / 2
+    fillcolorFirst = "black"
+    for x in range(4, -4, -1):
+        fillcolor = fillcolorFirst
+        if fillcolorFirst == "white":
+            fillcolorFirst = "black"
+        elif fillcolorFirst == "black":
+            fillcolorFirst = "white"
+        for y in range(4, -4, -1):
+            turtle.penup()
+            turtle.goto(centerX + x * width, centerY + y * length)
+            turtle.pendown()
+            turtle.begin_fill()
+            turtle.color(fillcolor)
+            turtle.goto(centerX + x * width, centerY + (y - 1) * length)
+            turtle.goto(centerX + (x - 1) * width, centerY + (y - 1) * length)
+            turtle.goto(centerX + (x - 1) * width, centerY + y * length)
+            turtle.goto(centerX + x * width, centerY + y * length)
+            turtle.end_fill()
+            if fillcolor == "white":
+                fillcolor = "black"
+            elif fillcolor == "black":
+                fillcolor = "white"
+    turtle.penup()
+    turtle.goto(centerX + 4 * width, centerY + 4 * length)
+    turtle.pendown()
+    turtle.goto(centerX + 4 * width, centerY - 4 * length)
+    turtle.goto(centerX - 4 * width, centerY - 4 * length)
+    turtle.goto(centerX - 4 * width, centerY + 4 * length)
+    turtle.goto(centerX + 4 * width, centerY + 4 * length)
+
+def main():
+    drawchessboard(50, 150, 350, -150)
+    drawchessboard(-350, 150, -50, -150)
+    turtle.done()
+
+main()
 # 6.48 （格式化一个整型数）
 # 格式化正整数，负数返回空。
-'''
+
 def format(number, width):
     formattedNumber = ''
     if number < 0:
